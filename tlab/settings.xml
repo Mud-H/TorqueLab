@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<EditorSettings>
+    <Setting name="SelectByGroup_enabled">1</Setting>
+    <Group name="3DView">
+        <Group name="Render">
+            <Setting name="renderObjHandle">1</Setting>
+            <Setting name="renderObjText">1</Setting>
+            <Setting name="showMousePopupInfo">1</Setting>
+            <Setting name="renderPopupBackground">1</Setting>
+            <Setting name="renderSelectionBox">1</Setting>
+        </Group>
+        <Group name="Grid">
+            <Setting name="gridOriginColor">255 255 255 100</Setting>
+            <Setting name="gridMinorColor">51 51 51 100</Setting>
+            <Setting name="gridSnap">0</Setting>
+            <Setting name="gridColor">0.72549 0.180392 0.72549 1</Setting>
+            <Setting name="gridSize">22</Setting>
+        </Group>
+        <Group name="Tools">
+            <Setting name="objectsUseBoxCenter">1</Setting>
+            <Setting name="dropAtScreenCenterScalar">1.0</Setting>
+            <Setting name="snapSoft">0</Setting>
+            <Setting name="snapSoftSize">0.564103</Setting>
+            <Setting name="snapGround">1</Setting>
+            <Setting name="dropAtScreenCenterMax">100.0</Setting>
+            <Setting name="boundingBoxCollision">0</Setting>
+        </Group>
+        <Group name="Snap">
+            <Setting name="gridSize">22</Setting>
+            <Setting name="gridOriginColor">255 255 255 100</Setting>
+            <Setting name="snapSoft">0</Setting>
+            <Setting name="snapSoftSize">0.564103</Setting>
+            <Setting name="gridSnap">0</Setting>
+            <Setting name="gridColor">0.72549 0.180392 0.72549 1</Setting>
+            <Setting name="snapGround">1</Setting>
+            <Setting name="gridMinorColor">51 51 51 100</Setting>
+        </Group>
+        <Group name="Color">
+            <Setting name="uvEditorHandleColor">1</Setting>
+            <Setting name="popupBackgroundColor">100 100 100 255</Setting>
+            <Setting name="dragRectColor">255 255 0 255</Setting>
+            <Setting name="objSelectColor">255 0 0 255</Setting>
+            <Setting name="objMouseOverColor">0 255 0 255</Setting>
+            <Setting name="selectionBoxColor">255 255 0 255</Setting>
+            <Setting name="objMouseOverSelectColor">0 0 255 255</Setting>
+            <Setting name="raceSelectColor">0 0 100 100</Setting>
+            <Setting name="popupTextColor">255 255 0 255</Setting>
+            <Setting name="objectTextColor">255 255 255 255</Setting>
+        </Group>
+        <Group name="ObjectIcons">
+            <Setting name="fadeIconsDist">8</Setting>
+            <Setting name="fadeIcons">1</Setting>
+        </Group>
+        <Group name="Select">
+            <Setting name="gridSnap">0</Setting>
+            <Setting name="snapSoftSize">0.564103</Setting>
+            <Setting name="snapSoft">0</Setting>
+            <Setting name="SelectByGroup">0</Setting>
+        </Group>
+        <Group name="General">
+            <Setting name="currentEditor">SceneEditorPlugin</Setting>
+            <Setting name="MouseSpeed">8</Setting>
+            <Setting name="cameraSpeed">50</Setting>
+            <Setting name="MouseScrollSpeed">8</Setting>
+        </Group>
+        <Group name="Camera">
+            <Setting name="MouseSpeed">0.441026</Setting>
+            <Setting name="cameraSpeed">34.8718</Setting>
+            <Setting name="MouseScrollSpeed">0.994872</Setting>
+        </Group>
+        <Group name="Copy">
+            <Setting name="DragCloneMode">1</Setting>
+        </Group>
+    </Group>
+    <Group name="Plugins">
+        <Group name="MissionAreaEditor">
+            <Setting name="missionBoundsColor">255 255 255</Setting>
+        </Group>
+        <Group name="ConvexEditor">
+            <Setting name="materialName">Grid512_OrangeLines_Mat</Setting>
+            <Setting name="HoverNodeColor">255 255 255 255</Setting>
+            <Setting name="HoverSplineColor">255 0 0 255</Setting>
+            <Setting name="bottomMaterialName">DefaultRoadMaterialOther</Setting>
+            <Setting name="topMaterialName">DefaultRoadMaterialTop</Setting>
+            <Setting name="DefaultDepth">5</Setting>
+            <Setting name="DefaultNormal">0 0 1</Setting>
+            <Setting name="sideMaterialName">DefaultRoadMaterialOther</Setting>
+            <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+        </Group>
+        <Group name="RoadEditor">
+            <Setting name="DefaultWidth">10</Setting>
+            <Setting name="HoverSplineColor">255 0 0 255</Setting>
+            <Setting name="materialName">DefaultDecalRoadMaterial</Setting>
+            <Setting name="HoverNodeColor">255 255 255 255</Setting>
+            <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+        </Group>
+        <Group name="ParticleEditor">
+            <Setting name="selectedEmitter">BulletDirtDustEmitter</Setting>
+            <Setting name="selectedParticle">BulletDirtDust</Setting>
+            <Setting name="selectedTab">1</Setting>
+            <Setting name="DefaultEmitter">DefaultEmitter</Setting>
+            <Setting name="DefaultParticle">DefaultParticle</Setting>
+        </Group>
+        <Group name="ShapeEditor">
+            <Setting name="showNodes">1</Setting>
+            <Setting name="sunAngleZ">135</Setting>
+            <Setting name="SunDiffuseColor">255 255 255 255</Setting>
+            <Setting name="renderMounts">1</Setting>
+            <Setting name="showBounds">0</Setting>
+            <Setting name="sunAngleX">45</Setting>
+            <Setting name="backgroundColor">0 0 0 100</Setting>
+            <Setting name="gridSize">0.1</Setting>
+            <Setting name="SunAmbientColor">180 180 180 255</Setting>
+            <Setting name="gridDimension">40 40</Setting>
+            <Setting name="AdvancedWndVisible">1</Setting>
+            <Setting name="showObjBox">1</Setting>
+            <Setting name="ShowGrid">1</Setting>
+            <Setting name="highlightMaterial">1</Setting>
+            <Setting name="RenderCollision">0</Setting>
+        </Group>
+        <Group name="MeshRoadEditor">
+            <Setting name="HoverNodeColor">255 255 255 255</Setting>
+            <Setting name="topMaterialName">DefaultRoadMaterialTop</Setting>
+            <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+            <Setting name="DefaultWidth">10</Setting>
+            <Setting name="HoverSplineColor">255 0 0 255</Setting>
+            <Setting name="DefaultNormal">0 0 1</Setting>
+            <Setting name="DefaultDepth">5</Setting>
+            <Setting name="bottomMaterialName">DefaultRoadMaterialOther</Setting>
+            <Setting name="sideMaterialName">DefaultRoadMaterialOther</Setting>
+        </Group>
+        <Group name="RiverEditor">
+            <Setting name="HoverNodeColor">255 255 255 255</Setting>
+            <Setting name="DefaultNormal">0 0 1</Setting>
+            <Setting name="DefaultWidth">10</Setting>
+            <Setting name="DefaultDepth">5</Setting>
+            <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+            <Setting name="HoverSplineColor">255 0 0 255</Setting>
+        </Group>
+        <Group name="SceneEditor">
+            <Setting name="HoverNodeColor">255 255 255 255</Setting>
+            <Setting name="materialName">DefaultDecalRoadMaterial</Setting>
+            <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+            <Setting name="HoverSplineColor">255 0 0 255</Setting>
+            <Setting name="DefaultWidth">10</Setting>
+        </Group>
+        <Group name="LabPhysic">
+            <Setting name="SimulationSpeed">2</Setting>
+            <Setting name="AddObjectRighClick">1</Setting>
+        </Group>
+        <Group name="ForestEditor">
+            <Setting name="GlobalScale">1</Setting>
+            <Setting name="brushSize">2</Setting>
+            <Setting name="DefaultBrush">BaseBrush</Setting>
+        </Group>
+        <Group name="DatablockEditor">
+            <Setting name="libraryTab">0</Setting>
+        </Group>
+        <Group name="MaterialEditor">
+            <Setting name="MaterialsPerPage">50</Setting>
+        </Group>
+        <Group name="DecalEditor">
+            <Setting name="DefaultScale">1</Setting>
+        </Group>
+    </Group>
+    <Group name="WorldEditor">
+        <Setting name="undoLimit">40</Setting>
+        <Setting name="forceLoadDAE">0</Setting>
+        <Setting name="orthoFOV">1.36404</Setting>
+        <Setting name="dropType">toTerrain</Setting>
+        <Setting name="torsionPath">C:/Program Files (x86)/Torsion/Torsion.exe</Setting>
+        <Setting name="displayType">6</Setting>
+        <Setting name="orthoShowGrid">1</Setting>
+        <Setting name="currentEditor">DecalEditorPlugin</Setting>
+        <Group name="Images">
+            <Setting name="selectHandle">tlab/art/icons/default/SelectHandle</Setting>
+            <Setting name="lockedHandle">tlab/art/icons/default/LockedHandle</Setting>
+            <Setting name="defaultHandle">tlab/art/icons/default/DefaultHandle</Setting>
+        </Group>
+        <Group name="Grid">
+            <Setting name="gridColor">248 3 254 255</Setting>
+            <Setting name="gridOriginColor">18 185 18 222</Setting>
+            <Setting name="gridSize">33</Setting>
+            <Setting name="gridSnap">0</Setting>
+        </Group>
+        <Group name="Render">
+            <Setting name="renderPopupBackground">1</Setting>
+            <Setting name="showMousePopupInfo">1</Setting>
+            <Setting name="renderSelectionBox">1</Setting>
+            <Setting name="renderObjText">1</Setting>
+            <Setting name="renderObjHandle">1</Setting>
+        </Group>
+        <Group name="Color">
+            <Setting name="objSelectColor">255 0 0 255</Setting>
+            <Setting name="objMouseOverColor">0 255 0 255</Setting>
+            <Setting name="objMouseOverSelectColor">0 0 255 255</Setting>
+            <Setting name="dragRectColor">3 254 97 255</Setting>
+            <Setting name="selectionBoxColor">255 255 0 255</Setting>
+            <Setting name="popupBackgroundColor">100 100 100 255</Setting>
+            <Setting name="objectTextColor">254 248 231 255</Setting>
+        </Group>
+        <Group name="General">
+            <Setting name="cameraSpeed">50</Setting>
+        </Group>
+        <Group name="Tools">
+            <Setting name="dropAtScreenCenterScalar">1</Setting>
+            <Setting name="snapGround">0</Setting>
+            <Setting name="snapSoftSize">2</Setting>
+            <Setting name="boundingBoxCollision">0</Setting>
+            <Setting name="snapSoft">0</Setting>
+            <Setting name="objectsUseBoxCenter">1</Setting>
+            <Setting name="dropAtScreenCenterMax">100</Setting>
+        </Group>
+        <Group name="Docs">
+            <Setting name="forumURL">http://www.garagegames.com/products/torque-3d/forums</Setting>
+            <Setting name="documentationLocal">../../../Documentation/Official Documentation.html</Setting>
+            <Setting name="documentationReference">../../../Documentation/Torque 3D - Script Manual.chm</Setting>
+            <Setting name="documentationURL">http://www.garagegames.com/products/torque-3d/documentation/user</Setting>
+        </Group>
+        <Group name="ObjectIcons">
+            <Setting name="fadeIconsDist">8</Setting>
+            <Setting name="fadeIcons">1</Setting>
+        </Group>
+    </Group>
+    <Group name="ConvexEditor">
+        <Setting name="materialName">Grid512_OrangeLines_Mat</Setting>
+    </Group>
+    <Group name="ShapeEditor">
+        <Setting name="showBounds">0</Setting>
+        <Setting name="renderMounts">1</Setting>
+        <Setting name="gridSize">0.1</Setting>
+        <Setting name="showObjBox">1</Setting>
+        <Setting name="backgroundColor">0 0 0 101</Setting>
+        <Setting name="gridDimension">40 40</Setting>
+        <Setting name="RenderCollision">0</Setting>
+        <Setting name="SunAngleX">45</Setting>
+        <Setting name="AdvancedWndVisible">1</Setting>
+        <Setting name="SunDiffuseColor">255 255 255 255</Setting>
+        <Setting name="SunAmbientColor">180 180 180 255</Setting>
+        <Setting name="showNodes">1</Setting>
+        <Setting name="ShowGrid">1</Setting>
+        <Setting name="SunAngleZ">135</Setting>
+        <Setting name="highlightMaterial">1</Setting>
+    </Group>
+    <Group name="LevelInformation">
+        <Setting name="levelsDirectory">art/Levels/ContentDemos</Setting>
+        <Group name="levels">
+            <Group name="TestCubes.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="ProtoPlaneB.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="PhysicFarm.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="FarmPackDemoA.mis">
+                <Setting name="cameraSpeed">100</Setting>
+            </Group>
+            <Group name="FarmPackDemo.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="BlockLand.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="Empty Room.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="ProtoTerrainA.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="ProtoPlaneA.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+            <Group name="TestClothShape.mis">
+                <Setting name="cameraSpeed">25</Setting>
+            </Group>
+        </Group>
+    </Group>
+    <Group name="MeshRoadEditor">
+        <Setting name="HoverNodeColor">255 255 255 255</Setting>
+        <Setting name="sideMaterialName">DefaultRoadMaterialOther</Setting>
+        <Setting name="DefaultDepth">5</Setting>
+        <Setting name="DefaultWidth">10</Setting>
+        <Setting name="topMaterialName">DefaultRoadMaterialTop</Setting>
+        <Setting name="bottomMaterialName">DefaultRoadMaterialOther</Setting>
+        <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+    </Group>
+    <Group name="AxisGizmo">
+        <Setting name="renderInfoText">1</Setting>
+        <Setting name="snapRotations">0</Setting>
+        <Setting name="mouseScaleScalar">0.8</Setting>
+        <Setting name="renderWhenUsed">0</Setting>
+        <Setting name="axisGizmoMaxScreenLen">100</Setting>
+        <Setting name="rotationSnap">15</Setting>
+        <Setting name="mouseRotateScalar">0.8</Setting>
+        <Group name="Grid">
+            <Setting name="planeDim">500</Setting>
+            <Setting name="gridSize">33 33 33</Setting>
+            <Setting name="renderPlane">1</Setting>
+            <Setting name="renderPlaneHashes">1</Setting>
+            <Setting name="snapToGrid">0</Setting>
+            <Setting name="gridColor">255 255 255 20</Setting>
+        </Group>
+    </Group>
+    <Group name="General">
+        <Group name="InstalledPlugins">
+            <Setting name="MeshRoadEditor_enabled">1</Setting>
+            <Setting name="ParticleEditor_enabled">1</Setting>
+            <Setting name="LabPhysic_enabled">1</Setting>
+            <Setting name="ForestEditor_enabled">1</Setting>
+            <Setting name="DecalEditor_enabled">1</Setting>
+            <Setting name="ShapeEditor_enabled">1</Setting>
+            <Setting name="ConvexEditor_enabled">0</Setting>
+            <Setting name="MissionAreaEditor_enabled">1</Setting>
+            <Setting name="RiverEditor_enabled">1</Setting>
+            <Setting name="TerrainEditor_enabled">1</Setting>
+            <Setting name="RoadEditor_enabled">1</Setting>
+            <Setting name="MaterialEditor_enabled">1</Setting>
+            <Setting name="TerrainPainter_enabled">1</Setting>
+            <Setting name="DatablockEditor_enabled">1</Setting>
+        </Group>
+        <Group name="Color">
+            <Setting name="selectionBoxColor">255 255 0 255</Setting>
+            <Setting name="gridMinorColor">254 254 254 255</Setting>
+            <Setting name="gridColor">248 3 254 255</Setting>
+            <Setting name="objMouseOverSelectColor">0 0 255 255</Setting>
+            <Setting name="gridOriginColor">222 222 222 222</Setting>
+            <Setting name="objSelectColor">255 0 0 255</Setting>
+            <Setting name="popupBackgroundColor">100 100 100 255</Setting>
+            <Setting name="uvEditorHandleColor">1</Setting>
+            <Setting name="objectTextColor">254 248 231 255</Setting>
+            <Setting name="dragRectColor">3 254 97 255</Setting>
+            <Setting name="objMouseOverColor">0 255 0 255</Setting>
+            <Setting name="raceSelectColor">0 0 100 100</Setting>
+            <Setting name="popupTextColor">255 255 0 255</Setting>
+        </Group>
+        <Group name="Input">
+            <Setting name="MouseSpeed_enabled">0.194872</Setting>
+            <Setting name="MouseScrollSpeed_enabled">0.594872</Setting>
+            <Setting name="MouseScrollSpeed">0.8</Setting>
+            <Setting name="MouseSpeed">1</Setting>
+        </Group>
+        <Group name="ObjectIcons">
+            <Setting name="fadeIconsDist">8</Setting>
+            <Setting name="fadeIcons">1</Setting>
+        </Group>
+        <Group name="Misc">
+            <Setting name="torsionPath">myNewPath</Setting>
+            <Setting name="defaultEditor">SceneEditorPlugin</Setting>
+            <Setting name="currentEditor">SceneEditorPlugin</Setting>
+        </Group>
+        <Group name="Icons">
+            <Setting name="fadeIconsDist">8</Setting>
+            <Setting name="fadeIcons">1</Setting>
+        </Group>
+    </Group>
+    <Group name="TerrainEditor">
+        <Setting name="currentAction">raiseHeight</Setting>
+        <Group name="ActionValues">
+            <Setting name="slopeMaxAngle">90</Setting>
+            <Setting name="adjustHeightVal">10</Setting>
+            <Setting name="softSelectRadius">50</Setting>
+            <Setting name="slopeMinAngle">0</Setting>
+            <Setting name="softSelectFilter">1.000000 0.833333 0.666667 0.500000 0.333333 0.166667 0.000000</Setting>
+            <Setting name="setHeightVal">100</Setting>
+            <Setting name="noiseFactor">1</Setting>
+            <Setting name="softSelectDefaultFilter">1.000000 0.833333 0.666667 0.500000 0.333333 0.166667 0.000000</Setting>
+            <Setting name="smoothFactor">0.1</Setting>
+            <Setting name="scaleVal">1</Setting>
+        </Group>
+        <Group name="Brush">
+            <Setting name="brushPressure">1</Setting>
+            <Setting name="brushSoftness">1</Setting>
+            <Setting name="brushSize">25 25</Setting>
+            <Setting name="maxBrushSize">40 40</Setting>
+            <Setting name="brushType">ellipse</Setting>
+        </Group>
+    </Group>
+    <Group name="Tools">
+        <Setting name="dropAtScreenCenterMax">100.0</Setting>
+        <Setting name="boundingBoxCollision">0</Setting>
+        <Setting name="objectsUseBoxCenter">1</Setting>
+        <Setting name="dropAtScreenCenterScalar">1.0</Setting>
+    </Group>
+    <Group name="GuiEditor">
+        <Setting name="lastPath">F:/Game Workplace/AlterVerse/AVLab/Game/tlab/decalEditor/gui</Setting>
+        <Setting name="previewResolution">1440 900</Setting>
+        <Group name="Snapping">
+            <Setting name="snapToCanvas">1</Setting>
+            <Setting name="snapToCenters">0</Setting>
+            <Setting name="snap2GridSize">8</Setting>
+            <Setting name="snapToGuides">0</Setting>
+            <Setting name="snapToControls">0</Setting>
+            <Setting name="snap2Grid">0</Setting>
+            <Setting name="snapToEdges">0</Setting>
+            <Setting name="sensitivity">2</Setting>
+        </Group>
+        <Group name="Help">
+            <Setting name="documentationReference">../../../Documentation/Torque 3D - Script Manual.chm</Setting>
+            <Setting name="documentationURL">http://www.garagegames.com/products/torque-3d/documentation/user</Setting>
+            <Setting name="documentationLocal">../../../Documentation/Official Documentation.html</Setting>
+        </Group>
+        <Group name="EngineDevelopment">
+            <Setting name="toggleIntoEditor">0</Setting>
+            <Setting name="showEditorProfiles">0</Setting>
+            <Setting name="showEditorGuis">0</Setting>
+        </Group>
+        <Group name="Rendering">
+            <Setting name="drawGuides">1</Setting>
+            <Setting name="drawBorderLines">1</Setting>
+        </Group>
+        <Group name="Library">
+            <Setting name="viewType">Categorized</Setting>
+        </Group>
+        <Group name="Selection">
+            <Setting name="fullBox">1</Setting>
+        </Group>
+    </Group>
+    <Group name="Render">
+        <Setting name="renderObjHandle">1</Setting>
+        <Setting name="renderObjText">1</Setting>
+        <Setting name="renderSelectionBox">1</Setting>
+        <Setting name="showMousePopupInfo">1</Setting>
+        <Setting name="renderPopupBackground">1</Setting>
+    </Group>
+    <Group name="RiverEditor">
+        <Setting name="HoverSplineColor">255 0 0 255</Setting>
+        <Setting name="DefaultNormal">0 0 1</Setting>
+        <Setting name="DefaultWidth">10</Setting>
+        <Setting name="SelectedSplineColor">0 255 0 255</Setting>
+        <Setting name="DefaultDepth">5</Setting>
+        <Setting name="HoverNodeColor">255 255 255 255</Setting>
+    </Group>
+    <Group name="Plugins_SceneEditor">
+        <Setting name="defaultTest">SceneEditorPlugin</Setting>
+        <Setting name="currentTest">SceneEditorPlugin</Setting>
+        <Setting name="testPath">C:Program Files (x86)Torsion</Setting>
+    </Group>
+    <Group name="LabPhysic">
+        <Setting name="libraryTab">1</Setting>
+        <Setting name="selectedDatablock">PS_pwBlocA_Base2</Setting>
+    </Group>
+    <Group name="MissionAreaEditor">
+        <Setting name="missionBoundsColor">255 255 255 255</Setting>
+    </Group>
+</EditorSettings>

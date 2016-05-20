@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Mud-H</author>
+      <authoring_tool>OpenCOLLADA for 3ds Max;  Version: 1.4.1;  Revision: exported;  Platform: x64;  Configuration: Release_Max2013_static</authoring_tool>
+      <source_data>file:///F:/T3DProjects/T3DLab/My%20Projects/GameLab/game/tlab/core/art/EditorShapes.max</source_data>
+    </contributor>
+    <created>2015-09-18T00:30:38</created>
+    <modified>2015-09-18T00:30:38</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="baseEditorOrange">
+      <profile_COMMON>
+        <newparam sid="orange_png-surface">
+          <surface type="2D">
+            <init_from>orange_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="orange_png-sampler">
+          <sampler2D>
+            <source>orange_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <blinn>
+            <emission>
+              <color>0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color>0.5882353 0.5882353 0.5882353 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="orange_png-sampler" texcoord="CHANNEL1"/>
+            </diffuse>
+            <specular>
+              <color>0.9 0.9 0.9 1</color>
+            </specular>
+            <shininess>
+              <float>0</float>
+            </shininess>
+            <reflective>
+              <color>0 0 0 1</color>
+            </reflective>
+            <transparent opaque="A_ONE">
+              <color>1 1 1 1</color>
+            </transparent>
+            <transparency>
+              <float>0.6</float>
+            </transparency>
+          </blinn>
+        </technique>
+      </profile_COMMON>
+      <extra>
+        <technique profile="OpenCOLLADA3dsMax">
+          <extended_shader>
+            <apply_reflection_dimming>0</apply_reflection_dimming>
+            <dim_level>0</dim_level>
+            <falloff_type>0</falloff_type>
+            <index_of_refraction>1.5</index_of_refraction>
+            <opacity_type>0</opacity_type>
+            <reflection_level>3</reflection_level>
+            <wire_size>1</wire_size>
+            <wire_units>0</wire_units>
+          </extended_shader>
+          <shader>
+            <ambient_diffuse_lock>1</ambient_diffuse_lock>
+            <ambient_diffuse_texture_lock>1</ambient_diffuse_texture_lock>
+            <diffuse_specular_lock>0</diffuse_specular_lock>
+            <soften>0.1</soften>
+            <use_self_illum_color>0</use_self_illum_color>
+          </shader>
+        </technique>
+      </extra>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="baseEditorOrange-material" name="baseEditorOrange">
+      <instance_effect url="#baseEditorOrange"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="geom-GeoSphere001" name="GeoSphere001">
+      <mesh>
+        <source id="geom-GeoSphere001-positions">
+          <float_array id="geom-GeoSphere001-positions-array" count="36">0 0 13.45674 12.03607 0 6.018036 3.719351 11.44699 6.018036 -9.737388 7.074625 6.018036 -9.737386 -7.074627 6.018036 3.719352 -11.44698 6.018036 9.737387 7.074625 -6.018036 -3.719351 11.44698 -6.018036 -12.03607 -1.05223e-6 -6.018036 -3.719347 -11.44699 -6.018036 9.737386 -7.074626 -6.018036 0 0 -13.45674</float_array>
+          <technique_common>
+            <accessor source="#geom-GeoSphere001-positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-GeoSphere001-normals">
+          <float_array id="geom-GeoSphere001-normals-array" count="36">-2.86506e-8 7.16264e-9 1 0.8944272 4.29758e-8 0.4472136 0.2763932 0.8506508 0.4472136 -0.7236069 0.525731 0.4472136 -0.7236067 -0.5257311 0.4472136 0.2763933 -0.8506508 0.4472136 0.7236068 -0.5257311 -0.4472136 0.7236068 0.5257311 -0.4472136 -0.2763933 0.8506508 -0.4472136 -0.8944272 -7.16264e-8 -0.4472136 -0.276393 -0.8506508 -0.4472136 -4.29758e-8 6.13284e-8 -1</float_array>
+          <technique_common>
+            <accessor source="#geom-GeoSphere001-normals-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="geom-GeoSphere001-map1">
+          <float_array id="geom-GeoSphere001-map1-array" count="75">0.4 1 13.45674 0.5 0.6475837 13.45674 0.6999999 0.6475835 13.45674 0.9 0.6475835 13.45674 0.1 0.6475835 13.45674 0.3 0.6475835 13.45674 0.6 0.3524163 13.45674 0.8 0.3524163 13.45674 3.79455e-8 0.3524163 13.45674 0.2000001 0.3524163 13.45674 0.4 0.3524163 13.45674 0.5 0 13.45674 0.6 1 13.45674 0.8 1 13.45674 3.72529e-8 1 13.45674 -0.09999996 0.6475835 13.45674 0.2 1 13.45674 -0.09999996 0.6475835 13.45674 -0.2 0.3524163 13.45674 -0.09999996 0.6475835 13.45674 0.7 0 13.45674 -0.09999997 0 13.45674 -0.2 0.3524163 13.45674 0.1000001 0 13.45674 0.3 0 13.45674</float_array>
+          <technique_common>
+            <accessor source="#geom-GeoSphere001-map1-array" count="25" stride="3">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+              <param name="P" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="geom-GeoSphere001-vertices">
+          <input semantic="POSITION" source="#geom-GeoSphere001-positions"/>
+        </vertices>
+        <triangles material="baseEditorOrange" count="20">
+          <input semantic="VERTEX" source="#geom-GeoSphere001-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#geom-GeoSphere001-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#geom-GeoSphere001-map1" offset="2" set="0"/>
+          <p>0 0 12 1 1 1 2 2 2 0 0 13 2 2 2 3 3 3 0 0 14 3 3 15 4 4 4 0 0 16 4 4 4 5 5 5 0 0 0 5 5 5 1 1 1 1 1 1 10 6 10 6 7 6 2 2 2 6 7 6 7 8 7 3 3 17 7 8 18 8 9 8 4 4 4 8 9 8 9 10 9 5 5 5 9 10 9 10 6 10 6 7 6 2 2 2 1 1 1 7 8 7 3 3 3 2 2 2 8 9 8 4 4 4 3 3 19 9 10 9 5 5 5 4 4 4 10 6 10 1 1 1 5 5 5 11 11 20 7 8 7 6 7 6 11 11 21 8 9 8 7 8 22 11 11 23 9 10 9 8 9 8 11 11 24 10 6 10 9 10 9 11 11 11 6 7 6 10 6 10</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_lights>
+    <light id="EnvironmentAmbientLight" name="EnvironmentAmbientLight">
+      <technique_common>
+        <ambient>
+          <color>0 0 0</color>
+        </ambient>
+      </technique_common>
+    </light>
+  </library_lights>
+  <library_images>
+    <image id="orange_png">
+      <init_from>file:///F:/T3DProjects/T3DLab/My%20Projects/GameLab/game/art/shapes/editor/orange.png</init_from>
+    </image>
+  </library_images>
+  <library_visual_scenes>
+    <visual_scene id="MaxScene">
+      <node name="EnvironmentAmbientLight">
+        <instance_light url="#EnvironmentAmbientLight"/>
+      </node>
+      <node id="node-GeoSphere001" name="GeoSphere001">
+        <scale>0.0565894 0.0565894 0.0565894</scale>
+        <instance_geometry url="#geom-GeoSphere001">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="baseEditorOrange" target="#baseEditorOrange-material">
+                <bind_vertex_input semantic="CHANNEL1" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+        <extra>
+          <technique profile="OpenCOLLADA">
+            <cast_shadows>1</cast_shadows>
+            <primary_visibility>1</primary_visibility>
+            <receive_shadows>1</receive_shadows>
+            <secondary_visibility>1</secondary_visibility>
+          </technique>
+        </extra>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#MaxScene"/>
+  </scene>
+</COLLADA>
