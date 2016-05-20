@@ -1,0 +1,286 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiContainer(EditorMainDefault) {
+   docking = "Client";
+   margin = "0 0 0 0";
+   padding = "0 0 0 0";
+   anchorTop = "1";
+   anchorBottom = "0";
+   anchorLeft = "1";
+   anchorRight = "0";
+   position = "0 0";
+   extent = "1440 900";
+   minExtent = "8 2";
+   horizSizing = "right";
+   vertSizing = "bottom";
+   profile = "GuiDefaultProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "GuiToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+
+
+      new GuiContainer() {
+         docking = "Client";
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "0 0";
+         extent = "1920 1058";
+         minExtent = "8 2";
+         horizSizing = "width";
+         vertSizing = "height";
+         profile = "ToolsFillBackgroundA";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "ToolsToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         internalName = "WorldAndTools";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+
+         new GuiContainer() {
+            docking = "Client";
+            margin = "0 0 0 0";
+            padding = "0 0 0 0";
+            anchorTop = "1";
+            anchorBottom = "0";
+            anchorLeft = "1";
+            anchorRight = "0";
+            position = "0 0";
+            extent = "1561 1058";
+            minExtent = "8 2";
+            horizSizing = "width";
+            vertSizing = "height";
+            profile = "ToolsDefaultProfile_NoModal";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "ToolsToolTipProfile";
+            hovertime = "1000";
+            isContainer = "1";
+            internalName = "WorldContainer";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+
+            new GuiContainer() {
+               docking = "None";
+               margin = "0 0 0 0";
+               padding = "0 0 0 0";
+               anchorTop = "1";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "0 0";
+               extent = "1561 1058";
+               minExtent = "8 2";
+               horizSizing = "width";
+               vertSizing = "height";
+               profile = "ToolsDefaultProfile";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "ToolsToolTipProfile";
+               hovertime = "1000";
+               isContainer = "1";
+               internalName = "FullEditorContainer";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+
+               
+              
+            };
+            new GuiWindowCtrl() {
+               text = "New Window";
+               resizeWidth = "1";
+               resizeHeight = "0";
+               canMove = "0";
+               canClose = "0";
+               canMinimize = "0";
+               canMaximize = "0";
+               canCollapse = "0";
+               edgeSnap = "1";
+               docking = "Left";
+               margin = "0 0 0 0";
+               padding = "0 0 0 0";
+               anchorTop = "1";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "0 0";
+               extent = "360 1058";
+               minExtent = "8 2";
+               horizSizing = "right";
+               vertSizing = "bottom";
+               profile = "ToolsWindowProfile";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "GuiToolTipProfile";
+               hovertime = "1000";
+               isContainer = "1";
+               internalName = "SideBarContainer";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+
+               new GuiBitmapButtonCtrl() {
+                  bitmap = "tlab/art/icons/24-assets/arrow_triangle_right.png";
+                  bitmapMode = "Stretched";
+                  autoFitExtents = "0";
+                  useModifiers = "0";
+                  useStates = "1";
+                  groupNum = "-1";
+                  buttonType = "PushButton";
+                  useMouseEvents = "0";
+                  position = "49 2";
+                  extent = "11 15";
+                  minExtent = "8 2";
+                  horizSizing = "left";
+                  vertSizing = "bottom";
+                  profile = "GuiDefaultProfile";
+                  visible = "1";
+                  active = "1";
+                  command = "Lab.toggleSidebar();";
+                  tooltipProfile = "GuiToolTipProfile";
+                  hovertime = "1000";
+                  isContainer = "0";
+                  canSave = "1";
+                  canSaveDynamicFields = "0";
+               };
+            };
+            new GuiContainer() {
+               docking = "Client";
+               margin = "0 0 0 0";
+               padding = "0 0 0 0";
+               anchorTop = "1";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "360 0";
+               extent = "1201 1058";
+               minExtent = "8 2";
+               horizSizing = "width";
+               vertSizing = "height";
+               profile = "ToolsDefaultProfile_NoModal";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "ToolsToolTipProfile";
+               hovertime = "1000";
+               isContainer = "1";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+
+               new GuiContainer() {
+                  docking = "Client";
+                  margin = "0 0 0 0";
+                  padding = "0 0 0 0";
+                  anchorTop = "1";
+                  anchorBottom = "0";
+                  anchorLeft = "1";
+                  anchorRight = "0";
+                  position = "0 0";
+                  extent = "1201 1058";
+                  minExtent = "8 2";
+                  horizSizing = "width";
+                  vertSizing = "height";
+                  profile = "ToolsDefaultProfile_NoModal";
+                  visible = "1";
+                  active = "1";
+                  tooltipProfile = "ToolsToolTipProfile";
+                  hovertime = "1000";
+                  isContainer = "1";
+                  internalName = "EditorContainer";
+                  canSave = "1";
+                  canSaveDynamicFields = "0";
+               };
+               new GuiContainer() {
+                  docking = "Client";
+                  margin = "0 0 0 0";
+                  padding = "0 0 0 0";
+                  anchorTop = "1";
+                  anchorBottom = "0";
+                  anchorLeft = "1";
+                  anchorRight = "0";
+                  position = "0 0";
+                  extent = "720 820";
+                  minExtent = "8 2";
+                  horizSizing = "width";
+                  vertSizing = "height";
+                  profile = "ToolsDefaultProfile_NoModal";
+                  visible = "1";
+                  active = "1";
+                  tooltipProfile = "ToolsToolTipProfile";
+                  hovertime = "1000";
+                  isContainer = "1";
+                  internalName = "ExtraContainer";
+                  canSave = "1";
+                  canSaveDynamicFields = "0";
+
+                  
+                  
+                 
+               };
+               new GuiContainer() {
+                  margin = "0 0 0 0";
+                  padding = "0 0 0 0";
+                  anchorTop = "1";
+                  anchorBottom = "0";
+                  anchorLeft = "1";
+                  anchorRight = "0";
+                  position = "0 0";
+                  extent = "1996 998";
+                  minExtent = "8 2";
+                  horizSizing = "width";
+                  vertSizing = "height";
+                  profile = "ToolsDefaultProfile_NoModal";
+                  visible = "1";
+                  active = "1";
+                  tooltipProfile = "ToolsToolTipProfile";
+                  hovertime = "1000";
+                  isContainer = "1";
+                  internalName = "DialogContainer";
+                  canSave = "1";
+                  canSaveDynamicFields = "0";
+               };
+            };
+         };
+         new GuiWindowCtrl() {
+            text = "New Window";
+            resizeWidth = "1";
+            resizeHeight = "0";
+            canMove = "0";
+            canClose = "0";
+            canMinimize = "0";
+            canMaximize = "0";
+            canCollapse = "0";
+            edgeSnap = "1";
+            docking = "Right";
+            margin = "0 0 0 0";
+            padding = "0 0 0 0";
+            anchorTop = "1";
+            anchorBottom = "0";
+            anchorLeft = "1";
+            anchorRight = "0";
+            position = "1561 0";
+            extent = "359 1058";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "ToolsWindowProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "1";
+            internalName = "ToolsContainer";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+      };
+      
+  
+};
+//--- OBJECT WRITE END ---

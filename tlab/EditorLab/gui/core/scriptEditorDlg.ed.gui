@@ -1,0 +1,258 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(ScriptEditorDlg,EditorGuiGroup) {
+   position = "0 0";
+   extent = "1440 900";
+   minExtent = "8 2";
+   horizSizing = "width";
+   vertSizing = "height";
+   profile = "ToolsDefaultProfile";
+   visible = "1";
+   active = "1";
+   tooltipProfile = "ToolsToolTipProfile";
+   hovertime = "1000";
+   isContainer = "1";
+   canSave = "1";
+   canSaveDynamicFields = "1";
+      CallBack = "32897.apply";
+
+   new GuiWindowCtrl() {
+      text = "Text Pad";
+      resizeWidth = "0";
+      resizeHeight = "0";
+      canMove = "1";
+      canClose = "1";
+      canMinimize = "1";
+      canMaximize = "1";
+      canCollapse = "0";
+      closeCommand = "ScriptEditorDlg.close();";
+      edgeSnap = "1";
+      margin = "0 0 0 0";
+      padding = "4 4 4 4";
+      anchorTop = "1";
+      anchorBottom = "0";
+      anchorLeft = "1";
+      anchorRight = "0";
+      position = "392 219";
+      extent = "656 461";
+      minExtent = "8 8";
+      horizSizing = "center";
+      vertSizing = "center";
+      profile = "ToolsWindowProfile";
+      visible = "1";
+      active = "1";
+      command = "ScriptEditorDlg.close();";
+      accelerator = "escape";
+      tooltipProfile = "ToolsToolTipProfile";
+      hovertime = "1000";
+      isContainer = "1";
+      canSave = "1";
+      canSaveDynamicFields = "0";
+
+      new GuiContainer() {
+         docking = "Client";
+         margin = "8 8 8 8";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "11 31";
+         extent = "634 390";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "GuiDefaultProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+
+         new GuiContainer() {
+            docking = "Client";
+            margin = "0 0 8 8";
+            padding = "0 0 0 0";
+            anchorTop = "1";
+            anchorBottom = "0";
+            anchorLeft = "1";
+            anchorRight = "0";
+            position = "8 0";
+            extent = "618 390";
+            minExtent = "8 2";
+            horizSizing = "right";
+            vertSizing = "bottom";
+            profile = "GuiDefaultProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "GuiToolTipProfile";
+            hovertime = "1000";
+            isContainer = "1";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+
+            new GuiScrollCtrl() {
+               willFirstRespond = "0";
+               hScrollBar = "dynamic";
+               vScrollBar = "dynamic";
+               lockHorizScroll = "0";
+               lockVertScroll = "0";
+               constantThumbHeight = "0";
+               childMargin = "1 1";
+               mouseWheelScrollSpeed = "-1";
+               docking = "Client";
+               margin = "8 8 8 8";
+               padding = "0 0 0 0";
+               anchorTop = "1";
+               anchorBottom = "0";
+               anchorLeft = "1";
+               anchorRight = "0";
+               position = "8 8";
+               extent = "602 374";
+               minExtent = "8 2";
+               horizSizing = "width";
+               vertSizing = "height";
+               profile = "ToolsTextPadScroll";
+               visible = "1";
+               active = "1";
+               tooltipProfile = "ToolsToolTipProfile";
+               hovertime = "1000";
+               isContainer = "1";
+               canSave = "1";
+               canSaveDynamicFields = "0";
+
+               new GuiMLTextEditCtrl() {
+                  lineSpacing = "2";
+                  allowColorChars = "1";
+                  maxChars = "-1";
+                  text = "vxcvxcvxcv";
+                  useURLMouseCursor = "0";
+                  position = "2 2";
+                  extent = "1209 20";
+                  minExtent = "8 2";
+                  horizSizing = "width";
+                  vertSizing = "height";
+                  profile = "ToolsTextPadEdit";
+                  visible = "1";
+                  active = "1";
+                  tooltipProfile = "ToolsToolTipProfile";
+                  hovertime = "1000";
+                  isContainer = "0";
+                  internalName = "TextPad";
+                  canSave = "1";
+                  canSaveDynamicFields = "0";
+               };
+            };
+         };
+      };
+      new GuiContainer() {
+         docking = "Bottom";
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "3 429";
+         extent = "650 27";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "GuiDefaultProfile";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "GuiToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+
+         new GuiIconButtonCtrl() {
+            buttonMargin = "4 4";
+            iconBitmap = "tlab/art/icons/default/action/iconCancel.png";
+            iconLocation = "Left";
+            sizeIconToButton = "0";
+            makeIconSquare = "0";
+            textLocation = "Center";
+            textMargin = "4";
+            autoSize = "0";
+            text = "Cancel";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            useMouseEvents = "0";
+            position = "460 1";
+            extent = "80 25";
+            minExtent = "8 2";
+            horizSizing = "left";
+            vertSizing = "center";
+            profile = "ToolsButtonStyleA";
+            visible = "1";
+            active = "1";
+            command = "ScriptEditorDlg.close();";
+            tooltipProfile = "ToolsToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+         new GuiIconButtonCtrl() {
+            buttonMargin = "4 4";
+            iconBitmap = "tlab/art/icons/default/action/iconAccept.png";
+            iconLocation = "Left";
+            sizeIconToButton = "0";
+            makeIconSquare = "0";
+            textLocation = "Center";
+            textMargin = "4";
+            autoSize = "0";
+            text = "Ok";
+            groupNum = "-1";
+            buttonType = "PushButton";
+            useMouseEvents = "0";
+            position = "560 1";
+            extent = "80 25";
+            minExtent = "8 2";
+            horizSizing = "left";
+            vertSizing = "center";
+            profile = "ToolsButtonStyleA";
+            visible = "1";
+            active = "1";
+            command = "_TextPadOnOk();";
+            tooltipProfile = "ToolsToolTipProfile";
+            hovertime = "1000";
+            isContainer = "0";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+         };
+      };
+   };
+};
+//--- OBJECT WRITE END ---
+
+function TextPad(%text, %callback, %root)
+{
+   ScriptEditorDlg-->textpad.setText(%text);
+   ScriptEditorDlg.callback = %callback;
+
+   if(!isObject(%root))
+      %root = Canvas;
+      
+   %root.pushDialog(ScriptEditorDlg);
+}
+
+function _TextPadOnOk()
+{
+   if(ScriptEditorDlg.callback !$= "")
+   {
+      %text = ScriptEditorDlg-->textpad.getText();
+      %command  = ScriptEditorDlg.callback @ "( %text );";
+      eval(%command);
+   }
+   ScriptEditorDlg.callback = "";
+   ScriptEditorDlg.getRoot().popDialog(ScriptEditorDlg);
+}
+
+function ScriptEditorDlg::close(%this)
+{
+   %this.getRoot().popDialog(%this);
+}

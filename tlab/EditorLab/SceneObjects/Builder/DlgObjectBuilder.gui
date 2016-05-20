@@ -1,0 +1,105 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(ObjectBuilderGui, EditorGuiGroup) {
+	profile = "ToolsDefaultProfile";
+	horizSizing = "right";
+	vertSizing = "bottom";
+	position = "0 0";
+	extent = "800 600";
+	minExtent = "8 8";
+	visible = "1";
+	setFirstResponder = "0";
+	modal = "1";
+	helpTag = "0";
+
+	new GuiWindowCtrl(OBTargetWindow) {
+		profile = "ToolsWindowProfile";
+		horizSizing = "center";
+		vertSizing = "center";
+		position = "384 205";
+		extent = "256 282";
+		minExtent = "256 8";
+		visible = "1";
+		setFirstResponder = "0";
+		modal = "1";
+		helpTag = "0";
+		resizeWidth = "1";
+		resizeHeight = "1";
+		canMove = "1";
+		canClose = "0";
+		canMinimize = "0";
+		canMaximize = "0";
+		minSize = "50 50";
+		text = "Create Object";
+
+		new GuiTextCtrl() {
+			profile = "ToolsTextBase_C";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "9 26";
+			extent = "84 16";
+			minExtent = "8 8";
+			visible = "1";
+			setFirstResponder = "0";
+			modal = "1";
+			helpTag = "0";
+			text = "Object Name:";
+		};
+		new GuiTextEditCtrl(OBObjectName) {
+		   class = ObjectBuilderGuiTextEditCtrl;
+			profile = "ToolsTextEdit";
+			horizSizing = "width";
+			vertSizing = "bottom";
+			position = "78 26";
+			extent = "172 18";
+			minExtent = "8 8";
+			visible = "1";
+			setFirstResponder = "0";
+			modal = "1";
+			helpTag = "0";
+			historySize = "0";
+		};
+		new GuiBitmapBorderCtrl(OBContentWindow) {
+			profile = "ToolsGroupBorderProfile";
+			horizSizing = "width";
+			vertSizing = "bottom";
+			position = "7 51";
+			extent = "243 193";
+			minExtent = "0 0";
+			visible = "1";
+			setFirstResponder = "0";
+			modal = "1";
+			helpTag = "0";
+		};
+		new GuiButtonCtrl(OBOKButton) {
+			profile = "ToolsButtonProfile";
+			horizSizing = "width";
+			vertSizing = "bottom";
+			position = "7 250";
+			extent = "156 24";
+			minExtent = "8 8";
+			visible = "1";
+			setFirstResponder = "0";
+			modal = "1";
+			command = "ObjectBuilderGui.onOK();";
+			helpTag = "0";
+			text = "Create New";
+			Accelerator = "return";
+		};
+		new GuiButtonCtrl(OBCancelButton) {
+			profile = "ToolsButtonProfile";
+			horizSizing = "left";
+			vertSizing = "bottom";
+			position = "170 250";
+			extent = "80 24";
+			minExtent = "8 8";
+			visible = "1";
+			setFirstResponder = "0";
+			modal = "1";
+			command = "ObjectBuilderGui.onCancel();";
+			helpTag = "0";
+			text = "Cancel";
+			Accelerator = "escape";
+		};
+	};
+};
+//--- OBJECT WRITE END ---
