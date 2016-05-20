@@ -1,0 +1,117 @@
+
+new SimGroup(TPG_LayerGroup_Saved) {
+   canSave = "1";
+   canSaveDynamicFields = "1";
+
+   new ScriptObject() {
+      internalName = "Layer_185";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44002";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         isValidated = "0";
+         matIndex = "0";
+         matInternalName = "tp_GrassShort_01";
+         matObject = "19583";
+         pill = "44000";
+         slopeMax = "5";
+         slopeMin = "0";
+   };
+   new ScriptObject() {
+      internalName = "Layer_186";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44030";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         isValidated = "0";
+         matIndex = "7";
+         matInternalName = "tp_GrassWild_01";
+         matObject = "19584";
+         pill = "44028";
+         slopeMax = "23";
+         slopeMin = "5";
+   };
+   new ScriptObject() {
+      internalName = "Layer_187";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44063";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         isValidated = "0";
+         matIndex = "5";
+         matInternalName = "tp_DirtRockyMountain_01";
+         matObject = "19580";
+         pill = "44061";
+         slopeMax = "30";
+         slopeMin = "23";
+   };
+   new ScriptObject() {
+      internalName = "Layer_188";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44095";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         isValidated = "0";
+         matIndex = "10";
+         matInternalName = "tp_RockSmooth_01";
+         matObject = "19577";
+         pill = "44093";
+         slopeMax = "36";
+         slopeMin = "30";
+   };
+   new ScriptObject() {
+      internalName = "Layer_189";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44123";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         isValidated = "0";
+         matIndex = "3";
+         matInternalName = "tp_RockRough_01";
+         matObject = "19578";
+         pill = "44121";
+         slopeMax = "45";
+         slopeMin = "36";
+   };
+   new ScriptObject() {
+      internalName = "Layer_190";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44151";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         isValidated = "0";
+         matIndex = "2";
+         matInternalName = "tp_CliffSharp_01";
+         matObject = "19590";
+         pill = "44149";
+         slopeMax = "55";
+         slopeMin = "45";
+   };
+   new ScriptObject() {
+      internalName = "Layer_191";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "44191";
+         coverage = "100";
+         heightMax = "1000";
+         heightMin = "0";
+         matIndex = "2";
+         matInternalName = "tp_CliffSharp_01";
+         matObject = "19590";
+         pill = "44189";
+         slopeMax = "90";
+         slopeMin = "55";
+   };
+};

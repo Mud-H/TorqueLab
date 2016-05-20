@@ -1,0 +1,39 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiNavEditorCtrl(NavEditorGui, EditorGuiGroup) {
+   canSaveDynamicFields = "0";
+   Enabled = "1";
+   isContainer = "1";
+   Profile = "EditorGuiGenericProfile";
+   HorizSizing = "width";
+   VertSizing = "height";
+   Position = "0 0";
+   Extent = "800 600";
+   MinExtent = "8 8";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "ToolsToolTipProfile";
+   hovertime = "1000";
+   Docking = "None";
+   Margin = "0 0 0 0";
+   Padding = "0 0 0 0";
+   AnchorTop = "0";
+   AnchorBottom = "0";
+   AnchorLeft = "0";
+   AnchorRight = "0";
+   cameraZRot = "0";
+   forceFOV = "0";
+   renderMissionArea = "0";
+   missionAreaFillColor = "255 0 0 20";
+   missionAreaFrameColor = "255 0 0 128";
+   allowBorderMove = "0";
+   borderMovePixelSize = "20";
+   borderMoveSpeed = "0.1";
+   consoleFrameColor = "255 0 0 255";
+   consoleFillColor = "0 0 0 0";
+   consoleSphereLevel = "1";
+   consoleCircleSegments = "32";
+   consoleLineWidth = "1";
+   GizmoProfile = "GlobalGizmoProfile";   
+};
+
+//--- OBJECT WRITE END ---

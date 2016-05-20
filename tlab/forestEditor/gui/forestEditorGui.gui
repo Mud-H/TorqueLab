@@ -1,0 +1,39 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new ForestEditorCtrl(ForestEditorGui,EditorGuiGroup) {
+   renderMissionArea = "0";
+   missionAreaFillColor = "255 0 0 20";
+   missionAreaFrameColor = "255 0 0 128";
+   allowBorderMove = "0";
+   borderMovePixelSize = "20";
+   borderMoveSpeed = "0.1";
+   consoleFrameColor = "255 0 0 255";
+   consoleFillColor = "255 0 0 120";
+   consoleSphereLevel = "1";
+   consoleCircleSegments = "32";
+   consoleLineWidth = "1";
+   GizmoProfile = "GlobalGizmoProfile";
+   cameraZRot = "0";
+   forceFOV = "0";
+   reflectPriority = "1";
+   Margin = "0 0 0 0";
+   Padding = "0 0 0 0";
+   AnchorTop = "0";
+   AnchorBottom = "0";
+   AnchorLeft = "0";
+   AnchorRight = "0";
+   isContainer = "1";
+   Profile = "ForestEditorProfile";
+   HorizSizing = "width";
+   VertSizing = "height";
+   position = "0 0";
+   Extent = "800 600";
+   MinExtent = "8 2";
+   canSave = "1";
+   Visible = "1";
+   tooltipprofile = "ToolsToolTipProfile";
+   hovertime = "1000";
+   canSaveDynamicFields = "1";
+
+   
+};
+//--- OBJECT WRITE END ---

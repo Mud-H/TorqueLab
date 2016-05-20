@@ -1,0 +1,73 @@
+
+new SimGroup(TPG_LayerGroup_Saved) {
+	canSave = "1";
+	canSaveDynamicFields = "1";
+	new ScriptObject() {
+		internalName = "Layer_89";
+		canSave = "1";
+		canSaveDynamicFields = "1";
+		coverage = "77";
+		fieldsValidated = "1";
+		heightMax = "10000";
+		heightMin = "0";
+		isValidated = "1";
+		matIndex = "1";
+		matInternalName = "Spring Greenworld (FA)_Steep Grass";
+		matObject = "3949";
+		pill = "8424";
+		slopeMax = "90";
+		slopeMin = "0";
+		useTerrainHeight = "1";
+	};
+	new ScriptObject() {
+		internalName = "Layer_90";
+		canSave = "1";
+		canSaveDynamicFields = "1";
+		coverage = "77";
+		fieldsValidated = "1";
+		heightMax = "10000";
+		heightMin = "100";
+		isValidated = "1";
+		matIndex = "0";
+		matInternalName = "Spring Greenworld (FA)_Grass";
+		matObject = "3948";
+		pill = "8442";
+		slopeMax = "90";
+		slopeMin = "0";
+		useTerrainHeight = "1";
+	};
+	new ScriptObject() {
+		internalName = "Layer_91";
+		canSave = "1";
+		canSaveDynamicFields = "1";
+		coverage = "99";
+		fieldsValidated = "1";
+		heightMax = "10000";
+		heightMin = "0";
+		isValidated = "1";
+		matIndex = "3";
+		matInternalName = "Spring Greenworld (FA)_Cliff Face";
+		matObject = "3951";
+		pill = "10873";
+		slopeMax = "90";
+		slopeMin = "23";
+		useTerrainHeight = "1";
+	};
+	new ScriptObject() {
+		internalName = "Layer_92";
+		canSave = "1";
+		canSaveDynamicFields = "1";
+		coverage = "99";
+		fieldsValidated = "1";
+		heightMax = "10000";
+		heightMin = "12";
+		isValidated = "1";
+		matIndex = "4";
+		matInternalName = "Spring Greenworld (FA)_Beach sand";
+		matObject = "3952";
+		pill = "10891";
+		slopeMax = "23";
+		slopeMin = "8";
+		useTerrainHeight = "1";
+	};
+};

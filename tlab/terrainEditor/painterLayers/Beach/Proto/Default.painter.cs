@@ -1,0 +1,96 @@
+
+new SimGroup(TPG_LayerGroup_Saved) {
+   canSave = "1";
+   canSaveDynamicFields = "1";
+
+   new ScriptObject() {
+      internalName = "Layer_185";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "39630";
+         coverage = "99";
+         fieldsValidated = "1";
+         heightMax = "73.88";
+         heightMin = "0";
+         Inactive = "1";
+         isValidated = "1";
+         matIndex = "6";
+         matInternalName = "tp_SandSoft_01";
+         matObject = "19527";
+         pill = "39628";
+         slopeMax = "90";
+         slopeMin = "0";
+   };
+   new ScriptObject() {
+      internalName = "Layer_186";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "39678";
+         coverage = "99";
+         fieldsValidated = "1";
+         heightMax = "1000";
+         heightMin = "0";
+         Inactive = "1";
+         isValidated = "1";
+         matIndex = "4";
+         matInternalName = "tp_DirtRockyMountain_01";
+         matObject = "19518";
+         pill = "39676";
+         slopeMax = "36";
+         slopeMin = "24";
+   };
+   new ScriptObject() {
+      internalName = "Layer_187";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "39711";
+         coverage = "50";
+         fieldsValidated = "1";
+         heightMax = "1000";
+         heightMin = "0";
+         Inactive = "0";
+         isValidated = "1";
+         matIndex = "1";
+         matInternalName = "tp_RockRough_01";
+         matObject = "19516";
+         pill = "39709";
+         slopeMax = "90";
+         slopeMin = "36";
+   };
+   new ScriptObject() {
+      internalName = "Layer_188";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "39743";
+         coverage = "50";
+         fieldsValidated = "1";
+         heightMax = "1000";
+         heightMin = "0";
+         Inactive = "0";
+         isValidated = "1";
+         matIndex = "2";
+         matInternalName = "tp_CliffSharp_01";
+         matObject = "19528";
+         pill = "39741";
+         slopeMax = "90";
+         slopeMin = "36";
+   };
+   new ScriptObject() {
+      internalName = "Layer_189";
+      canSave = "1";
+      canSaveDynamicFields = "1";
+         activeCtrl = "39775";
+         coverage = "50";
+         fieldsValidated = "1";
+         heightMax = "1000";
+         heightMin = "0";
+         Inactive = "0";
+         isValidated = "0";
+         matIndex = "8";
+         matInternalName = "tp_DirtBrownTan_01";
+         matObject = "19517";
+         pill = "39773";
+         slopeMax = "36";
+         slopeMin = "22";
+   };
+};
