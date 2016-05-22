@@ -159,15 +159,11 @@ function Lab::delayedEditorInit( %this,%part ) {
 			$LastGuiExeced = true;
 			
 			//WIP Fast - Call it from here since everything has been loaded
-			Lab.schedule(100,"initSideBar");
-			skipPostFx(false);
-			ETools.initTools();
-			Lab.initAllToolbarGroups();
-			Lab.initToolbarTrash();
-			ObjectBuilderGui.init();
+			FW.checkLaunchedLayout();
+			
 			Scene.setNewObjectGroup(MissionGroup);
 			//Lab.initToolbarPluginTrash();
-			EditorGui-->DisabledPluginsBox.callOnChildrenNoRecurse("setVisible",true);
+			
 			Scene.setDropType($Cfg_WorldEditor_DropType);
 			%this.schedule(500,"delayedEditorInit","2");
 			//Scene.SceneTrees = "GlobalSceneTree SceneEditorTree";

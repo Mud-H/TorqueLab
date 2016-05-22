@@ -2,6 +2,9 @@
 // TorqueLab ->
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
+// ETools is a special system to handle common Editor Tools Dialogs. It include
+// a bunch of Dialogs that the ETools object manage the display. Use it make sure
+// all Tools dialogs are set correctly and make it easy to adapt all behaviors
 //==============================================================================
 
 //==============================================================================
@@ -18,8 +21,10 @@ function ETools::initTools(%this) {
 		if (fileBase(%file) $= "ETools" ||fileBase(%file) $= "EToolOverlayGui" || %found)
 			continue;		
 		exec(%file);	
-			
-		ETools.addGui(filebase(%file));	
+      %gui = filebase(%file);
+      $EToolsUseOwnGui[%gui.getName()] = true;
+		ETools.addGui(%gui);	
+		
 	}
 	
 	if (!LabDialogGuiSet.isMember(ETools))	
@@ -33,25 +38,49 @@ function ETools::initTools(%this) {
 
 }
 //------------------------------------------------------------------------------
-
+//==============================================================================
 function LabToolsDlg::onAdd(%this) {
-		ETools.addGui(%this);		
+		ETools.addGui(%this);
+		EToolsGuiSet.add(%this);		
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function ETools::addGui(%this,%gui) {
 		ETools.add(%gui);
 		EToolsGuiSet.add(%gui);
 		
 }
+//------------------------------------------------------------------------------
+//==============================================================================
+// ETools Pre/Post save - ETools have some Dialog included but some are store extern
+//==============================================================================
+
+//==============================================================================
 function ETools::onPreEditorSave(%this) {
 	foreach(%gui in ETools)
+	{
+	   //If the %gui use it's own GUI, add to temp group and save it to it's file.
+	   %ownGui = $EToolsUseOwnGui[%gui.getName()];
+	   if ( !%ownGui )
+	      continue;
+	      
 		GuiGroup.add(%gui);
+		%gui.save(%gui.getFileName()@"tmp");
+	}
 		
 }
+//------------------------------------------------------------------------------
+//==============================================================================
 function ETools::onPostEditorSave(%this) {	
 	foreach(%gui in EToolsGuiSet)
 		ETools.add(%gui);
 }
+//------------------------------------------------------------------------------
+//==============================================================================
+
+//==============================================================================
+// Toggle Tool Dialog Display - Toggle/Show/Hide
+//==============================================================================
 //==============================================================================
 function ETools::toggleTool(%this,%tool) {
 	if (isObject(%tool))
@@ -93,7 +122,6 @@ function ETools::toggleTool(%this,%tool) {
 		%dlg.linkedButton.setStateOn(%dlg.visible);
 }
 //------------------------------------------------------------------------------
-
 //==============================================================================
 function ETools::showTool(%this,%tool) {
 	if (isObject(%tool))
@@ -122,7 +150,6 @@ function ETools::showTool(%this,%tool) {
 		%dlg.onShow();
 }
 //------------------------------------------------------------------------------
-
 //==============================================================================
 function ETools::hideTool(%this,%tool) {
 	if (isObject(%tool))

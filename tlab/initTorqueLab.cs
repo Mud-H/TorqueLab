@@ -8,7 +8,7 @@
 //==============================================================================
 $TorqueLabLoaded = false;
 $TorqueLabShowTimer = false;
-
+EditorMap.bindCmd( keyboard, "ctrl g", "toggleDlg(LabWidgetsGui);","" );
 
 
 function initTorqueLab(%launchEditor,%guiEditorOnly) {
@@ -38,10 +38,10 @@ if (!isObject(LabCfg))
 		if (!$LabThemeLoaded)
 			exec("tlab/themes/initTheme.cs");
 
-		exec( "tlab/EditorLab/gui/core/cursors.ed.cs" );
+		exec( "tlab/core/scripts/cursors.ed.cs" );
 		//Start by loading the TorqueLab Loading Progress GUI to use it now
-		exec("tlab/EditorLab/gui/core/EditorLoadingGui.gui");
-		exec("tlab/EditorLab/gui/core/EditorLoadingGui.cs");
+		exec("tlab/EditorLab/gui/editorCore/EditorLoadingGui.gui");
+		exec("tlab/EditorLab/gui/editorCore/EditorLoadingGui.cs");
 		EditorLoadingGui.startInit();
 		//loadTorqueLabProfiles();
 		/*	new Settings(EditorSettings)

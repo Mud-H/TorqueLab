@@ -37,7 +37,9 @@ function ObjectCreator::setViewId(%this,%id,%force) {
 }
 //------------------------------------------------------------------------------
 function ObjectCreator::onResized(%this) {
-	ObjectCreator.setViewId();
+   devLog("ObjectCreator::onResized");
+   
+	//ObjectCreator.setViewId();
 }
 
 //==============================================================================

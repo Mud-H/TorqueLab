@@ -130,6 +130,22 @@ if (isObject(MaterialEditorPreviewWindow))
 		return;
 	}
 	%this.doAddInspect(%obj,%isLastSelection);
+	
+		%selSize = EWorldEditor.getSelectionSize();
+	%lockCount = EWorldEditor.getSelectionLockCount();
+
+	if( %lockCount < %selSize ) {
+		SceneTreeWindow-->LockSelection.setStateOn(0);
+		SceneTreeWindow-->LockSelection.command = "EWorldEditor.lockSelection(true); SceneEditorTree.toggleLock();";
+	} else if ( %lockCount > 0 ) {
+		SceneTreeWindow-->LockSelection.setStateOn(1);
+		SceneTreeWindow-->LockSelection.command = "EWorldEditor.lockSelection(false); SceneEditorTree.toggleLock();";
+	}
+
+	if( %selSize > 0 && %lockCount == 0 )
+		SceneTreeWindow-->DeleteSelection.command = "EditorMenuEditDelete();";
+	else
+		SceneTreeWindow-->DeleteSelection.command = "";
 }
 //==============================================================================
 // Remove Obj From Sel - Called when WorldEditor or a SceneTree unselected an object

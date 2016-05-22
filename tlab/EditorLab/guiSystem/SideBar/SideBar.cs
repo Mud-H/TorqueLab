@@ -31,7 +31,7 @@ function Lab::initSideBar(%this) {
 	 
 	SideBarMainBook.selectPage($SideBarMainBook_CurrentPage);
 	 timerStep("bringToFront","SideBar");  
-	EditorGui-->SideBarContainer.bringToFront(EditorSideBarCtrl);
+	EditorGui-->SideBarContainer.bringToFront(LabSideBar);
 	
 	 timerStep("Done","SideBar");  
 	 timerStepDump("SideBar");  
@@ -47,7 +47,7 @@ function Lab::setSidebarWidth(%this,%width) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::toggleSidebar(%this) {
-	if (EditorSideBarCtrl.visible)
+	if (LabSideBar.visible)
 		Lab.closeSidebar();
 	else
 		Lab.openSidebar();
@@ -60,7 +60,7 @@ function Lab::toggleSidebar(%this) {
       if (%window.openExtent !$= "")
          %window.setExtent(%window.openExtent);      
      
-      show(EditorSideBarCtrl);
+      show(LabSideBar);
        FW.setSideBarToggleButton(%window);
     
    }
@@ -72,7 +72,7 @@ function Lab::toggleSidebar(%this) {
       %window.openExtent = %window.extent;
       
        %window.setExtent("18",%window.extent.y);
-        hide(EditorSideBarCtrl);      
+        hide(LabSideBar);      
       
       FW.setSideBarToggleButton(%window);
    }

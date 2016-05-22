@@ -23,11 +23,11 @@ function FW::postEditorWake(%this) {
 }
 //==============================================================================
 function Lab::openSidebar(%this,%check) {
-	if (EditorSideBarCtrl.visible && %check){		
+	if (LabSideBar.visible && %check){		
 		return;
 	}
 	EditorGui-->SideBarContainer.isOpen = true;
-	EditorSideBarCtrl.visible = 1;
+	LabSideBar.visible = 1;
 
 	if (EditorFrameContent.lastColumns $= "")
 		EditorFrameContent.lastColumns = "0 220";
@@ -48,7 +48,7 @@ function Lab::closeSidebar(%this) {
 	}
 
 	EditorGui-->SideBarContainer.isOpen = false;
-	EditorSideBarCtrl.visible = 0;
+	LabSideBar.visible = 0;
 		EditorFrameContent.setLeftCol("18",true);
 		 FW.setSideBarToggleButton(%window);
 	//EditorFrameContent.columns = "0 18";

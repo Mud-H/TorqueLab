@@ -42,10 +42,20 @@ function EOverlay::hideDlg(%this,%dlg,%decoyMode) {
 //==============================================================================
 function EOverlay::toggleSlider(%this,%decoyMode,%topCenterPos,%options,%startValue) {
 	%sliderDlg = EToolOverlayGui-->SliderMouseDlg;
-	%slider = %sliderDlg-->SliderMouse;
+	%slider = %sliderDlg.getObject(0);
 	%slider.ticks = "";
 	%slider.snap = false;
 
+   if (!isObject(%slider))
+   {
+      warnLog("Something went wrong, no slider found!",%dlg);
+      return;
+   }
+    if (!%slider.isMemberOfClass("GuiSliderCtrl"))
+   {
+      warnLog("Something went wrong, not a SliderCtrl was found!",%slider);
+      return;
+   }
 	if (%options !$= "") {
 		for(%i=0; %i<getRecordCount(%options); %i++) {
 			%record = getRecord(%options,%i);

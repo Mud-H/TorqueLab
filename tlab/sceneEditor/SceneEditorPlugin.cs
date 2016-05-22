@@ -93,6 +93,10 @@ function SceneEditorPlugin::onPluginLoaded( %this ) {
 	SceneEditorTreeTabBook.selectPage(0);
 	if (!isObject(UnlistedDatablocks))
 	   new SimSet( UnlistedDatablocks );
+   
+   if (!isObject(LabPM_Datablock))
+      new PersistenceManager(LabPM_Datablock);
+   SceneEd.PM = LabPM_Datablock;
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -138,6 +142,7 @@ function SceneEditorPlugin::onActivated( %this ) {
 		SEP_AmbientManager.updateAmbientGroups();
 		
    joinEvent("SceneChanged",SceneEditorTree);
+   SceneEditorTree.rebuild();
 }
 //------------------------------------------------------------------------------
 //==============================================================================

@@ -1,0 +1,75 @@
+//--- OBJECT WRITE BEGIN ---
+%guiContent = new GuiControl(LabPaletteBarGui)
+{
+    position = "0 0";
+    extent = "1440 900";
+    minExtent = "8 8";
+    horizSizing = "right";
+    vertSizing = "bottom";
+    profile = "ToolsDefaultProfile";
+    visible = "1";
+    active = "1";
+    tooltipProfile = "ToolsToolTipProfile";
+    hovertime = "1000";
+    isContainer = "1";
+    canSave = "1";
+    canSaveDynamicFields = "1";
+    helpTag = "0";
+    lastLoadedDlg = "27137";
+    new GuiContainer(LabPaletteBar)
+    {
+        margin = "0 0 0 0";
+        padding = "0 0 0 0";
+        anchorTop = "1";
+        anchorBottom = "0";
+        anchorLeft = "1";
+        anchorRight = "0";
+        position = "0 42";
+        extent = "36 193";
+        minExtent = "8 2";
+        horizSizing = "right";
+        vertSizing = "bottom";
+        profile = "ToolsDefaultProfile";
+        visible = "1";
+        active = "1";
+        tooltipProfile = "ToolsToolTipProfile";
+        hovertime = "1000";
+        isContainer = "1";
+        internalName = "ToolsPaletteWindow";
+        canSave = "1";
+        canSaveDynamicFields = "1";
+        defaultGui = "27501";
+        defaultParent = "ToolsPaletteWindowGui";
+        extraType = "Extra";
+        tooltipWidth = "500";
+        new GuiDynamicCtrlArrayControl(LabPaletteArray)
+        {
+            colCount = "1";
+            colSize = "32";
+            rowCount = "6";
+            rowSize = "28";
+            rowSpacing = "3";
+            colSpacing = "0";
+            frozen = "0";
+            autoCellSize = "0";
+            fillRowFirst = "1";
+            dynamicSize = "1";
+            padding = "0 0 0 0";
+            position = "2 5";
+            extent = "34 183";
+            minExtent = "34 2";
+            horizSizing = "width";
+            vertSizing = "bottom";
+            profile = "ToolsDefaultProfile";
+            visible = "1";
+            active = "1";
+            tooltipProfile = "ToolsToolTipProfile";
+            hovertime = "1000";
+            isContainer = "1";
+            internalName = "ToolsPaletteArray";
+            canSave = "1";
+            canSaveDynamicFields = "0";
+        };
+    };
+};
+//--- OBJECT WRITE END ---

@@ -15,7 +15,7 @@ package FWPackage_Stock {
       if (%window.openExtent !$= "")
          %window.setExtent(%window.openExtent);      
      
-      show(EditorSideBarCtrl);
+      show(LabSideBar);
       // FW.setSideBarToggleButton(%window);
     
    }
@@ -27,7 +27,7 @@ package FWPackage_Stock {
       %window.openExtent = %window.extent;
       
        %window.setExtent("18",%window.extent.y);
-        hide(EditorSideBarCtrl);      
+        hide(LabSideBar);      
       
      // FW.setSideBarToggleButton(%window);
    }

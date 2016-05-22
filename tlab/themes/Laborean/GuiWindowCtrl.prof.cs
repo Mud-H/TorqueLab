@@ -103,3 +103,31 @@ singleton GuiControlProfile(ToolsWindowRollout : ToolsWindowProfile)
 {
    bitmap = "tlab/themes/Laborean/container-assets/GuiWindowRollout.png";
 };
+//==============================================================================
+//ToolsWindowProfile Style
+//------------------------------------------------------------------------------
+singleton GuiControlProfile( ToolsLabWindowProfile : ToolsDefaultProfile ) {
+	opaque = "1";
+	border = "-5";
+	fillColor = "15 15 15 255";
+	fillColorHL = "41 41 41 255";
+	fillColorNA = "41 41 41 255";
+	fontColor = "199 199 199 255";
+	fontColorHL = "0 0 0 255";
+	bevelColorHL = "255 255 255";
+	bevelColorLL = "Black";
+	text = "untitled";
+	bitmap = "tlab/themes/Laborean/unibox-assets/GuiUniBoxBase.png";
+	textOffset = "10 2";
+	hasBitmapArray = true;
+	justify = "left";
+	category = "ToolsContainers";
+
+	fontSize = "21";
+	fontColors[0] = "199 199 199 255";
+	cursorColor = "0 0 0 255";
+	fontColors[7] = "255 0 255 255";
+	fontColors[5] = "255 0 255 255";
+	fontColorLinkHL = "255 0 255 255";
+};
+//------------------------------------------------------------------------------

@@ -25,7 +25,7 @@ function Scene::doInspect(%this, %obj) {
 		if (SceneInspector.isVisible() && %obj !=  SceneInspector.getInspectObject(0))
 			%doInspect = true;
 	}
-
+   devLog("DoInspect",%obj);
 	if (!%doInspect)
 		return;
 

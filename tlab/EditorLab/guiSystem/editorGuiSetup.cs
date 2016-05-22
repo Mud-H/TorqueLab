@@ -9,14 +9,9 @@ $TLab::DefaultPlugins = "SceneEditor";
 // Make sure all GUIs are fine once the editor is launched
 function Lab::EditorLaunchGuiSetup(%this) {
 	//Lab.attachAllEditorGuis();
-	Lab.closeDisabledPluginsBin();
-	show(LabPluginBar);
-	show(LabPaletteBar);
-	LabPluginArray.reorderChild( LabPluginArray-->SceneEditorPlugin,LabPluginArray.getObject(0));
-	LabPluginArray.refresh();
+
 	
 	Lab.activateFrameWork();
-	
 	
 	//Lab.updateActivePlugins(); //WIP Fast - Shouldnt be needed
 	
@@ -31,6 +26,8 @@ function Lab::EditorLaunchGuiSetup(%this) {
 // Make sure all GUIs are fine once the editor is launched
 function Lab::InitialGuiSetup(%this,%pluginName,%displayName,%alwaysEnable) {
 	
+	//First check the EditorCore integrity and add any missing default GUI
+	FW.checkEditorCore();
 	Lab.updatePluginsBar();
 	Lab.sortPluginsBar(true);
 	//ETools.initTools(); //WIP Fast - moved to delayed init
@@ -52,7 +49,7 @@ function Lab::InitialGuiSetup(%this,%pluginName,%displayName,%alwaysEnable) {
 	//Lab.addGui( EPostFxManager ,"Dialog");
 	Lab.addGui( StackStartToolbar ,"Toolbar",true);
 	Lab.addGui( StackEndToolbar ,"Toolbar",true);
-	Lab.addGui( EditorSideBarCtrl ,"SideBar",true);
+	Lab.addGui( LabSideBar ,"SideBar",true);
 	Lab.addGui( EWorldEditor ,"FullEditor");
 	//Lab.addGui( EditorGuiStatusBar ,"Root",true);	
 	$TLGuiCmd["EToolOverlayGui"] = "parentGroup.pushToBack(EToolOverlayGui);";

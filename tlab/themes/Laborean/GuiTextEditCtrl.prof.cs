@@ -22,12 +22,12 @@ singleton GuiControlProfile( ToolsTextEdit : ToolsDefaultProfile ) {
 	justify = "Top";
 	fontColors[0] = "252 254 252 255";
 	fontColors[1] = "34 102 132 150";
-	fontColors[2] = "94 94 94 255";
+	fontColors[2] = "243 243 243 255";
 	fontColors[3] = "254 185 5 255";
 	fontColors[9] = "255 0 255 255";
 	fontColor = "252 254 252 255";
 	fontColorHL = "34 102 132 150";
-	fontColorNA = "94 94 94 255";
+	fontColorNA = "243 243 243 255";
 	fontColorSEL = "254 185 5 255";
 	fontColors[7] = "255 0 255 255";
 	fontColors[6] = "Magenta";
@@ -39,6 +39,10 @@ singleton GuiControlProfile( ToolsTextEdit : ToolsDefaultProfile ) {
    fontColorLink = "Fuchsia";
 
    category = "ToolsText";
+   fillColorNA = "138 138 138 222";
+   fillColorSEL = "99 101 138 241";
+   borderColor = "0 255 21 255";
+   borderColorNA = "180 180 180 255";
 };
 //------------------------------------------------------------------------------
 singleton GuiControlProfile(ToolsTextEdit_S1 : ToolsTextEdit) {
@@ -95,4 +99,16 @@ singleton GuiControlProfile(ToolsTextPadEdit : ToolsTextEdit)
    fontColorLink = "62 99 254 255";
    category = "ToolsText";
    dynamicField = "defaultValue";
+};
+
+singleton GuiControlProfile(ToolsTextEditSliderProfile : ToolsTextEdit_Num)
+{
+   bitmap = "tlab/themes/Laborean/element-assets/GuiTextEditSliderProfile.png";
+   opaque = "0";
+   border = "-2";
+   borderThickness = "1";
+   hasBitmapArray = "1";
+   renderType = "4";
+   fillColorHL = "5 9 92 204";
+   borderColor = "143 173 196 241";
 };

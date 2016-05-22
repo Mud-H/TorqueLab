@@ -37,3 +37,5 @@ function SETools_CreateOptClassMargin::onValidate( %this ) {
 	SETools_CreateOptClassMargin.setText(%text.x SPC %text.y SPC %text.z);
 	
 }
+
+

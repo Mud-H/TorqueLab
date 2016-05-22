@@ -43,10 +43,8 @@ function execSceneEd(%loadGui) {
 	execPattern("tlab/sceneEditor/plugin/*.cs");
 	execPattern("tlab/sceneEditor/managers/*.cs");
 	execPattern("tlab/sceneEditor/utilityBook/*.cs");
-	execPattern("tlab/sceneEditor/SceneTree/*.cs");
-	execPattern("tlab/sceneEditor/PageScene/*.cs");
-	execPattern("tlab/sceneEditor/PageDatablock/*.cs");
-	//execPattern("tlab/sceneEditor/PageCreator/*.cs");
+	execPattern("tlab/sceneEditor/treeBook/*.cs");
+
 
 }
 //------------------------------------------------------------------------------

@@ -48,6 +48,7 @@ function FileBrowser::initFiles( %this ) {
 
 //FileBrowser.initFiles
 function FileBrowser::onResized(%this) {
+    devLog("FileBrowser::onResized");
 	FileBrowser.setViewId();
 }
 //------------------------------------------------------------------------------

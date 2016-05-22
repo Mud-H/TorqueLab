@@ -34,6 +34,9 @@ function Lab::initEditorGui( %this ) {
 //==============================================================================
 // Add the various TorqueLab GUIs to the container and set they belong
 function Lab::addGui(%this,%gui,%type,%noHide) {
+   
+   if (!isObject(LabGuiSet))
+      Lab.initEditorGui();
 	%parent = %gui.parentGroup;
 	if (%noHide)
 		%gui.noHide = true;
