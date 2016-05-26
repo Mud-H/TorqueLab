@@ -5,7 +5,7 @@
 //==============================================================================
 //==============================================================================
 function EToolbarObjectCenterDropdown::toggle(%this,%caller) {
-	%button = EditorGuiToolbarStack-->centerObject;
+	%button = LabToolbarStack-->centerObject;
 
 	if ( EToolbarObjectCenterDropdown.visible  ) {
 		%button.setStateOn(false);
@@ -26,7 +26,7 @@ function EToolbarObjectCenterDropdown::toggle(%this,%caller) {
 
 //==============================================================================
 function EToolbarObjectTransformDropdown::toggle() {
-	%button = EditorGuiToolbarStack-->objectTransform;
+	%button = LabToolbarStack-->objectTransform;
 
 	if ( EToolbarObjectTransformDropdown.visible  ) {
 		%button.setStateOn(false);
@@ -61,13 +61,13 @@ function EToolbarObjectTransformDecoy::onMouseLeave() {
 
 //==============================================================================
 function EToolDlgCameraTypesToggle() {
-	%button = EditorGuiToolbarStack-->cameraTypes;
+	%button = LabToolbarStack-->cameraTypes;
 	EOverlay.toggleDlg("CameraModeDlg");
 	// Lab.toggleToolbarDialog(EToolCameraModeDlg,%button,"mouse");
 	//Lab.showCameraViewContextMenu();
 	return;
 	//Mud-H FIXME
-	%button = EditorGuiToolbarStack-->cameraTypes;
+	%button = LabToolbarStack-->cameraTypes;
 
 	if ( EToolDlgCameraTypes.visible  ) {
 		%button.setStateOn(0);

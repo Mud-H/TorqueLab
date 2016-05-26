@@ -8,7 +8,7 @@
 //==============================================================================
 function Lab::setCameraMoveSpeed(%this, %speed) {
 	// Update Toolbar TextEdit
-	EditorGuiToolbarStack-->CameraSpeedEdit.setText(%speed);
+	LabToolbarStack-->CameraSpeedEdit.setText(%speed);
 	$Camera::movementSpeed = %speed;
 
 }

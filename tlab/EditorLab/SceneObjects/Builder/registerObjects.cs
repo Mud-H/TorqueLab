@@ -34,7 +34,7 @@ function Scene::registerObjects( %this ) {
 	%this.registerMissionObject( "WaterBlock",          "Water Block" );
 	%this.registerMissionObject( "SFXEmitter",          "Sound Emitter" );
 	%this.registerMissionObject( "Precipitation" );
-	%this.registerMissionObject( "ParticleEmitterNode", "Particle Emitter" );
+	//%this.registerMissionObject( "ParticleEmitterNode", "Particle Emitter" );
 	%this.registerMissionObject( "RibbonNode", "Ribbon" );
 	// Legacy features. Users should use Ground Cover and the Forest Editor.
 	//%this.registerMissionObject( "fxShapeReplicator",   "Shape Replicator" );
@@ -59,6 +59,7 @@ function Scene::registerObjects( %this ) {
 	%this.registerMissionObject( "BotSpawnSphere",  "Bot spawn sphere", "BotSpawn" );
 	%this.registerMissionObject( "BotGoalPoint",      "Bot goal point ","BotGoal" );
 	%this.endGroup();
+
 	%this.beginGroup( "Level" );
 	%this.registerMissionObject( "MissionArea",  "Mission Area" );
 	%this.registerMissionObject( "Path" );

@@ -33,7 +33,7 @@ new GuiStackControl(RoadEditorToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "RoadEditor";
       stackLists = "28188 28197 28213";
 
@@ -467,7 +467,7 @@ new GuiStackControl(RoadEditorToolbar) {
             profile = "ToolsButtonProfile_S1";
             visible = "1";
             active = "1";
-            command = "MatBrowser.showDialog(\"RoadEditorGui.setDefaultMaterial\",\"name\");";
+            command = "MaterialSelector.showDialog(\"RoadEditorGui.setDefaultMaterial\",\"name\");";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -576,7 +576,7 @@ new GuiStackControl(RoadEditorToolbar) {
             profile = "ToolsButtonProfile_S1";
             visible = "1";
             active = "1";
-            command = "MatBrowser.showDialog(\"RoadEditorGui.changeActiveMaterialCallback\",\"name\");";
+            command = "MaterialSelector.showDialog(\"RoadEditorGui.changeActiveMaterialCallback\",\"name\");";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "0";

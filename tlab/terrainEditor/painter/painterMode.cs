@@ -21,7 +21,7 @@ function TEPainter::setPaintMode(%this,%enabled) {
 function TEPainter::activatePaintMode(%this,%enabled) {
    if (ETerrainEditor.currentAction $= paintMaterial )
    {
-         warnLog("Already in Paint mode!");
+         //warnLog("Already in Paint mode!");
          return;
    }   
       
@@ -45,9 +45,13 @@ function TEPainter::activatePaintMode(%this,%enabled) {
 
 //==============================================================================
 function TEPainter::deactivatePaintMode(%this) {
-   if (ETerrainEditor.currentAction $= paintMaterial )
+   if (ETerrainEditor.currentAction !$= paintMaterial )
    {
-         warnLog("Already in Paint mode!");
+       if (!$Cfg_TerrainEditor_painter_AutoPaintPanel)
+	   return;
+       if ( !TEPainter.toolsInitialState )
+          Lab.hidePluginTools();
+         //warnLog("Already NOT in Paint mode!");
          return;
    }  
    ETerrainEditor.currentAction = ETerrainEditor.previousAction;
@@ -64,15 +68,10 @@ function TEPainter::deactivatePaintMode(%this) {
 }
 //------------------------------------------------------------------------------
 
-//==============================================================================
-function TEToolsCollapseBar::onClick(%this) {
-  
-  Lab.togglePluginTools(); 
-}
-//------------------------------------------------------------------------------
 
 //==============================================================================
 function TEPainter::setPaintToolsActive(%this,%active) {  
-   TerrainEditorTools.visible = %active;   
+   Lab.hidePluginTools();
+
 }
 //------------------------------------------------------------------------------

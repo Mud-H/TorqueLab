@@ -7,7 +7,10 @@
 //==============================================================================
 // Initialize the Toolbar
 //==============================================================================
-
+function SceneToolbar_GridSizeEdit::onValidate(%this) {
+ devLog("  SceneToolbar_GridSizeEdit::onValidate",%this.getText());
+ Lab.setGridSize( %this.getText());
+}
 //==============================================================================
 function Lab::initAllToolbarGroups(%this) {
 	EGuiCustomizer-->saveToolbar.active = false;
@@ -400,7 +403,7 @@ function ToolbarIcon::onRightClick(%this,%modifier,%point,%clicks) {
 //==============================================================================
 //==============================================================================
 function Lab::resetAllDisabledIcons(%this) {
-	foreach(%gui in EditorGuiToolbarStack) {
+	foreach(%gui in LabToolbarStack) {
 		%addToStack = "";
 		%break = false;
 
@@ -441,7 +444,7 @@ function Lab::getIconRootStack(%this, %ctrl) {
 		%parent = %test.parentGroup;
 		devLog("Test Parent Name = ",%parent.getName());
 
-		if (%parent.getName() $= "EditorGuiToolbarStack" ) {
+		if (%parent.getName() $= "LabToolbarStack" ) {
 			%toolbar = %test;
 			%i = 99;
 		} else
@@ -456,7 +459,7 @@ function Lab::getIconRootStack(%this, %ctrl) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function Lab::updateAllToolbarStacks(%this) {
-	foreach(%gui in EditorGuiToolbarStack) {
+	foreach(%gui in LabToolbarStack) {
 		if (!%gui.isMemberOfClass("GuiStackControl"))
 			continue;
 

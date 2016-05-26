@@ -94,7 +94,7 @@ function IPSP_Editor::createParticle( %this, %replaceSlot ) {
 
 	// Create the particle datablock and add to the emitter.
 	%newParticle = getUniqueName( "newParticle" );
-	datablock ParticleData( %newParticle : DefaultParticle ) {
+	datablock BillboardParticleData( %newParticle : DefaultParticle ) {
 	};
 	// Submit undo.
 	%action = IpsEditor.createUndo( ActionCreateNewParticle, "Create New Particle" );

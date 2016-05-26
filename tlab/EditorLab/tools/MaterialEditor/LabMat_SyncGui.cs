@@ -11,23 +11,23 @@ function LabMat::guiSync( %this, %material ) {
 
 	//Setup our headers
 	if( LabMat.currentMode $= "material" ) {
-		MatEdMaterialMode-->selMaterialName.setText(LabMat.currentMaterial.name);
-		MatEdMaterialMode-->selMaterialMapTo.setText(LabMat.currentMaterial.mapTo);
+		LabMatMaterialMode-->selMaterialName.setText(LabMat.currentMaterial.name);
+		LabMatMaterialMode-->selMaterialMapTo.setText(LabMat.currentMaterial.mapTo);
 	} else {
 		if( LabMat.currentObject.isMethod("getModelFile") ) {
 			%sourcePath = LabMat.currentObject.getModelFile();
 
 			if( %sourcePath !$= "" ) {
-				MatEdTargetMode-->selMaterialMapTo.ToolTip = %sourcePath;
+				LabMatTargetMode-->selMaterialMapTo.ToolTip = %sourcePath;
 				%sourceName = fileName(%sourcePath);
-				MatEdTargetMode-->selMaterialMapTo.setText(%sourceName);
-				MatEdTargetMode-->selMaterialName.setText(LabMat.currentMaterial.name);
+				LabMatTargetMode-->selMaterialMapTo.setText(%sourceName);
+				LabMatTargetMode-->selMaterialName.setText(LabMat.currentMaterial.name);
 			}
 		} else {
 			%info = LabMat.currentObject.getClassName();
-			MatEdTargetMode-->selMaterialMapTo.ToolTip = %info;
-			MatEdTargetMode-->selMaterialMapTo.setText(%info);
-			MatEdTargetMode-->selMaterialName.setText(LabMat.currentMaterial.name);
+			LabMatTargetMode-->selMaterialMapTo.ToolTip = %info;
+			LabMatTargetMode-->selMaterialMapTo.setText(%info);
+			LabMatTargetMode-->selMaterialName.setText(LabMat.currentMaterial.name);
 		}
 	}
 
@@ -64,16 +64,16 @@ function LabMat::guiSync( %this, %material ) {
 	LabMat_PropertiesStack-->blendingTypePopUp.setSelected(%selectedNum);
 
 	if((%material).cubemap !$= "") {
-		LabMat_PropertiesStack-->matEd_cubemapEditBtn.setVisible(1);
+		LabMat_PropertiesStack-->LabMat_cubemapEditBtn.setVisible(1);
 		LabMat_PropertiesStack-->reflectionTypePopUp.setSelected(1);
 	} else if((%material).dynamiccubemap) {
-		LabMat_PropertiesStack-->matEd_cubemapEditBtn.setVisible(0);
+		LabMat_PropertiesStack-->LabMat_cubemapEditBtn.setVisible(0);
 		LabMat_PropertiesStack-->reflectionTypePopUp.setSelected(2);
 	} else if((%material).planarReflection) {
-		LabMat_PropertiesStack-->matEd_cubemapEditBtn.setVisible(0);
+		LabMat_PropertiesStack-->LabMat_cubemapEditBtn.setVisible(0);
 		LabMat_PropertiesStack-->reflectionTypePopUp.setSelected(3);
 	} else {
-		LabMat_PropertiesStack-->matEd_cubemapEditBtn.setVisible(0);
+		LabMat_PropertiesStack-->LabMat_cubemapEditBtn.setVisible(0);
 		LabMat_PropertiesStack-->reflectionTypePopUp.setSelected(0);
 	}
 
@@ -223,7 +223,7 @@ function LabMat::guiSync( %this, %material ) {
 	LabMat_MapsStack-->colorTintSwatch.color = (%material).diffuseColor[%layer];
 	LabMat_MapsStack-->specularColorSwatch.color = (%material).specular[%layer];
 
-	if (!MatEd.PBRenabled) {
+	if (!LabMat.PBRenabled) {
 		LabMat_MapsStack-->specularPowerTextEdit.setText((%material).specularPower[%layer]);
 		LabMat_MapsStack-->specularPowerSlider.setValue((%material).specularPower[%layer]);
 		LabMat_MapsStack-->specularStrengthTextEdit.setText((%material).specularStrength[%layer]);

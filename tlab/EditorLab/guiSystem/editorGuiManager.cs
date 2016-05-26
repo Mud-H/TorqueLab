@@ -24,9 +24,7 @@ function Lab::initEditorGui( %this ) {
 	newSimSet("EditorDetachedGuis");
 	
 	newSimSet("LabPaletteItemSet");
-	//%this.initEditorContainers();
-	//Set the default FrameWork
-	Lab.setDefaultFrameWork();
+
 }
 //------------------------------------------------------------------------------
 

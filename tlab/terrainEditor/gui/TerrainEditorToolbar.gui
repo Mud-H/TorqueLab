@@ -29,7 +29,7 @@ new GuiStackControl(EWTerrainEditToolbar) {
       defaultStack = "30285";
       disabledGroup = "30286";
       EditorContainer = "20740";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "TerrainEditor";
       preventReordering = "0";
       stackLists = "30287 30296 30322";

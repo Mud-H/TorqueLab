@@ -12,10 +12,10 @@ $Cfg_Common_Objects_autoInspectApply = false;
 // New Script System with better naming
 //==============================================================================
 //==============================================================================
-function Scene::doInspect(%this, %obj) {
+function Scene::doInspect(%this, %obj,%forced) {
 	//SceneInspector.inspect(%obj);
 	//return;
-	if (!$Cfg_Common_Objects_autoInspect )
+	if (!$Cfg_Common_Objects_autoInspect && !%forced )
 		return;
 	if (!$SceneInspectorActive)
 		return;
@@ -25,7 +25,7 @@ function Scene::doInspect(%this, %obj) {
 		if (SceneInspector.isVisible() && %obj !=  SceneInspector.getInspectObject(0))
 			%doInspect = true;
 	}
-   devLog("DoInspect",%obj);
+   
 	if (!%doInspect)
 		return;
 
@@ -83,14 +83,3 @@ function Scene::doAddInspect(%this, %obj,%isLast) {
 //------------------------------------------------------------------------------
 //==============================================================================
 //==============================================================================
-//==============================================================================
-function Scene::manualMultiInspect( %this, %obj ) {
-	if (EWorldEditor.getSelectionSize()==0)
-		SceneInspector.inspect("");
-	else if (EWorldEditor.getSelectionSize()==1)
-		SceneInspector.inspect(EWorldEditor.getSelectedObject(0));
-	else 
-		for(%i=0; %i < EWorldEditor.getSelectionSize(); %i++) 
-			SceneInspector.addInspect(EWorldEditor.getSelectedObject(%i));	
-}
-//------------------------------------------------------------------------------

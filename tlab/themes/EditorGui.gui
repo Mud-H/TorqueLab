@@ -106,7 +106,7 @@
          canSave = "1";
          canSaveDynamicFields = "0";
       };
-      new GuiStackControl(EditorGuiToolbarStack) {
+      new GuiStackControl(LabToolbarStack) {
          stackingType = "Horizontal";
          horizStacking = "Left to Right";
          vertStacking = "Top to Bottom";

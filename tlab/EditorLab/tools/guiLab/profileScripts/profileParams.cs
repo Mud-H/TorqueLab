@@ -4,7 +4,7 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 function GLab::rebuildProfileParams( %this ) {
-	exec("tlab/EditorLab/gui/editorDialogs/guiLab/profileScripts/profileParams.cs");
+	exec("tlab/EditorLab/tools/guiLab/profileScripts/profileParams.cs");
 	%this.initProfileParams();
 }
 //==============================================================================
@@ -127,7 +127,8 @@ function GLab::updateProfileParam( %this, %fieldData,%value,%ctrl,%paramArray,%i
 // Sync the current profile values into the params objects
 function GLab::syncProfileParamArray( %this ) {
 	%paramArray = $GLab_ProfileParams;
-
+   devLog("GuiLab syncProfileParamArray skipped");
+   return;
 	for( ; %i < %paramArray.count() ; %i++) {
 		%field = %paramArray.getKey(%i);
 		%data = %paramArray.getValue(%i);
@@ -206,6 +207,8 @@ function GLab::getProfileBitmapFile( %this ) {
 function GLab::setProfileBitmapFile( %this,%file ) {
 	%filename = makeRelativePath( %file, getMainDotCsDir() );
 	%this.updateProfileField($GLab_SelectedObject,"bitmap",%filename);
+	devLog("GLab::setProfileBitmapFile skipped");
+   return;
 	%this.syncProfileField("bitmap");
 }
 //------------------------------------------------------------------------------

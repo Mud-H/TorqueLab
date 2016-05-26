@@ -48,7 +48,7 @@ $Lab::loadLast = "materialLab";
 // These folders must be skipped for initial load
 $LabIgnoreEnableFolderList = "debugger forestEditor levels guiEditor";
 
-$Lab::LevelRoot = "Art/Worlds";
+$Lab::LevelRoot = "levels";
 //Load the TorqueLab Main Initialization script.
 exec("tlab/initTorqueLab.cs");
 function lateToolStart() {	

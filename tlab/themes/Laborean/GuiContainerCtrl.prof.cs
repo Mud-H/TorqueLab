@@ -11,10 +11,10 @@
 //ToolsBoxContentA Style
 singleton GuiControlProfile( ToolsBoxContentA : ToolsDefaultProfile ) {	
 	category = "ToolsContainers";	
-   fillColor = "32 32 32 255";
+   fillColor = "18 18 18 218";
    bitmap = "tlab/themes/Laborean/container-assets/GuiBoxContentA.png";
    hasBitmapArray = "0";
-   border = "3";
+   border = "1";
    opaque = "1";
    borderColorNA = "76 76 76 71";
    bevelColorHL = "55 55 55 134";
@@ -25,10 +25,11 @@ singleton GuiControlProfile( ToolsBoxContentA : ToolsDefaultProfile ) {
 //ToolsBoxContentA Style
 singleton GuiControlProfile( ToolsBoxContentB : ToolsDefaultProfile ) {	
 	category = "ToolsContainers";	
-   fillColor = "243 241 241 0";
+   fillColor = "25 25 25 0";
    bitmap = "tlab/themes/Laborean/container-assets/GuiBoxContentB.png";
    hasBitmapArray = "0";
    border = "-2";
+   opaque = "1";
 };
 //------------------------------------------------------------------------------
 
@@ -37,6 +38,7 @@ singleton GuiControlProfile( ToolsBoxContentB : ToolsDefaultProfile ) {
 singleton GuiControlProfile( ToolsBoxContentC : ToolsDefaultProfile ) {	
 	category = "ToolsContainers";	
    bitmap = "tlab/themes/Laborean/container-assets/GuiBoxContentC.png";
+   fillColor = "32 32 32 0";
 };
 //------------------------------------------------------------------------------
 

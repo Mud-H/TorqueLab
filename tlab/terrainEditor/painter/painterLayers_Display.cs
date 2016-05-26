@@ -14,10 +14,9 @@ $EPainter_CollapseSiblings = true;
 //==============================================================================
 function EPainter::setDisplayModes( %this ) {
 	EPainter.updateLayers();
-	hide(EPainter_LayerSrc);
 	show(EPainterStack);
 	hide(EPainter_LayerCompactSrc);
-	hide(EPainter_LayerMixedSrc);
+
 /*	EPainter_DisplayMode.clear();
 	EPainter_DisplayMode.add("Mixed listing",0);
 	EPainter_DisplayMode.add("Compact listing",1);
@@ -51,29 +50,32 @@ function EPainter::toggleSplatMap( %this,%checkBox ) {
 //==============================================================================
 // Update the active material layers list
 function EPainter::updateLayers( %this, %matIndex ) {
+   devLog(" EPainter::updateLayers( %this, %matIndex )",%this,%matIndex);
 	// Default to whatever was selected before.
 	if ( %matIndex $= "" )
+	   %matIndex = $EPainter_ActiveLayerId;
+	if ( %matIndex $= "" )   
 		%matIndex = ETerrainEditor.paintIndex;
 
 	// The material string is a newline seperated string of
 	// TerrainMaterial internal names which we can use to find
 	// the actual material data in TerrainMaterialSet.
 	%mats = ETerrainEditor.getMaterials();
-	%ctrlSrc = EPainter_LayerCollapseSrc;
 	
-
-	// %listWidth = getWord( EPainterStack.getExtent(), 0 );
-	hide(EPainter_LayerCompactSrc);
-	hide(EPainter_LayerCollapseSrc);
-	//hide(EPainter_LayerExtendedSrc);
+	%ctrlSrc = EPainter_LayerCollapseSrc;
+	if (!isObject(%ctrlSrc))
+	{
+	   devLog("No EPainter_Layer Control Source",%ctrlSrc);
+	   return;   
+	}	
+	if (!isObject(EPainterStack))
+      {
+         devLog("There's no Epainter");
+         return;  
+      }
+	hide(%ctrlSrc);	
 	show(EPainterStack);
-	EPainterStack.clear();
-
-	if (!$Fixed && $EPainter_DisplayMode > 1/*&& %ctrlSrc.getId() $= EPainter_LayerMixedSrc.getId()*/) {
-		devLog("PaintMode = ",$EPainter_DisplayMode,"ExtendedExist",%ctrlSrc-->extendedCtrl);
-		$EPainter_DisplayMode = "1";
-		%ctrlSrc = EPainter_LayerCollapseSrc;
-	}
+	EPainterStack.clear();	
 
 	for( %i = 0; %i < getRecordCount( %mats ); %i++ ) {
 		%matInternalName = getRecord( %mats, %i );
@@ -82,48 +84,64 @@ function EPainter::updateLayers( %this, %matIndex ) {
 		// Is there no material info for this slot?
 		if ( !isObject( %mat ) )
 			continue;
-
+      
 		%index = EPainterStack.getCount();
 		%command = "EPainter.setPaintLayer( " @ %index @ " );";
 		%altCommand = "TerrainMaterialDlg.show( " @ %index @ ", " @ %mat @ ", EPainter_TerrainMaterialUpdateCallback );";
 		%ctrl = cloneObject(%ctrlSrc,"","Layer_"@%index,EPainterStack);
 		%ctrl.terrainMat = %mat;
 		%ctrl.layerId = %i;
-		
-		%bitmapButton = %ctrl-->bitmapButton;
-		//%bitmapButton.internalName = "EPainterMaterialButton" @ %i;
-		%bitmapButton.command = %command;
-		%bitmapButton.altCommand = %altCommand;
-		%bitmapButton.setBitmap( %mat.diffuseMap );
-		//}
+		%ctrl-->iconStack.AlignCtrlToParent("right");
+		%ctrl.text = "";
+		//Icons Stack
 		%editButton = %ctrl-->editButton;
 		%editButton.command =  "TerrainMaterialDlg.show( " @ %index @ ", " @ %mat @ ", EPainter_TerrainMaterialUpdateCallback );";
 		%deleteButton = %ctrl-->deleteButton;
 		%deleteButton.command = "EPainter.showMaterialDeleteDlg( " @ %matInternalName @ " );";
+//-------------------------------------------------------------
+// Compact Details Section			
+		%bitmapButton = %ctrl-->bitmapButton;
+		//%bitmapButton.internalName = "EPainterMaterialButton" @ %i;
+		%bitmapButton.command = %command;
+		%bitmapButton.altCommand = %altCommand;
+		if (isFile(%mat.diffuseMap))
+		   %bitmapButton.setBitmap( %mat.diffuseMap );
+		//}
+		
 	
 		%ctrl-->matName.text = %matInternalName;
 		%ctrl-->matName.internalName = %matInternalName;
 		%ctrl.isActiveCtrl = %ctrl-->ctrlActive;
-		%ctrl.isActiveCtrl.visible = 0;
-		%mouseEvent = %ctrl-->mouseEvent;
-		%mouseEvent.command = %command;
-		%mouseEvent.altCommand = %altCommand;
-		%mouseEvent.superClass = "PainterLayerMouse";
-		%mouseEvent.baseCtrl = %ctrl;
-		%ctrl.mouseEvent = %ctrl-->mouseEvent;
-		%ctrl-->dropLayer.layerIndex = %index;
-		%ctrl-->dropLayer.layerId = %i;
-		%ctrl-->dropLayer.visible = 0;
-		%ctrl.dropLayer = %ctrl-->dropLayer;
+		%ctrl.isActiveCtrl.visible = 0;		
+		
+		
+		%ctrl-->dropLayerCompact.layerIndex = %index;
+		%ctrl-->dropLayerCompact.layerId = %i;
+		%ctrl-->dropLayerCompact.visible = 0;
+		%ctrl-->dropLayerCompact.superClass = "EPainterDropLayer";
+		%ctrl-->dropLayerCompact.baseCtrl = %ctrl;
+		%ctrl.dropLayerCompact = %ctrl-->dropLayerCompact;
+		%ctrl-->dropLayerFull.layerIndex = %index;
+		%ctrl-->dropLayerFull.layerId = %i;
+		%ctrl-->dropLayerFull.visible = 0;
+		%ctrl-->dropLayerFull.superClass = "EPainterDropLayer";
+		%ctrl-->dropLayerFull.baseCtrl = %ctrl;
+		
+		%ctrl.dropLayerFull = %ctrl-->dropLayerFull;
+		
+		
 		%ctrl-->detailButton.baseCtrl = %ctrl;
 		%compactCtrl = %ctrl-->compactCtrl;
 		%compactCtrl-->matName.text = %matInternalName;
+		
 		%bitmapButtonCompact = %compactCtrl-->bitmapButton;
 		//	%bitmapButtonCompact.internalName = "EPainterMaterialButton" @ %i;
 		%bitmapButtonCompact.command = %command;
 		%bitmapButtonCompact.altCommand = %altCommand;
 		%bitmapButtonCompact.internalName = "diffuseMap";
-		//%bitmapButtonCompact.setBitmap( %mat.diffuseMap );
+		if (isImageFile(%mat.diffuseMap))
+		%bitmapButtonCompact.setBitmap( %mat.diffuseMap );
+		
 		%mouseEvent = %compactCtrl-->mouseEvent;
 		%mouseEvent.command = %command;
 		%mouseEvent.altCommand = %altCommand;
@@ -132,23 +150,35 @@ function EPainter::updateLayers( %this, %matIndex ) {
 		%mouseEvent.dragClone = %compactCtrl;
 		%compactCtrl-->ctrlActive.visible = 0;
 		%compactCtrl-->dropLayer.visible = 0;
+		%ctrl.mouseEvent = %mouseEvent;
+//-------------------------------------------------------------
+// Full Details Section		
 		%fullCtrl = %ctrl-->fullCtrl;
+		%fullCtrl.visible = 0;
 		//%fullCtrl-->matName.text = %matInternalName;
 		%fullCtrl-->ctrlActive.visible = 0;
 		%fullCtrl-->dropLayer.visible = 0;
-		%bitmapButtonFull = %fullCtrl-->bitmapButton;
-		%bitmapButtonFull.command = %command;
-		%bitmapButtonFull.altCommand = %altCommand;
+		
+		%bitmapDiffuseFull = %fullCtrl-->bitmapDiffuse;
+		%bitmapDiffuseFull.command = %command;
+		%bitmapDiffuseFull.altCommand = %altCommand;
+		%bitmapDiffuseFull.internalName = "diffuseMap";
+		if (isImageFile(%mat.diffuseMap))
+		%bitmapButtonCompact.setBitmap( %mat.diffuseMap );
 		
 		%bitmapDetailFull = %fullCtrl-->bitmapDetail;		
 		%bitmapDetailFull.command = %command;
 		%bitmapDetailFull.altCommand = "EPainter.changeMapIndex(\"detail\","@%i@");";
 		%bitmapDetailFull.internalName = "detailMap";
+      if (isImageFile(%mat.detailMap))
+		%bitmapDetailFull.setBitmap( %mat.detailMap );		
 		
 		%bitmapMacroFull = %fullCtrl-->bitmapMacro;		
 		%bitmapMacroFull.command = %command;
 		%bitmapMacroFull.altCommand = "EPainter.changeMapIndex(\"macro\","@%i@");";
 		%bitmapMacroFull.internalName = "macroMap";
+		if (isImageFile(%mat.macroMap))
+		%bitmapMacroFull.setBitmap( %mat.macroMap );
 		
 		%fullCtrl-->diffuseMapBase.text = fileBase(%mat.diffuseMap);
 		%fullCtrl-->detailMapBase.text = fileBase(%mat.detailMap);
@@ -157,12 +187,13 @@ function EPainter::updateLayers( %this, %matIndex ) {
 		%fullCtrl-->parallaxScaleSlider.setValue(%mat.parallaxScale);
 		%fullCtrl-->parallaxScaleSlider.mat = %mat;
 		%fullCtrl-->parallaxScaleSlider.nameCtrl = %ctrl-->matName;
-		%mouseEventExt = %fullCtrl-->mouseEvent;
-		%mouseEventExt.command = %command;
-		%mouseEventExt.altCommand = %altCommand;
-		%mouseEventExt.superClass = "PainterLayerMouse";
-		%mouseEventExt.baseCtrl = %ctrl;
-		%mouseEventExt.dragClone = %fullCtrl;
+		
+		%mouseEventFull = %fullCtrl-->mouseEvent;
+		%mouseEventFull.command = %command;
+		%mouseEventFull.altCommand = %altCommand;
+		%mouseEventFull.superClass = "PainterLayerMouse";
+		%mouseEventFull.baseCtrl = %ctrl;
+		%mouseEventFull.dragClone = %fullCtrl;
 
 		foreach$(%field in $PainterMatFields) {
 			%fieldCtrl = %fullCtrl.findObjectByInternalName(%field,true);
@@ -171,12 +202,13 @@ function EPainter::updateLayers( %this, %matIndex ) {
 				continue;
 
 			%fieldCtrl.setValue(%mat.getFieldValue(%field));
-			%fieldCtrl.mat = %mat;
-			%fieldCtrl.superClass = "PainterLayerEdit";
+			%fieldCtrl.mat = %mat;		
+			if (%fieldCtrl.getClassName() $= "GuiTextEditCtrl")
+			   %fieldCtrl.superClass = "PainterLayerEdit";
 			%fieldCtrl.nameCtrl = %ctrl-->matName;
 		}
 
-		%this.setMixedView(%ctrl,true,$EPainter_StartAsExtended);
+		
 
 		if(%i < 9)
 			%tooltip = %tooltip @ " (" @ (%i+1) @ ")";
@@ -225,12 +257,13 @@ function EPainter::updateLayers( %this, %matIndex ) {
 	// active it and initialize other state.
 	%ctrl = EPainterStack.getObject( %matIndex );
 
-	if (isObject(%ctrl))
-		%ctrl-->bitmapButton.performClick(); //FIXME something wrong here
+	if (isObject(%ctrl-->diffuseMap))
+		%ctrl-->diffuseMap.performClick(); //FIXME something wrong here
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 // Update the active material layers list
+/*
 function EPainter::updateSelectedLayerList( %this,%ctrl) {
 	//Hide all selected colored containers
 	foreach(%layerCtrl in EPainterStack)
@@ -254,7 +287,7 @@ function EPainter::updateSelectedLayerList( %this,%ctrl) {
 			%this.setMixedView(%layerCtrl,%isCompact,%isExtended);
 		}
 	}
-}
+}*/
 //------------------------------------------------------------------------------
 //==============================================================================
 // MIXED LISTING MODES FUNCTIONS
@@ -263,12 +296,41 @@ function EPainter::updateSelectedLayerList( %this,%ctrl) {
 // Update the active material layers list
 function EPainterToggleMixedButton::onClick( %this) {
 	%ctrl = %this.baseCtrl;
-	EPainter.setMixedView(%ctrl,%ctrl-->fullCtrl.isVisible());
+	EPainter.toggleLayerFull(%ctrl);
+	//EPainter.setMixedView(%ctrl,%ctrl-->fullCtrl.isVisible());
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+// Update the active material layers list
+function EPainter::toggleLayerFull( %this,%ctrl,%show,%indirect) {
+   //Check if the fullCtrl is visible, if not show it.
+  
+   if (!isObject(%ctrl-->fullCtrl))
+      return;
+      
+    if (%show $= "")
+      %show =  !%ctrl-->fullCtrl.visible;
+      
+   %ctrl-->fullCtrl.visible = %show;
+   %ctrl-->iconStack.AlignCtrlToParent("right");
+   devLog("FullCtrl Shoen:",%show);
+  
+   if (%indirect)
+      return;
+   if ($EPainter_CollapseSiblings && %show){
+			foreach(%colCtrl in EPainterStack){
+				
+				if (%colCtrl != %ctrl )
+					%colCtrl-->fullCtrl.visible = 0;
+			}
+		}
 }
 //------------------------------------------------------------------------------
 
+/*
 //==============================================================================
 // Update the active material layers list
+
 function EPainter::setMixedView( %this,%ctrl,%isCompact,%noCheck) {
 	%compactCtrl = %ctrl-->compactCtrl;
 	%compactCtrl.visible = %isCompact;
@@ -304,3 +366,4 @@ function EPainter::setMixedView( %this,%ctrl,%isCompact,%noCheck) {
 	
 }
 //------------------------------------------------------------------------------
+*/

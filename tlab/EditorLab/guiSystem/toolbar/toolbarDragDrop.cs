@@ -169,14 +169,14 @@ function Lab::showDisabledToolbarDropArea(%this,%dragControl) {
 		%isIcon = true;
 
 	EToolbarDisabledDrop.visible = 1;
-	%startStack = EditorGuiToolbarStack-->FirstToolbarGroup;
-	EditorGuiToolbarStack.bringToFront(%startStack);
-	%lastStack = EditorGuiToolbarStack-->LastToolbarGroup;
-	EditorGuiToolbarStack.pushToBack(%lastStack);
+	%startStack = LabToolbarStack-->FirstToolbarGroup;
+	LabToolbarStack.bringToFront(%startStack);
+	%lastStack = LabToolbarStack-->LastToolbarGroup;
+	LabToolbarStack.pushToBack(%lastStack);
 
 	//Only show StackEnd for groups
 	if(%isIcon) {
-		foreach(%gui in EditorGuiToolbarStack) {
+		foreach(%gui in LabToolbarStack) {
 			foreach(%stack in %gui) {
 				%stackEnd = %stack-->SubStackEnd;
 
@@ -194,7 +194,7 @@ function Lab::showDisabledToolbarDropArea(%this,%dragControl) {
 			}
 		}
 	} else {
-		foreach(%gui in EditorGuiToolbarStack) {
+		foreach(%gui in LabToolbarStack) {
 			%stackEnd = %gui-->StackEnd;
 
 			if (!isObject(%stackEnd))
@@ -232,10 +232,10 @@ function Lab::showDisabledToolbarDropArea(%this,%dragControl) {
 function Lab::hideDisabledToolbarDropArea(%this) {
 	//Hide the Trash Drop Zone
 	hide(EToolbarTrashDropZone);
-	hide(EditorGuiToolbarStack-->ToolbarStart);
-	hide(EditorGuiToolbarStack-->ToolbarEnd);
+	hide(LabToolbarStack-->ToolbarStart);
+	hide(LabToolbarStack-->ToolbarEnd);
 
-	foreach(%gui in EditorGuiToolbarStack) {
+	foreach(%gui in LabToolbarStack) {
 		%stackEnd = %gui-->StackEnd;
 
 		if (isObject(%stackEnd))

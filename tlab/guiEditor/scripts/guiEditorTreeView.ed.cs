@@ -81,7 +81,7 @@ function GuiEditorTreeView::onDefineIcons(%this) {
 //------------------------------------------------------------------------------
 //==============================================================================
 function GuiEditorTreeView::onRightMouseDown( %this, %item, %pts, %obj ) {
-	devLog("GuiEditorTreeView::onRightMouseDown",%obj);
+	logd("GuiEditorTreeView::onRightMouseDown",%obj);
 	if( %this.getSelectedItemsCount() > 1 ) {
 		%popup = %this.contextMenuMultiSel;
 		%popup.showPopup( Canvas );

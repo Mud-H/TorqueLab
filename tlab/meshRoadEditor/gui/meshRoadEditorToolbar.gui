@@ -33,7 +33,7 @@ new GuiStackControl(MeshRoadEditorToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "MeshRoadEditor";
       stackLists = "27280 27289";
 
@@ -702,7 +702,7 @@ new GuiStackControl(MeshRoadEditorToolbar) {
             profile = "ToolsButtonProfile_S1";
             visible = "1";
             active = "1";
-            command = "MatBrowser.showDialog(\"MeshRoadEditorGui.setDefaultTopMaterial\",\"name\");";
+            command = "MaterialSelector.showDialog(\"MeshRoadEditorGui.setDefaultTopMaterial\",\"name\");";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -811,7 +811,7 @@ new GuiStackControl(MeshRoadEditorToolbar) {
             profile = "ToolsButtonProfile_S1";
             visible = "1";
             active = "1";
-            command = "MatBrowser.showDialog(\"MeshRoadEditorGui.setDefaultBottomMaterial\",\"name\");";
+            command = "MaterialSelector.showDialog(\"MeshRoadEditorGui.setDefaultBottomMaterial\",\"name\");";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
@@ -920,7 +920,7 @@ new GuiStackControl(MeshRoadEditorToolbar) {
             profile = "ToolsButtonProfile_S1";
             visible = "1";
             active = "1";
-            command = "MatBrowser.showDialog(\"MeshRoadEditorGui.setDefaultSideMaterial\",\"name\");";
+            command = "MaterialSelector.showDialog(\"MeshRoadEditorGui.setDefaultSideMaterial\",\"name\");";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "0";

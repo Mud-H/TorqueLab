@@ -8,7 +8,7 @@
 
 function GuiEditorGui::initSettings( %this ) {
 	//Simply load the default config before user settings
-   exec("guiEditor/system/guiEd_Default.cfg.cs");
+   exec("tlab/guiEditor/system/guiEd_Default.cfg.cs");
  
 }
 

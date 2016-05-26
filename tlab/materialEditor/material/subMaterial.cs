@@ -10,7 +10,7 @@
 //    $Lab::materialEditorList variable
 // 2. We have selected an object using the Object Editor via the Material Editor
 //==============================================================================
-function SubMatBrowser::onSelect( %this ) {
+function SubMaterialSelector::onSelect( %this ) {
 	%material = "";
 
 	if( MaterialEditorTools.currentMeshMode $= "Model" )

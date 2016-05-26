@@ -33,7 +33,7 @@ new GuiStackControl(ConvexEditorToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "ConvexEditor";
       stackLists = "25502";
 

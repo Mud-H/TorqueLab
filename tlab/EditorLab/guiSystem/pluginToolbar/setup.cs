@@ -50,8 +50,7 @@ function Lab::checkPluginIcon( %this, %pluginObj ) {
 	}
 	delObj(%badIcon);	
 	
-	devLog(%pluginObj.plugin,"Enable",%enabledIcon);
-	devLog(%pluginObj.plugin,"Disable",%disabledIcon);
+	
 	if (!isObject(%goodIcon)) {
 		%icon = %this.createPluginIcon(%pluginObj);
 		%icon.visible = true;

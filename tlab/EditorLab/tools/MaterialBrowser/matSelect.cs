@@ -6,10 +6,10 @@
 
 
 //==============================================================================
-function MatBrowser::selectMaterial( %this, %material ) {
+function MaterialSelector::selectMaterial( %this, %material ) {
 	%name = "";
 
-	if( MatBrowser.terrainMaterials ) {
+	if( MaterialSelector.terrainMaterials ) {
 		%name = %material;
 		%material = TerrainMaterialSet.findObjectByInternalName( %material );
 	} else {
@@ -18,12 +18,12 @@ function MatBrowser::selectMaterial( %this, %material ) {
 
 	// The callback function should be ready to intake the returned material
 	//eval("materialEd_previewMaterial." @ %propertyField @ " = " @ %value @ ";");
-	if( MatBrowser.returnType $= "name" )
-		eval( "" @ MatBrowser.selectCallback @ "(" @ %name  @ ");");
-	else if( MatBrowser.returnType $= "index" ) {
+	if( MaterialSelector.returnType $= "name" )
+		eval( "" @ MaterialSelector.selectCallback @ "(" @ %name  @ ");");
+	else if( MaterialSelector.returnType $= "index" ) {
 		%index = -1;
 
-		if( MatBrowser.terrainMaterials ) {
+		if( MaterialSelector.terrainMaterials ) {
 			// Obtain the index into the terrain's material list
 			%mats = ETerrainEditor.getMaterials();
 
@@ -47,53 +47,53 @@ function MatBrowser::selectMaterial( %this, %material ) {
 			}
 		}
 
-		eval( "" @ MatBrowser.selectCallback @ "(" @ %index  @ ");");
+		eval( "" @ MaterialSelector.selectCallback @ "(" @ %index  @ ");");
 	} else
-		eval( "" @ MatBrowser.selectCallback @ "(" @ %material.getId()  @ ");");
+		eval( "" @ MaterialSelector.selectCallback @ "(" @ %material.getId()  @ ");");
 
-	MatBrowser.hideDialog();
+	MaterialSelector.hideDialog();
 }
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-function MatBrowser::updateSelection( %this, %material, %previewImagePath ) {
-	logd("MatBrowser::updateSelection( %this, %material, %previewImagePath )",%this, %material, %previewImagePath );
+function MaterialSelector::updateSelection( %this, %material, %previewImagePath ) {
+	logd("MaterialSelector::updateSelection( %this, %material, %previewImagePath )",%this, %material, %previewImagePath );
 	// the material selector will visually update per material information
 	// after we move away from the material. eg: if we remove a field from the material,
 	// the empty checkbox will still be there until you move fro and to the material again
 	%isMaterialBorder = 0;
-	eval("%isMaterialBorder = isObject(MatBrowser-->"@%material@"Border);");
+	eval("%isMaterialBorder = isObject(MaterialSelector-->"@%material@"Border);");
 
 	if( %isMaterialBorder ) {
-		eval( "MatBrowser-->"@%material@"Border.setStateOn(1);");
+		eval( "MaterialSelector-->"@%material@"Border.setStateOn(1);");
 	}
 
 	%isMaterialBorderPrevious = 0;
-	eval("%isMaterialBorderPrevious = isObject(MatBrowser-->"@$prevSelectedMaterialHL@"Border);");
+	eval("%isMaterialBorderPrevious = isObject(MaterialSelector-->"@$prevSelectedMaterialHL@"Border);");
 
 	if( %isMaterialBorderPrevious ) {
-		eval( "MatBrowser-->"@$prevSelectedMaterialHL@"Border.setStateOn(0);");
+		eval( "MaterialSelector-->"@$prevSelectedMaterialHL@"Border.setStateOn(0);");
 	}
 
-	MatBrowser-->materialCategories.deleteAllObjects();
-	MatBrowser.selectedMaterial = %material;
-	MatBrowser.selectedPreviewImagePath = %previewImagePath;
-	MatBrowser-->previewSelectionText.setText( %material );
-	MatBrowser-->previewSelection.setBitmap( %previewImagePath );
+	MaterialSelector-->materialCategories.deleteAllObjects();
+	MaterialSelector.selectedMaterial = %material;
+	MaterialSelector.selectedPreviewImagePath = %previewImagePath;
+	MaterialSelector-->previewSelectionText.setText( %material );
+	MaterialSelector-->previewSelection.setBitmap( %previewImagePath );
 
 	// running through the existing list of categorynames in the left, so yes
 	// some might exist on the left only temporary if not given a home
-	for( %i = MatBrowser.staticFilterObjCount; %i < MatBrowser-->tagFilters.getCount() ; %i++ ) {
-		%filter = MatBrowser-->tagFilters.getObject(%i).getObject(0).filter;
+	for( %i = MaterialSelector.staticFilterObjCount; %i < MaterialSelector-->tagFilters.getCount() ; %i++ ) {
+		%filter = MaterialSelector-->tagFilters.getObject(%i).getObject(0).filter;
 		%checkbox = new GuiCheckBoxCtrl() {
 			materialName = %material.name;
 			Profile = "ToolsCheckBoxProfile";
 			position = "5 2";
 			Extent = "118 18";
-			Command = "MatBrowser.updateMaterialTags( $ThisControl.materialName, $ThisControl.getText(), $ThisControl.getValue() );";
+			Command = "MaterialSelector.updateMaterialTags( $ThisControl.materialName, $ThisControl.getText(), $ThisControl.getValue() );";
 			text = %filter;
 		};
-		MatBrowser-->materialCategories.add( %checkbox );
+		MaterialSelector-->materialCategories.add( %checkbox );
 		// crawl through material for categories in order to check or not
 		%filterFound = 0;
 

@@ -51,7 +51,7 @@
         EditorContainer = "21876";
         editorContInt = "ToolbarContainer";
         editorGuiType = "Toolbar";
-        editorParent = "EditorGuiToolbarStack";
+        editorParent = "LabToolbarStack";
         isCommon = "1";
         noHide = "1";
         plugin = "StackStart";

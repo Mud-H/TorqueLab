@@ -18,7 +18,7 @@ function Lab::createParamsCategory(%this,%category,%categoryDisplay) {
 }
 //==============================================================================
 // New ParamsArray creation system (to replace newParamsArray over time)
-function Lab::createParamsArray(%this,%category,%typeData) {
+function Lab::createParamsArray(%this,%category,%typeData,%container) {
 	if (%category $= "" || %typeData $= "") {
 		warnLog("You need to specify a category and group for each params array");
 		return;
@@ -36,7 +36,8 @@ function Lab::createParamsArray(%this,%category,%typeData) {
 	   %typeDisplay = %type @ " settings";
 		
    %fullname = %category@"_"@%type;	
-   %container = %fullname@"ParamStack";	
+   if (!isObject(%container))
+       %container = %fullname@"ParamStack";	
 	%arrayName = getUniqueName("ar_"@%fullname);
 
 	%array = newArrayObject(%arrayName,LabParamsGroup,"ParamArray");
@@ -79,7 +80,16 @@ function Lab::createParamsArray(%this,%category,%typeData) {
 //==============================================================================
 // Basic Params using helpers system called here to make sure widgets are loaded
 function Lab::createBaseParamsArray(%this,%paramName,%container) {
-	%arCfg = createParamsArray(%paramName,%container);	
+   %paramWords = strReplace(%paramName,"_"," ");
+   %cat =  getWord(%paramWords,0); 
+    %type =  getWord(%paramWords,1); 
+    if (%type $= "")
+    {
+       %cat =  "base"; 
+      %type =  getWord(%paramWords,0);        
+    }
+  
+	%arCfg = Lab.createParamsArray(%cat,%type,%container);	
 	if (!isObject(wParams_StyleA))
 	   exec("tlab/EditorLab/gui/LabWidgetsGui.gui");
 	%arCfg.style = "StyleA";

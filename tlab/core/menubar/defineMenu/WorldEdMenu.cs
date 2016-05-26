@@ -175,8 +175,10 @@ function WorldEdMenu::initData(%this) {
 	$LabMenuItemWorld_[%id,%itemId++] = "Lock Toolbar Drag n Drop" TAB "" TAB "" TAB "$Cfg_LockToolbar = !$Cfg_LockToolbar;";
 	$LabMenuItemWorld_[%id,%itemId++] = "-";
 	$LabMenuItemWorld_[%id,%itemId++] = "Default FrameWork" TAB "" TAB "Lab.changeMainFrame(\"\");" TAB "";
-	$LabMenuItemWorld_[%id,%itemId++] = "Stock FrameWork" TAB "" TAB "Lab.changeMainFrame(\"Stock\");" TAB "";
-	$LabMenuItemWorld_[%id,%itemId++] = "Style C FrameWork" TAB "" TAB "Lab.changeMainFrame(\"FWC\");" TAB "";
+	$LabMenuItemWorld_[%id,%itemId++] = "Stock Style UI" TAB "" TAB "Lab.changeMainFrame(\"Stock\");" TAB "";
+	$LabMenuItemWorld_[%id,%itemId++] = "Windows UI #1" TAB "" TAB "Lab.changeMainFrame(\"WinA\");" TAB "";
+	$LabMenuItemWorld_[%id,%itemId++] = "Windows UI #2" TAB "" TAB "Lab.changeMainFrame(\"WinB\");" TAB "";
+	$LabMenuItemWorld_[%id,%itemId++] = "Framed UI #1" TAB "" TAB "Lab.changeMainFrame(\"FrameA\");" TAB "";
 	%itemId = -1;
 	$LabMenuWorld_[%id++] = "Help";
 	$LabMenuItemWorld_[%id,%itemId++] = "Online Documentation..." TAB "Alt F1" TAB "gotoWebPage(EWorldEditor.documentationURL);";

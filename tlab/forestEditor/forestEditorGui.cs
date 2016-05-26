@@ -25,7 +25,7 @@
 
 function ForestEditorGui::setActiveTool( %this, %tool ) {
 	if ( %tool == ForestTools->BrushTool )
-		ForestEditTabBook.selectPage(0);
+		FEP_BookData.selectPage(0);
 
 	Parent::setActiveTool( %this, %tool );
 }
@@ -120,7 +120,7 @@ function ForestEditMeshTree::onSelect( %this, %obj ) {
 }
 
 
-function ForestEditTabBook::onTabSelected( %this, %text, %idx ) {
+function FEP_BookData::onTabSelected( %this, %text, %idx ) {
 	%bbg = ForestEditorPalleteWindow.findObjectByInternalName("BrushButtonGroup");
 	%mbg = ForestEditorPalleteWindow.findObjectByInternalName("MeshButtonGroup");
 	%bbg.setVisible( false );

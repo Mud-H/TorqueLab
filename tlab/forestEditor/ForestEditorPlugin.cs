@@ -40,7 +40,7 @@ function ForestEditorPlugin::onPluginLoaded( %this ) {
 
 	MissionCleanup.add(ForestMeshGroup);
 	ForestEditMeshTree.open( ForestItemDataSet );
-	ForestEditTabBook.selectPage(0);
+	FEP_BookData.selectPage(0);
 	FEP_BrushManager.setBrushPressure();
 	FEP_BrushManager.setBrushHardness();
 	FEP_BrushManager.setBrushSize();
@@ -72,7 +72,7 @@ function ForestEditorPlugin::onActivated( %this ) {
 	ForestEditMeshTree.initTree();
 	ForestEditBrushTree.initTree();
 	// Open the Brush tab.
-	ForestEditTabBook.selectPage(0);
+	FEP_BookData.selectPage(0);
 	// Sync the pallete button state
 	%forestBrushSize = %this.getCfg("BrushSize");
 	%this.previousBrushSize = ETerrainEditor.getBrushSize();
@@ -136,7 +136,7 @@ function ForestEditorPlugin::onActivated( %this ) {
 	if (  ForestEditorPlugin.globalScale $= "")
 		FEP_BrushManager.setGlobalScale();	
 
-
+   ForestEd.initQuickGenerator();
 }
 //------------------------------------------------------------------------------
 //==============================================================================

@@ -10,35 +10,35 @@
 // - Tags
 //==============================================================================
 
-$Pref::MatBrowser::DefaultMaterialFile = "art/textures/customMaterials.cs";
+$Pref::MaterialSelector::DefaultMaterialFile = "art/textures/customMaterials.cs";
 //==============================================================================
-$Pref::MatBrowser::CurrentStaticFilter = "MaterialFilterAllArray";
-$Pref::MatBrowser::CurrentFilter = ""; //ALL
-$Pref::MatBrowser::ThumbnailCountIndex = 3;
-$Pref::MatBrowser::ThumbnailCustomCount = "";
-$MatBrowser_ThumbPerPage[0] = "20";
-$MatBrowser_ThumbPerPage[1] = "40";
-$MatBrowser_ThumbPerPage[2] = "75";
-$MatBrowser_ThumbPerPage[3] = "100";
-$MatBrowser_ThumbPerPage[4] = "150";
-$MatBrowser_ThumbPerPage[5] = "200";
-$MatBrowser_ThumbPerPage[6] = "All";
+$Pref::MaterialSelector::CurrentStaticFilter = "MaterialFilterAllArray";
+$Pref::MaterialSelector::CurrentFilter = ""; //ALL
+$Pref::MaterialSelector::ThumbnailCountIndex = 3;
+$Pref::MaterialSelector::ThumbnailCustomCount = "";
+$MaterialSelector_ThumbPerPage[0] = "20";
+$MaterialSelector_ThumbPerPage[1] = "40";
+$MaterialSelector_ThumbPerPage[2] = "75";
+$MaterialSelector_ThumbPerPage[3] = "100";
+$MaterialSelector_ThumbPerPage[4] = "150";
+$MaterialSelector_ThumbPerPage[5] = "200";
+$MaterialSelector_ThumbPerPage[6] = "All";
 
-$MatBrowser_ThumbSize[0] = "32";
-$MatBrowser_ThumbSize[1] = "48";
-$MatBrowser_ThumbSize[2] = "64";
-$MatBrowser_ThumbSize[3] = "80";
-$MatBrowser_ThumbSize[4] = "96";
-$MatBrowser_ThumbSize[5] = "128";
-$MatBrowser_ThumbSize[6] = "160";
+$MaterialSelector_ThumbSize[0] = "32";
+$MaterialSelector_ThumbSize[1] = "48";
+$MaterialSelector_ThumbSize[2] = "64";
+$MaterialSelector_ThumbSize[3] = "80";
+$MaterialSelector_ThumbSize[4] = "96";
+$MaterialSelector_ThumbSize[5] = "128";
+$MaterialSelector_ThumbSize[6] = "160";
 //------------------------------------------------------------------------------
 
 //==============================================================================
-if (!isObject(MatBrowserPerMan))
-	new PersistenceManager(MatBrowserPerMan);
+if (!isObject(MaterialSelectorPerMan))
+	new PersistenceManager(MaterialSelectorPerMan);
 
-if (!isObject(MatBrowser))
-	newScriptObject("MatBrowser");
+if (!isObject(MaterialSelector))
+	newScriptObject("MaterialSelector");
 
 //------------------------------------------------------------------------------
 if (!isObject(UnlistedMaterials)) {
@@ -53,86 +53,94 @@ if (!isObject(UnlistedMaterials)) {
 }
 
 //------------------------------------------------------------------------------
+function materialSelector::showDialog( %this) {
+	MaterialSelector.setVisible(1);
+}
+function materialSelector::showDialog( %this) {
+	MaterialSelector.setVisible(1);
+}
+
+//------------------------------------------------------------------------------
 function LabMaterialBrowser::onWake( %this) {
-	MatBrowser.setVisible(1);
+	MaterialSelector.setVisible(1);
 }
 
 //==============================================================================
-function MatBrowser::showDialog( %this, %selectCallback, %returnType) {
+function MaterialSelector::showDialog( %this, %selectCallback, %returnType) {
 	MatSelector_FilterSamples.visible = false;
 	MatSelector_PageTextSample.visible = false;
 	MatSelector_PageButtonSample.visible = false;
 	MatSelector_MaterialPreviewSample.visible = false;
-	MatBrowser_Creator.visible = false;
-	MatBrowser.setListFilterText("");
+	MaterialSelector_Creator.visible = false;
+	MaterialSelector.setListFilterText("");
 	hide(MatSel_SetAsActiveContainer);
 
 	if (MaterialEditorTools.isAwake())
 		show(MatSel_SetAsActiveContainer);
 
 	//FIXME Commented because with update it was staying visible inside hidden container and that was causing an issue
-	//if( MatBrowser.isVisible() )
+	//if( MaterialSelector.isVisible() )
 	//return;
 	%this.showDialogBase(%selectCallback, %returnType, false);
 }
 //------------------------------------------------------------------------------
-function MatBrowser::showTerrainDialog( %this, %selectCallback, %returnType) {
+function MaterialSelector::showTerrainDialog( %this, %selectCallback, %returnType) {
 	%this.showDialogBase(%selectCallback, %returnType, true);
 }
 //------------------------------------------------------------------------------
-function MatBrowser::showDialogBase( %this, %selectCallback, %returnType, %useTerrainMaterials) {
+function MaterialSelector::showDialogBase( %this, %selectCallback, %returnType, %useTerrainMaterials) {
 	// Set the select callback
-	MatBrowser.selectCallback = %selectCallback;
-	MatBrowser.returnType = %returnType;
-	MatBrowser.currentStaticFilter = $Pref::MatBrowser::CurrentStaticFilter;
-	MatBrowser.currentFilter = $Pref::MatBrowser::CurrentFilter;
-	MatBrowser.terrainMaterials = %useTerrainMaterials;
-	MatBrowser-->materialPreviewCountPopup.clear();
+	MaterialSelector.selectCallback = %selectCallback;
+	MaterialSelector.returnType = %returnType;
+	MaterialSelector.currentStaticFilter = $Pref::MaterialSelector::CurrentStaticFilter;
+	MaterialSelector.currentFilter = $Pref::MaterialSelector::CurrentFilter;
+	MaterialSelector.terrainMaterials = %useTerrainMaterials;
+	MaterialSelector-->materialPreviewCountPopup.clear();
 	%i = 0;
 
-	while($MatBrowser_ThumbPerPage[%i] !$="") {
-		MatBrowser-->materialPreviewCountPopup.add( $MatBrowser_ThumbPerPage[%i], %i );
+	while($MaterialSelector_ThumbPerPage[%i] !$="") {
+		MaterialSelector-->materialPreviewCountPopup.add( $MaterialSelector_ThumbPerPage[%i], %i );
 		%i++;
 	}
 
 	
-	%selected = $Pref::MatBrowser::ThumbnailCountIndex;
+	%selected = $Pref::MaterialSelector::ThumbnailCountIndex;
 
-	if ($Pref::MatBrowser::ThumbnailCustomCount !$="") {
-		MatBrowser-->materialPreviewCountPopup.add( $Pref::MatBrowser::ThumbnailCustomCount, %i );
+	if ($Pref::MaterialSelector::ThumbnailCustomCount !$="") {
+		MaterialSelector-->materialPreviewCountPopup.add( $Pref::MaterialSelector::ThumbnailCustomCount, %i );
 		%selected = %i;
 	}
 
-	MatBrowser-->materialPreviewCountPopup.setSelected( %selected );
+	MaterialSelector-->materialPreviewCountPopup.setSelected( %selected );
 	%i = 0;
 
-	while($MatBrowser_ThumbSize[%i] !$="") {
-		MatBrowser-->materialPreviewSizePopup.add( $MatBrowser_ThumbSize[%i], %i );
+	while($MaterialSelector_ThumbSize[%i] !$="") {
+		MaterialSelector-->materialPreviewSizePopup.add( $MaterialSelector_ThumbSize[%i], %i );
 		%i++;
 	}
 
 	
 	pushDlg(LabMaterialBrowser);
 	MatSelector_MaterialsContainer.clear();
-	MatBrowser.setVisible(1);
-	MatBrowser.buildStaticFilters();
-	MatBrowser.selectedMaterial = "";
-	MatBrowser.loadMaterialFilters();
+	MaterialSelector.setVisible(1);
+	MaterialSelector.buildStaticFilters();
+	MaterialSelector.selectedMaterial = "";
+	MaterialSelector.loadMaterialFilters();
 }
 //------------------------------------------------------------------------------
-function MatBrowser::hideDialog( %this ) {
-	MatBrowser.breakdown();
+function MaterialSelector::hideDialog( %this ) {
+	MaterialSelector.breakdown();
 	//oldmatSelector.setVisible(0);
 	Canvas.popDialog(LabMaterialBrowser);
 }
 //------------------------------------------------------------------------------
-function MatBrowser::breakdown( %this ) {
-	$Pref::MatBrowser::CurrentStaticFilter = MatBrowser.currentStaticFilter;
-	$Pref::MatBrowser::CurrentFilter = MatBrowser.currentFilter;
+function MaterialSelector::breakdown( %this ) {
+	$Pref::MaterialSelector::CurrentStaticFilter = MaterialSelector.currentStaticFilter;
+	$Pref::MaterialSelector::CurrentFilter = MaterialSelector.currentFilter;
 	%this.clearFilterArray();
-	MatBrowser-->materialSelection.deleteAllObjects();
+	MaterialSelector-->materialSelection.deleteAllObjects();
 	MatEdPreviewArray.delete();
-	MatBrowser-->materialCategories.deleteAllObjects();
+	MaterialSelector-->materialCategories.deleteAllObjects();
 	MaterialFilterAllArray.delete();
 	MaterialFilterMappedArray.delete();
 	MaterialFilterUnmappedArray.delete();
@@ -141,7 +149,7 @@ function MatBrowser::breakdown( %this ) {
 
 //------------------------------------------------------------------------------
 // this should create a new material pretty nicely
-function MatBrowser::createNewMaterial( %this ) {
+function MaterialSelector::createNewMaterial( %this ) {
 	// look for a newMaterial name to grab
 	%material = getUniqueName( "newMaterial" );
 	new Material(%material) {
@@ -155,7 +163,7 @@ function MatBrowser::createNewMaterial( %this ) {
 	MaterialFilterUnmappedArray.add( "", %material.name );
 	MaterialFilterUnmappedArrayCheckbox.setText("Unmapped ( " @ MaterialFilterUnmappedArray.count() + 1 @ " ) ");
 
-	if( MatBrowser.currentStaticFilter !$= "MaterialFilterMappedArray" ) {
+	if( MaterialSelector.currentStaticFilter !$= "MaterialFilterMappedArray" ) {
 		// create the new material gui
 		%container = new GuiControl() {
 			profile = "ToolsDefaultProfile";
@@ -206,25 +214,25 @@ function MatBrowser::createNewMaterial( %this ) {
 			Variable = "";
 			buttonType = "toggleButton";
 			tooltip = %material.name;
-			Command = "MatBrowser.updateSelection( $ThisControl.getParent().getObject(1).internalName, $ThisControl.getParent().getObject(1).bitmap );";
+			Command = "MaterialSelector.updateSelection( $ThisControl.getParent().getObject(1).internalName, $ThisControl.getParent().getObject(1).bitmap );";
 			groupNum = "0";
 			text = "";
 		};
 		%container.add(%previewButton);
 		%container.add(%previewBorder);
 		// add to the gui control array
-		MatBrowser-->materialSelection.add(%container);
+		MaterialSelector-->materialSelection.add(%container);
 	}
 
-	%material.setFilename($Pref::MatBrowser::DefaultMaterialFile);
+	%material.setFilename($Pref::MaterialSelector::DefaultMaterialFile);
 	// select me
-	MatBrowser.updateSelection( %material, "art/textures/core/warnMat.png" );
+	MaterialSelector.updateSelection( %material, "art/textures/core/warnMat.png" );
 }
 //------------------------------------------------------------------------------
 //needs to be deleted with the persistence manager and needs to be blanked out of the matmanager
 //also need to update instances... i guess which is the tricky part....
-function MatBrowser::showDeleteDialog( %this ) {
-	%material = MatBrowser.selectedMaterial;
+function MaterialSelector::showDeleteDialog( %this ) {
+	%material = MaterialSelector.selectedMaterial;
 	%secondFilter = "MaterialFilterMappedArray";
 	%secondFilterName = "Mapped";
 
@@ -239,13 +247,13 @@ function MatBrowser::showDeleteDialog( %this ) {
 	if( isObject( %material ) ) {
 		MessageBoxYesNoCancel("Delete Material?",
 									 "Are you sure you want to delete<br><br>" @ %material.getName() @ "<br><br> Material deletion won't take affect until the engine is quit.",
-									 "MatBrowser.deleteMaterial( " @ %material @ ", " @ %secondFilter @ ", " @ %secondFilterName @" );",
+									 "MaterialSelector.deleteMaterial( " @ %material @ ", " @ %secondFilter @ ", " @ %secondFilterName @" );",
 									 "",
 									 "" );
 	}
 }
 //------------------------------------------------------------------------------
-function MatBrowser::deleteMaterial( %this, %materialName, %secondFilter, %secondFilterName ) {
+function MaterialSelector::deleteMaterial( %this, %materialName, %secondFilter, %secondFilterName ) {
 	if( !isObject( %materialName ) )
 		return;
 
@@ -267,11 +275,11 @@ function MatBrowser::deleteMaterial( %this, %materialName, %secondFilter, %secon
 	for( %i = 0; %materialName.getFieldValue("materialTag" @ %i) !$= ""; %i++ ) {
 		%materialTag = %materialName.getFieldValue("materialTag" @ %i);
 
-		for( %j = MatBrowser.staticFilterObjCount; %j < MatBrowser-->tagFilters.getCount() ; %j++ ) {
-			if( %materialTag $= MatBrowser-->tagFilters.getObject(%j).getObject(0).filter ) {
-				%count = getWord( MatBrowser-->tagFilters.getObject(%j).getObject(0).getText(), 2 );
+		for( %j = MaterialSelector.staticFilterObjCount; %j < MaterialSelector-->tagFilters.getCount() ; %j++ ) {
+			if( %materialTag $= MaterialSelector-->tagFilters.getObject(%j).getObject(0).filter ) {
+				%count = getWord( MaterialSelector-->tagFilters.getObject(%j).getObject(0).getText(), 2 );
 				%count--;
-				MatBrowser-->tagFilters.getObject(%j).getObject(0).setText( %materialTag @ " ( "@ %count @ " )");
+				MaterialSelector-->tagFilters.getObject(%j).getObject(0).setText( %materialTag @ " ( "@ %count @ " )");
 			}
 		}
 	}
@@ -281,11 +289,11 @@ function MatBrowser::deleteMaterial( %this, %materialName, %secondFilter, %secon
 	if( %materialName.getFilename() !$= "" &&
 													%materialName.getFilename() !$= "tlab/gui/oldmatSelector.ed.gui" &&
 															%materialName.getFilename() !$= "tlab/materialEditor/scripts/materialEditor.ed.cs" ) {
-		MatBrowserPerMan.removeObjectFromFile(%materialName);
-		MatBrowserPerMan.saveDirty();
+		MaterialSelectorPerMan.removeObjectFromFile(%materialName);
+		MaterialSelectorPerMan.saveDirty();
 	}
 
-	MatBrowser.preloadFilter();
+	MaterialSelector.preloadFilter();
 	//oldmatSelector.selectMaterial( "WarningMaterial" );
 }
 

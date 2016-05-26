@@ -4,6 +4,73 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
+function ObjectBuilderGui::buildSphereEmitter(%this)
+{
+ %this.objectClassName = "ParticleEmitterNode";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"ParticleEmitterNodeData");
+ %this.addField("emitter", "TypeDataBlock", "Particle data",
+"SphereEmitterData");
+ %this.process();
+}
+function ObjectBuilderGui::buildRaySphereEmitter(%this)
+{
+ %this.objectClassName = "ParticleEmitterNode";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"RaySphereEmitterNodeData");
+ %this.addField("emitter", "TypeDataBlock", "Particle data",
+"RaySphereEmitterData");
+ %this.process();
+}
+function ObjectBuilderGui::buildGraphEmitter(%this)
+{
+ %this.objectClassName = "ParticleEmitterNode";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"ParticleEmitterNodeData");
+ %this.addField("emitter", "TypeDataBlock", "Particle data",
+"GraphEmitterData");
+ %this.process();
+}
+function ObjectBuilderGui::buildGroundEmitter(%this)
+{
+ %this.objectClassName = "ParticleEmitterNode";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"ParticleEmitterNodeData");
+ %this.addField("emitter", "TypeDataBlock", "Particle data",
+"GroundEmitterData");
+ %this.process();
+}
+function ObjectBuilderGui::buildMaskEmitter(%this)
+{
+ %this.objectClassName = "ParticleEmitterNode";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"ParticleEmitterNodeData");
+ %this.addField("emitter", "TypeDataBlock", "Particle data",
+"MaskEmitterData");
+ %this.process();
+}
+
+function ObjectBuilderGui::buildMeshEmitter(%this)
+{
+ %this.objectClassName = "MeshEmitter";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock","MeshEmitterData");
+ %this.process();
+}
+function ObjectBuilderGui::buildRadiusMeshEmitter(%this)
+{
+ %this.objectClassName = "RadiusMeshEmitter";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"RadiusMeshEmitterData");
+ %this.process();
+}
+function ObjectBuilderGui::buildNodeMeshEmitter(%this)
+{
+ %this.objectClassName = "NodeMeshEmitter";
+ %this.addField("dataBlock", "TypeDataBlock", "datablock",
+"NodeMeshEmitterData");
+ %this.process();
+}
+
 function ObjectBuilderGui::buildBotSpawn(%this) {
 	%this.objectClassName = "BotSpawnSphere";
 	%this.addField("dataBlock",    "TypeDataBlock", "dataBlock",   "MissionMarkerData BotSpawnMarker");

@@ -7,7 +7,7 @@
 
 //==============================================================================
 // Build the preview control for the Material DynamicArray
-function MatBrowser::buildPreviewArray( %this, %material ) {
+function MaterialSelector::buildPreviewArray( %this, %material ) {
 	%matName = "";
 
 	// CustomMaterials are not available for selection
@@ -62,19 +62,19 @@ function MatBrowser::buildPreviewArray( %this, %material ) {
 	%previewButton.internalName = %matName;
 	%previewBorder.tooltip = %matName;
 	%previewBorder.sourceObj = %previewButton;
-	//%previewBorder.Command = "MatBrowser.updateSelection( $ThisControl.getParent().getObject(1).internalName, $ThisControl.getParent().getObject(1).bitmap );";
-	%previewBorder.Command = "MatBrowser.updateSelection( \""@ %matName@"\", $ThisControl.sourceObj.bitmap );";
+	//%previewBorder.Command = "MaterialSelector.updateSelection( $ThisControl.getParent().getObject(1).internalName, $ThisControl.getParent().getObject(1).bitmap );";
+	%previewBorder.Command = "MaterialSelector.updateSelection( \""@ %matName@"\", $ThisControl.sourceObj.bitmap );";
 	%previewBorder.internalName = %matName@"Border";
 	// add to the gui control array
-	MatBrowser-->materialSelection.add(%container);
+	MaterialSelector-->materialSelection.add(%container);
 	// add to the array object for reference later
 	MatEdPreviewArray.add( %previewButton, %previewImage );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::loadImages( %this, %materialNum ) {
+function MaterialSelector::loadImages( %this, %materialNum ) {
 	// this will save us from spinning our wheels in case we don't exist
-	if( !MatBrowser.visible || !isObject(MatEdPreviewArray) )
+	if( !MaterialSelector.visible || !isObject(MatEdPreviewArray) )
 		return;
 
 	// this schedule is here to dynamically load images
@@ -104,120 +104,120 @@ function MatBrowser::loadImages( %this, %materialNum ) {
 //==============================================================================
 // Preview Page Navigation
 
-function MatBrowser::firstPage(%this) {
-	MatBrowser.currentPreviewPage = 0;
-	MatBrowser.LoadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
+function MaterialSelector::firstPage(%this) {
+	MaterialSelector.currentPreviewPage = 0;
+	MaterialSelector.LoadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::previousPage(%this) {
-	MatBrowser.currentPreviewPage--;
+function MaterialSelector::previousPage(%this) {
+	MaterialSelector.currentPreviewPage--;
 
-	if( MatBrowser.currentPreviewPage < 0)
-		MatBrowser.currentPreviewPage = 0;
+	if( MaterialSelector.currentPreviewPage < 0)
+		MaterialSelector.currentPreviewPage = 0;
 
-	MatBrowser.LoadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
+	MaterialSelector.LoadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::nextPage(%this) {
-	MatBrowser.currentPreviewPage++;
+function MaterialSelector::nextPage(%this) {
+	MaterialSelector.currentPreviewPage++;
 
-	if( MatBrowser.currentPreviewPage >= MatBrowser.totalPages)
-		MatBrowser.currentPreviewPage = MatBrowser.totalPages - 1;
+	if( MaterialSelector.currentPreviewPage >= MaterialSelector.totalPages)
+		MaterialSelector.currentPreviewPage = MaterialSelector.totalPages - 1;
 
-	if( MatBrowser.currentPreviewPage < 0)
-		MatBrowser.currentPreviewPage = 0;
+	if( MaterialSelector.currentPreviewPage < 0)
+		MaterialSelector.currentPreviewPage = 0;
 
-	MatBrowser.LoadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
+	MaterialSelector.LoadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::lastPage(%this) {
-	MatBrowser.currentPreviewPage = MatBrowser.totalPages - 1;
+function MaterialSelector::lastPage(%this) {
+	MaterialSelector.currentPreviewPage = MaterialSelector.totalPages - 1;
 
-	if( MatBrowser.currentPreviewPage < 0)
-		MatBrowser.currentPreviewPage = 0;
+	if( MaterialSelector.currentPreviewPage < 0)
+		MaterialSelector.currentPreviewPage = 0;
 
-	MatBrowser.LoadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
+	MaterialSelector.LoadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::selectPage(%this, %page) {
-	MatBrowser.currentPreviewPage = %page;
-	MatBrowser.LoadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
+function MaterialSelector::selectPage(%this, %page) {
+	MaterialSelector.currentPreviewPage = %page;
+	MaterialSelector.LoadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::thumbnailCountUpdate(%this) {
-	if ($Pref::MatBrowser::ThumbnailCountIndex $= MatBrowser-->materialPreviewCountPopup.getSelected())
+function MaterialSelector::thumbnailCountUpdate(%this) {
+	if ($Pref::MaterialSelector::ThumbnailCountIndex $= MaterialSelector-->materialPreviewCountPopup.getSelected())
 		return;
 
-	$Pref::MatBrowser::ThumbnailCountIndex = MatBrowser-->materialPreviewCountPopup.getSelected();
-	MatBrowser.LoadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
-	MaterialEditorPlugin.setCfg("ThumbnailCountIndex",$Pref::MatBrowser::ThumbnailCountIndex);
+	$Pref::MaterialSelector::ThumbnailCountIndex = MaterialSelector-->materialPreviewCountPopup.getSelected();
+	MaterialSelector.LoadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
+	MaterialEditorPlugin.setCfg("ThumbnailCountIndex",$Pref::MaterialSelector::ThumbnailCountIndex);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::thumbnailSizeUpdate(%this,%ctrl) {
+function MaterialSelector::thumbnailSizeUpdate(%this,%ctrl) {
 	
 
 	if (isObject(%ctrl))
 		%index = %ctrl.getValue();
 	else
-		%index = MatBrowser-->materialPreviewSizePopup.getSelected();
+		%index = MaterialSelector-->materialPreviewSizePopup.getSelected();
 
-	if ($Pref::MatBrowser::ThumbnailSizeIndex $= %index)
+	if ($Pref::MaterialSelector::ThumbnailSizeIndex $= %index)
 		return;
 
-	$Pref::MatBrowser::ThumbnailSizeIndex = %index;
-	%size = $MatBrowser_ThumbSize[$Pref::MatBrowser::ThumbnailSizeIndex];
+	$Pref::MaterialSelector::ThumbnailSizeIndex = %index;
+	%size = $MaterialSelector_ThumbSize[$Pref::MaterialSelector::ThumbnailSizeIndex];
 
 	if (%size > 1 ) {
 		MatSelector_MaterialsContainer.colSize = %size + 12; //Add outbounds
 		MatSelector_MaterialsContainer.rowSize = %size + 21; //Add outbounds
 		MatSelector_MaterialsContainer.refresh();
-		MaterialEditorPlugin.setCfg("ThumbnailCountIndex",$Pref::MatBrowser::ThumbnailSizeIndex);
+		MaterialEditorPlugin.setCfg("ThumbnailCountIndex",$Pref::MaterialSelector::ThumbnailSizeIndex);
 	}
 }
 //------------------------------------------------------------------------------
 //==============================================================================
 // Load the filtered materials (called also when thumbnail count change)
-function MatBrowser::buildPages( %this, %dataArray ) {
+function MaterialSelector::buildPages( %this, %dataArray ) {
   %totalData = %dataArray.count();
-   %previewsPerPage = MatBrowser-->materialPreviewCountPopup.getTextById( MatBrowser-->materialPreviewCountPopup.getSelected() );
+   %previewsPerPage = MaterialSelector-->materialPreviewCountPopup.getTextById( MaterialSelector-->materialPreviewCountPopup.getSelected() );
 
 	if (%previewsPerPage $= "All")
 		%previewsPerPage = "999999";
 		
-		MatBrowser.totalPages = mCeil( %totalData / %previewsPerPage );
+		MaterialSelector.totalPages = mCeil( %totalData / %previewsPerPage );
 
 		//Can we maintain the current preview page, or should we go to page 1?
-		if( (MatBrowser.currentPreviewPage * %previewsPerPage) >= %totalData )
-			MatBrowser.currentPreviewPage = 0;
+		if( (MaterialSelector.currentPreviewPage * %previewsPerPage) >= %totalData )
+			MaterialSelector.currentPreviewPage = 0;
 
     
 		// Build out the pages buttons
-		MatBrowser.buildPagesButtons( MatBrowser.currentPreviewPage, MatBrowser.totalPages );
+		MaterialSelector.buildPagesButtons( MaterialSelector.currentPreviewPage, MaterialSelector.totalPages );
 		%previewCount = %previewsPerPage;
-		%possiblePreviewCount = %totalData - MatBrowser.currentPreviewPage * %previewsPerPage;
+		%possiblePreviewCount = %totalData - MaterialSelector.currentPreviewPage * %previewsPerPage;
 
 		if( %possiblePreviewCount < %previewCount )
 			%previewCount = %possiblePreviewCount;
 
-		%start = MatBrowser.currentPreviewPage * %previewsPerPage;
+		%start = MaterialSelector.currentPreviewPage * %previewsPerPage;
 
 		for( %i = %start; %i < %start + %previewCount; %i++ ) {
 			%mat = %dataArray.getValue(%i);
 
-			if (strFind(strlwr(%mat.getName()),strlwr(MatBrowser.filterText),true))
-				MatBrowser.buildPreviewArray( %mat );
+			if (strFind(strlwr(%mat.getName()),strlwr(MaterialSelector.filterText),true))
+				MaterialSelector.buildPreviewArray( %mat );
 		}
    }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::buildPagesButtons(%this, %currentPage, %totalPages) {
+function MaterialSelector::buildPagesButtons(%this, %currentPage, %totalPages) {
 	// We don't want any more than 8 pages at a time.
 	if( %totalPages > 8 ) {
 		// We attempt to display up to 2 pages before the current page
@@ -253,7 +253,7 @@ function MatBrowser::buildPagesButtons(%this, %currentPage, %totalPages) {
 	if( %startbracket ) {
 		%control = cloneObject(MatSelector_PageTextSample);
 		%control.text = "...";
-		MatBrowser-->materialPreviewPagesStack.add( %control );
+		MaterialSelector-->materialPreviewPagesStack.add( %control );
 	}
 
 	for( %i = %start; %i < %end; %i++ ) {
@@ -265,13 +265,13 @@ function MatBrowser::buildPagesButtons(%this, %currentPage, %totalPages) {
 			%control.text = %i+1;
 		}
 
-		MatBrowser-->materialPreviewPagesStack.add( %control );
+		MaterialSelector-->materialPreviewPagesStack.add( %control );
 	}
 
 	if( %endbracket ) {
 		%control = cloneObject(MatSelector_PageTextSample);
 		%control.text = "...";
-		MatBrowser-->materialPreviewPagesStack.add( %control );
+		MaterialSelector-->materialPreviewPagesStack.add( %control );
 	}
 }
 //------------------------------------------------------------------------------

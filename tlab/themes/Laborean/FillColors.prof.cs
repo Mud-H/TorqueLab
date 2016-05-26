@@ -51,3 +51,8 @@ singleton GuiControlProfile(ToolsFillBackgroundD : ToolsFillBackgroundC)
 {
    fillColor = "42 42 42 255";
 };
+
+singleton GuiControlProfile(ToolsFillLightTrans_50 : ToolsFillLightTrans_20)
+{
+   fillColor = "136 136 136 100";
+};

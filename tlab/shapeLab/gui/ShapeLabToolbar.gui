@@ -32,7 +32,7 @@
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "ShapeLab";
       stackLists = "34066 34076 34084 34092";
       toolbarGroups = "28572 28581 28591 28599 28572 28581 28591 28599 29218 29227 29237 29245 34226 34236 34244 34253 34066 34076 34084 34092";

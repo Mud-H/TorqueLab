@@ -5,7 +5,7 @@
 //==============================================================================
 
 //------------------------------------------------------------------------------
-function MatBrowser::updateMaterialTags( %this, %material, %tag, %tagValue ) {
+function MaterialSelector::updateMaterialTags( %this, %material, %tag, %tagValue ) {
 	if( %tagValue == 1 ) {
 		MaterialFilterAllArray.add( %tag, %material );
 
@@ -24,11 +24,11 @@ function MatBrowser::updateMaterialTags( %this, %material, %tag, %tagValue ) {
 				eval( %material @ ".materialTag" @ %i @ "=" @ %tag @ ";" );
 				%createdTag = 1;
 
-				for( %j = MatBrowser.staticFilterObjCount; %j < MatBrowser-->tagFilters.getCount() ; %j++ ) {
-					if( %tag $= MatBrowser-->tagFilters.getObject(%j).getObject(0).filter ) {
-						%count = getWord( MatBrowser-->tagFilters.getObject(%j).getObject(0).getText(), 2 );
+				for( %j = MaterialSelector.staticFilterObjCount; %j < MaterialSelector-->tagFilters.getCount() ; %j++ ) {
+					if( %tag $= MaterialSelector-->tagFilters.getObject(%j).getObject(0).filter ) {
+						%count = getWord( MaterialSelector-->tagFilters.getObject(%j).getObject(0).getText(), 2 );
 						%count++;
-						MatBrowser-->tagFilters.getObject(%j).getObject(0).setText( %tag @ " ( "@ %count @ " )");
+						MaterialSelector-->tagFilters.getObject(%j).getObject(0).setText( %tag @ " ( "@ %count @ " )");
 					}
 				}
 
@@ -62,19 +62,19 @@ function MatBrowser::updateMaterialTags( %this, %material, %tag, %tagValue ) {
 			}
 		}
 
-		MatBrowser.updateFilterCount( %tag, false );
-		%tagField = MatBrowser.getTagField( %material, %tag );
-		%lastTagField = MatBrowser.getLastTagField( %material );
-		%lastValidTagField = MatBrowser.getLastValidTagField( %material, %tag );
+		MaterialSelector.updateFilterCount( %tag, false );
+		%tagField = MaterialSelector.getTagField( %material, %tag );
+		%lastTagField = MaterialSelector.getLastTagField( %material );
+		%lastValidTagField = MaterialSelector.getLastValidTagField( %material, %tag );
 
 		if( %tagField $= %lastValidTagField || %lastValidTagField $= "" ) {
-			MatBrowserPerMan.removeField( %material, %tagField );
+			MaterialSelectorPerMan.removeField( %material, %tagField );
 		} else {
 			// Replace the current tagFieldValue with the last tagFieldValue
 			%lastValidTag = %material.getFieldValue( %lastValidTagField );
 			%material.setFieldValue( %tagField, %lastValidTag );
 			// Remove the last tagFieldValue
-			MatBrowserPerMan.removeField( %material, %lastTagField );
+			MaterialSelectorPerMan.removeField( %material, %lastTagField );
 		}
 	}
 
@@ -84,9 +84,9 @@ function MatBrowser::updateMaterialTags( %this, %material, %tag, %tagValue ) {
 	if( %material.getFilename() !$= "" &&
 											  %material.getFilename() !$= "tlab/gui/oldmatSelector.ed.gui" &&
 													  %material.getFilename() !$= "tlab/materialEditor/scripts/materialEditor.ed.cs"  ) {
-		MatBrowserPerMan.setDirty( %material );
-		MatBrowserPerMan.saveDirty();
-		MatBrowserPerMan.removeDirty( %material );
+		MaterialSelectorPerMan.setDirty( %material );
+		MaterialSelectorPerMan.saveDirty();
+		MaterialSelectorPerMan.removeDirty( %material );
 
 		if(!%tagValue)
 			%material.setFieldValue( %lastTagField, "" );
@@ -97,7 +97,7 @@ function MatBrowser::updateMaterialTags( %this, %material, %tag, %tagValue ) {
 //------------------------------------------------------------------------------
 // Tagging Functionality
 
-function MatBrowser::getTagField( %this, %material, %tag ) {
+function MaterialSelector::getTagField( %this, %material, %tag ) {
 	for( %i = 0; %material.getFieldValue("materialTag" @ %i) !$= ""; %i++ ) {
 		%loopTag = %material.getFieldValue("materialTag" @ %i);
 
@@ -110,7 +110,7 @@ function MatBrowser::getTagField( %this, %material, %tag ) {
 	return %tagField;
 }
 //------------------------------------------------------------------------------
-function MatBrowser::getLastTagField( %this, %material ) {
+function MaterialSelector::getLastTagField( %this, %material ) {
 	for( %i = 0; %material.getFieldValue("materialTag" @ %i) !$= ""; %i++ ) {
 		%tagField = "materialTag" @ %i;
 	}
@@ -118,7 +118,7 @@ function MatBrowser::getLastTagField( %this, %material ) {
 	return %tagField;
 }
 //------------------------------------------------------------------------------
-function MatBrowser::getLastValidTagField( %this, %material, %invalidTag ) {
+function MaterialSelector::getLastValidTagField( %this, %material, %invalidTag ) {
 	for( %i = 0; %material.getFieldValue("materialTag" @ %i) !$= ""; %i++ ) {
 		%tag = %material.getFieldValue("materialTag" @ %i);
 

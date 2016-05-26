@@ -15,6 +15,8 @@ function initForestEditor() {
 	info( "TorqueLab","->","Initializing Forest Editor");
 	//$FEP_BrushSet = newSimSet("FEP_BrushSet");
 	execFEP(true);
+	if (!isObject(ForestEd))
+	   new scriptObject(ForestEd);
 	//Lab.createPlugin("ForestEditor");
 	//Add the different editor GUIs to the LabEditor
 	Lab.addPluginEditor("ForestEditor",ForestEditorGui);
@@ -65,6 +67,7 @@ function execFEP(%loadGui) {
 	exec( "tlab/ForestEditor/ForestEditorScript.cs" );
 	execPattern("tlab/ForestEditor/scripts/*.cs");
 	execPattern("tlab/ForestEditor/dialogs/*.cs");
+	execPattern("tlab/ForestEditor/toolsBook/*.cs");
 }
 function destroyForestEditor() {
 }

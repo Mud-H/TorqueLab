@@ -17,7 +17,7 @@ function Lab::initConfigSystem( %this,%cfgFile ) {
    exec("tlab/core/settings/defaults.cfg.cs");
    
    //Overwrite the GuiEditor Globals
-    exec("guiEditor/system/guiEd_Default.cfg.cs");
+    exec("tlab/guiEditor/system/guiEd_Default.cfg.cs");
    if (isFile(%cfgFile))
        exec(%cfgFile);
    else
@@ -71,7 +71,7 @@ function Lab::readConfigArray(%this,%array,%skipPluginArray,%setEmptyToDefault) 
 		if (%setEmptyToDefault && %value $= "") {		  
 		   %data = %array.getValue(%i);
 		   %value = getField(%data,0);
-		   devLog("readConfigArray About to set EmptyToDefault Field:",  %field,"Default", 	%value,"Data",%data);
+		   //devLog("readConfigArray About to set EmptyToDefault Field:",  %field,"Default", 	%value,"Data",%data);
 		   continue;
          $Cfg_[%array.cfgData,%field] = %value;      
 		}

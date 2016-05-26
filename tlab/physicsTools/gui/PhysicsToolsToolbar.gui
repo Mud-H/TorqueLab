@@ -30,7 +30,7 @@
       defaultStack = "24707";
       disabledGroup = "24708";
       EditorContainer = "14799";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "PhysicsTools";
       stackLists = "24709";
       toolbarGroups = "24709";

@@ -15,7 +15,7 @@ function LabGuiManager::onWake( %this ) {
 
 	GLab_MainBook.selectPage($GLab_MainBook_ActivePageId);
 	GLab_ProfileBook.selectPage($GLab::TabId);
-	exec("tlab/EditorLab/gui/editorDialogs/guiLab/LabGuiManager.cs");
+	exec("tlab/EditorLab/tools/guiLab/LabGuiManager.cs");
 	$true = true;
 	$Color = "12 88 133 254";
 	$TextSample = "TextBaseMed sample text éç!? CPG cpg";
@@ -52,7 +52,7 @@ function GLab_MainBook::onTabSelected( %this,%text,%id ) {
 
 //==============================================================================
 function GLab::exportPrefs( %this ) {
-	export("$GLab_pref_*", "tlab/EditorLab/gui/editorDialogs/guiLab/prefs.cs", false);
+	export("$GLab_pref_*", "tlab/EditorLab/tools/guiLab/prefs.cs", false);
 }
 //------------------------------------------------------------------------------
 

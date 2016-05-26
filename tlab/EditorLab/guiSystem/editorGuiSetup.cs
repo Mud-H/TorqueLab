@@ -15,8 +15,8 @@ function Lab::EditorLaunchGuiSetup(%this) {
 	
 	//Lab.updateActivePlugins(); //WIP Fast - Shouldnt be needed
 	
-	EditorGuiToolbarStack.bringToFront(EditorGuiToolbarStack-->FirstToolbarGroup);
-	EditorGuiToolbarStack.pushToBack(EditorGuiToolbarStack-->LastToolbarGroup);
+	LabToolbarStack.bringToFront(LabToolbarStack-->FirstToolbarGroup);
+	LabToolbarStack.pushToBack(LabToolbarStack-->LastToolbarGroup);
 	
 	
 }

@@ -163,10 +163,7 @@ function ShapeLab::selectShape( %this, %path, %saveOld ) {
 	ShapeLab.currentFileName = "";
 	ShapeLab.selectedSequence = "";
 	
-	
-	devLog("Path is:",%path);
 	%path = strreplace(%path,"//","/");
-	devLog("FIXEDPath is:",%path);
 	
 	// Initialise the shape preview window
 	if ( !ShapeLabShapeView.setModel( %path ) ) {

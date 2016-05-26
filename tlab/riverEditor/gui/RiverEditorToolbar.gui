@@ -32,7 +32,7 @@ new GuiStackControl(RiverEditorToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "RiverEditor";
       stackLists = "27923 27940";
 

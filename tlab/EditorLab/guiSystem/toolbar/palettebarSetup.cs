@@ -4,6 +4,14 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 //==============================================================================
+//==============================================================================
+function Lab::updatePaletteBar(%this) {
+
+	foreach(%paletteObj in LabPaletteGuiSet) {
+		Lab.loadPalette( %paletteObj );
+	}
+}
+//------------------------------------------------------------------------------
 
 //==============================================================================
 function Lab::loadPalette(%this,%paletteObj) {
@@ -48,6 +56,12 @@ function Lab::togglePluginPalette(%this, %paletteName) {
 			if( LabPaletteArray.getObject(%i).paletteName $= %paletteName)
 				%found = true;
 			if( LabPaletteArray.getObject(%i).paletteName $= %currentPalette) {
+			   if (LabPaletteArray.getObject(%i).disabled)
+			   {
+			      LabPaletteArray.getObject(%i).visible = 0;
+			      continue;  
+			   }
+			   
 				LabPaletteArray.getObject(%i).visible = 1;
 				%windowMultiplier++;
 			}

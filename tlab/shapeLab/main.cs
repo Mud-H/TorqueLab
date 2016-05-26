@@ -53,7 +53,6 @@ function initShapeLab() {
 // Load the Scene Editor Plugin scripts, load Guis if %loadgui = true
 function execShapeLab(%loadGui) {
 	if (%loadGui) {
-		exec("./gui/Profiles.cs");
 		exec("tlab/shapeLab/gui/shapeLabPreviewWindow.gui");
 		exec("tlab/shapeLab/gui/ShapeLabDialogs.gui");
 		exec("tlab/shapeLab/gui/shapeLabToolbar.gui");

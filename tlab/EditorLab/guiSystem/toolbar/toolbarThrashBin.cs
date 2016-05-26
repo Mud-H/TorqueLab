@@ -146,7 +146,7 @@ function Lab::initToolbarTrash(%this,%showAll) {
 	EToolbarIconTrash.clear();
 	EToolbarBoxTrash.clear();
 
-	foreach(%gui in EditorGuiToolbarStack) {
+	foreach(%gui in LabToolbarStack) {
 		%disabledGroup = %gui-->DisabledIcons;
 
 		if (!isObject(%disabledGroup))

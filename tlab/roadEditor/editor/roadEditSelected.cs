@@ -54,7 +54,7 @@ function RoadEditorGui::changeActiveMaterial( %this, %toMaterial ) {
 		return;
 	}
 
-	MatBrowser.showDialog("RoadEditorGui.changeActiveMaterialCallback");
+	MaterialSelector.showDialog("RoadEditorGui.changeActiveMaterialCallback");
 }
 //------------------------------------------------------------------------------
 //==============================================================================

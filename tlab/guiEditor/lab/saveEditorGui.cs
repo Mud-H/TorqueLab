@@ -9,7 +9,8 @@
 //Close editor call
 function Lab::saveEditorGui(%this,%filename) {
 	%currentObject = EditorGui;
-
+if (%currentObject.isMethod("onPreEditorSave"))
+			%currentObject.onPreEditorSave();
 	if (!Lab.editorGuisDetached) {
 		warnLog("Undetached Editor Saving disabled");
 		return;
@@ -74,4 +75,6 @@ function Lab::saveEditorGui(%this,%filename) {
 	if (%reattach) {
 		Lab.attachAllEditorGuis();
 	}
+		if (%currentObject.isMethod("onPostEditorSave"))
+			%currentObject.onPostEditorSave();
 }

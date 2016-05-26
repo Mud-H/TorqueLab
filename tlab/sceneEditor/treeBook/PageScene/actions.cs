@@ -10,9 +10,6 @@ $SceneEd_TreePage = 0;
 function SceneEditorModeTab::onTabSelected( %this,%text,%index ) {
 	$SceneEd_ModePage = %index;
 }
-function SceneEditorTreeTabBook::onTabSelected( %this,%text,%index ) {
-	$SceneEd_TreePage = %index;
-}
 
 
 function SceneAddSimGroupButton::onClick( %this ) {

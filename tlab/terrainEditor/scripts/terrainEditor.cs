@@ -8,8 +8,13 @@
 
 /// The texture filename filter used with OpenFileDialog.
 $TerrainEditor::TextureFileSpec = "Image Files (*.png, *.jpg, *.dds)|*.png;*.jpg;*.dds|All Files (*.*)|*.*|";
-
-
+//==============================================================================
+function TerrainEditor::init( %this ) {
+	%this.attachTerrain();
+	%this.setBrushSize( 9, 9 );
+	
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 function ETerrainEditor::saveTerrainToFile( %this,%obj,%file ) {
 	if (!isObject(%obj))
@@ -23,19 +28,13 @@ function ETerrainEditor::saveTerrainToFile( %this,%obj,%file ) {
 	devLog("Terrain:",%obj.getName(),"Saved to",%file);
 }
 //------------------------------------------------------------------------------
-
+//==============================================================================
 //ETerrainEditor.setSelectType();
 function ETerrainEditor::setSelectType( %this ) {
 	%this.setBrushType("Selection");
 }
-
-function TerrainEditor::init( %this ) {
-	%this.attachTerrain();
-	%this.setBrushSize( 9, 9 );
-	
-}
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function EPainter_TerrainMaterialUpdateCallback( %mat, %matIndex ) {
 	// Skip over a bad selection.
 	if ( %matIndex == -1 || !isObject( %mat ) )
@@ -46,7 +45,8 @@ function EPainter_TerrainMaterialUpdateCallback( %mat, %matIndex ) {
 	//EPainter.setup( %matIndex );
 	EPainter.updateLayers();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function EPainter_TerrainMaterialAddCallback( %mat, %matIndex ) {
 	// Ignore bad materials.
 	if ( !isObject( %mat ) )
@@ -57,7 +57,8 @@ function EPainter_TerrainMaterialAddCallback( %mat, %matIndex ) {
 	//EPainter.setup( %matIndex );
 	EPainter.updateLayers();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function TerrainEditor::setPaintMaterial( %this, %matIndex, %terrainMat ) {
 	assert( isObject( %terrainMat ), "TerrainEditor::setPaintMaterial - Got bad material!" );
 	ETerrainEditor.paintIndex = %matIndex;
@@ -70,7 +71,8 @@ function TerrainEditor::setPaintMaterial( %this, %matIndex, %terrainMat ) {
 	TerrainTextureText.text = %terrainMat.getInternalName();
 	ProceduralTerrainPainterDescription.text = "Generate "@ %terrainMat.getInternalName() @" layer";
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function TerrainEditor::setup( %this ) {
 	%action = %this.savedAction;
 	%desc = %this.savedActionDesc;
@@ -81,13 +83,14 @@ function TerrainEditor::setup( %this ) {
 
 	%this.switchAction( %action );
 }
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function onNeedRelight() {
 	if( RelightMessage.visible == false )
 		RelightMessage.visible = true;
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function TerrainEditor::onGuiUpdate(%this, %text) {
 	%minHeight = getWord(%text, 1);
 	%avgHeight = getWord(%text, 2);
@@ -99,28 +102,30 @@ function TerrainEditor::onGuiUpdate(%this, %text) {
 	TESelectionInfo.setValue(%selectionInfo);
 	EditorGuiStatusBar.setSelection("min: " @ %minHeight @ "  avg: " @ %avgHeight @ "  max: " @ %maxHeight);
 }
-
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function TerrainEditor::onActiveTerrainChange(%this, %newTerrain) {
 	// Need to refresh the terrain painter.
 	if ( Lab.currentEditor.getId() == TerrainPainterPlugin.getId() )
 		EPainter.setup(ETerrainEditor.paintIndex);
 }
-
-
-
 //------------------------------------------------------------------------------
+
+//==============================================================================
 // Functions
-//------------------------------------------------------------------------------
+//==============================================================================
 
+//==============================================================================
 function TerrainEditorSettingsGui::onWake(%this) {
 	TESoftSelectFilter.setValue(ETerrainEditor.softSelectFilter);
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function TerrainEditorSettingsGui::onSleep(%this) {
 	ETerrainEditor.softSelectFilter = TESoftSelectFilter.getValue();
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 
 function getPrefSetting(%pref, %default) {
 	//
@@ -129,7 +134,8 @@ function getPrefSetting(%pref, %default) {
 	else
 		return(%pref);
 }
-
+//------------------------------------------------------------------------------
+//==============================================================================
 function TerrainEditorPlugin::setEditorFunction(%this) {
 	%terrainExists = parseMissionGroup( "TerrainBlock" );
 
@@ -138,4 +144,5 @@ function TerrainEditorPlugin::setEditorFunction(%this) {
 
 	return %terrainExists;
 }
+//------------------------------------------------------------------------------
 

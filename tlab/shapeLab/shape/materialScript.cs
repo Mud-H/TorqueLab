@@ -44,10 +44,10 @@ function ShapeLabMaterials::editMaterial( %this,%material ) {
 	//materialAdvancedPropertiesRollout.Expanded = false;
 	//MaterialEditorTools.open();
 	//MaterialEditorTools.setActiveMaterial( %this.selectedMaterial );
-	%id = SubMatBrowser.findText( %this.selectedMapTo );
+	%id = SubMaterialSelector.findText( %this.selectedMapTo );
 
 	if( %id != -1 )
-		SubMatBrowser.setSelected( %id );
+		SubMaterialSelector.setSelected( %id );
 
 	Lab.setEditor(MaterialEditorPlugin);
 }

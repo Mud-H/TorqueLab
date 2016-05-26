@@ -188,4 +188,11 @@ function Lab::resetEditorsMenu( %this ) {
 		%windowMenu.removeItem(%i-1);
 }
 //------------------------------------------------------------------------------
+//==============================================================================
+function Lab::updatePluginsTools(%this) {	
 
+	foreach(%tools in LabToolGuiSet) {
+		EditorGui-->ToolsContainer.add(%tools);
+	}
+}
+//------------------------------------------------------------------------------

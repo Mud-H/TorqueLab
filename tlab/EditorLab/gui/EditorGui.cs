@@ -4,15 +4,15 @@
 //------------------------------------------------------------------------------
 //==============================================================================
 
-function EditorGui::onAdd( %this ) {
-		
+function EditorGui::onAdd( %this ) {	
 		
 }
+
 function EditorGui::onPreEditorSave( %this ) {
-   }
-function EditorGui::onPostEditorSave( %this ) {
-}
-function EditorGui::onPreEditorSave( %this ) {
+   EWorldEditor.preSaveParent = EWorldEditor.getParent();
+   guiGroup.add(EWorldEditor);
+   
+   return;
 	newSimGroup("EditorGuiPreSaveGroup");
 	/*
 	ETerrainEditor.preSaveParent = ETerrainEditor.getParent();
@@ -37,10 +37,7 @@ function EditorGui::onPreEditorSave( %this ) {
 	EWorldEditor.lockedHandle = "tlab/art/icons/default/LockedHandle";
 }
 function EditorGui::onPostEditorSave( %this ) {
-   return;
-   ETerrainEditor.preSaveParent.add( ETerrainEditor);
    EWorldEditor.preSaveParent.add( EWorldEditor);
-   LabPaletteBar.preSaveParent.add( LabPaletteBar);
-   LabPluginBar.preSaveParent.add( LabPluginBar);
+   
 
 }

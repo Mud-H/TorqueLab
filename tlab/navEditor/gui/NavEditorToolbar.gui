@@ -33,7 +33,7 @@ new GuiStackControl(NavEditorToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "NavEditor";
       preventReordering = "0";
       stackLists = "27353";

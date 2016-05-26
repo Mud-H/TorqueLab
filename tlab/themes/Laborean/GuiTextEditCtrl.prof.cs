@@ -105,10 +105,17 @@ singleton GuiControlProfile(ToolsTextEditSliderProfile : ToolsTextEdit_Num)
 {
    bitmap = "tlab/themes/Laborean/element-assets/GuiTextEditSliderProfile.png";
    opaque = "0";
-   border = "-2";
-   borderThickness = "1";
+   border = "-3";
+   borderThickness = "3";
    hasBitmapArray = "1";
    renderType = "4";
    fillColorHL = "5 9 92 204";
    borderColor = "143 173 196 241";
+};
+
+singleton GuiControlProfile(ToolsTextEditNum_L1 : ToolsTextEditSliderProfile)
+{
+   fontType = "Calibri Bold";
+   fontSize = "18";
+   justify = "Left";
 };

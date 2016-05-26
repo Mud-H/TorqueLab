@@ -33,24 +33,9 @@ function initGuiLab(%loadGui) {
 	newScriptObject("GLab");
 	newScriptObject("LGTools");
 	$arProfData = newArrayObject("arProfData");
-	if (isFile("tlab/EditorLab/gui/editorDialogs/guiLab/prefs.cs"))
-		exec("tlab/EditorLab/gui/editorDialogs/guiLab/prefs.cs");
-	/*
+	if (isFile("tlab/EditorLab/tools/guiLab/prefs.cs"))
+		exec("tlab/EditorLab/tools/guiLab/prefs.cs");
 
-
-	  if (%loadGui)
-	     exec("tlab/EditorLab/gui/editorDialogs/guiLab/LabGuiManager.gui");
-
-	  exec("tlab/EditorLab/gui/editorDialogs/guiLab/LabGuiManager.cs");
-
-	execPattern("tlab/EditorLab/gui/editorDialogs/guiLab/pageProfile/*.cs");
-	execPattern("tlab/EditorLab/gui/editorDialogs/guiLab/pageStyle/*.cs");
-	execPattern("tlab/EditorLab/gui/editorDialogs/guiLab/pagePreset/*.cs");
-	execPattern("tlab/EditorLab/gui/editorDialogs/guiLab/pageOption/*.cs");
-
-	  execPattern("tlab/EditorLab/gui/editorDialogs/guiLab/profileScripts/*.cs");
-	   execPattern("tlab/EditorLab/gui/editorDialogs/guiLab/profileTools/*.cs");
-	    */
 	//GLab.initColorManager();
 	initGuiSystem();
 }

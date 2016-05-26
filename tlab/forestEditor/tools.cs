@@ -43,7 +43,7 @@ function ForestBrushTool::syncBrushToolbar( %this ) {
 }
 
 function ForestBrushTool::onMouseDown( %this ) {
-	ForestEditTabBook.selectPage( 0 );
+	FEP_BookData.selectPage( 0 );
 }
 
 function ForestSelectionTool::onActivated( %this ) {

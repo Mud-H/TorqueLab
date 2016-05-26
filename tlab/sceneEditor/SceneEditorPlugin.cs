@@ -46,6 +46,7 @@ function SceneEditorPlugin::initParamsArray( %this,%array ) {
 	%array.setVal("GroundCoverDefaultMaterial",       "grass1" TAB "Shape Group" TAB "TextEdit"  TAB "" TAB "$SEP_GroundCoverDefault_Material" TAB %groupId);
 	%array.setVal("AutoLight_ShowShapes",       "0" TAB "Show shapes in AutoLight manager" TAB "Checkbox" TAB "" TAB "" TAB %gid);
 	%array.setVal("AutoLight_ShowLights",       "0" TAB "Show lights in AutoLight manager" TAB "Checkbox" TAB "" TAB "" TAB %gid);
+	%array.setVal("excludeClientOnlyDatablocks",       "1" TAB "excludeClientOnlyDatablocks" TAB "Checkbox"  TAB "" TAB "SceneEd" TAB %groupId);
 }
 //------------------------------------------------------------------------------
 
@@ -94,9 +95,8 @@ function SceneEditorPlugin::onPluginLoaded( %this ) {
 	if (!isObject(UnlistedDatablocks))
 	   new SimSet( UnlistedDatablocks );
    
-   if (!isObject(LabPM_Datablock))
-      new PersistenceManager(LabPM_Datablock);
-   SceneEd.PM = LabPM_Datablock;
+ SceneEd.initPageDatablock();
+  
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -105,6 +105,8 @@ function SceneEditorPlugin::onActivated( %this ) {
 	Parent::onActivated( %this );
 	SceneEditorToolbar-->groundCoverToolbar.visible = 0;
 	%this.initToolBar();
+	SceneEditorUtilityBook.init();
+	SceneEditorTreeTabBook.init();
 	SceneEditorTreeFilter.extent.x = SceneEditorTreeTabBook.extent.x -  56;
 	SceneEditorTreeTabBook.selectPage($SceneEd_TreePage);
 	//SceneEditorUtilityBook.selectPage($SceneEd_UtilityPage);
@@ -143,6 +145,8 @@ function SceneEditorPlugin::onActivated( %this ) {
 		
    joinEvent("SceneChanged",SceneEditorTree);
    SceneEditorTree.rebuild();
+   
+   
 }
 //------------------------------------------------------------------------------
 //==============================================================================

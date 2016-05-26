@@ -70,32 +70,7 @@ function FW::onResized(%this)
 //==============================================================================
 
 
-//==============================================================================
-// EditorFrame - Left-Right Column
-//==============================================================================
 
-//==============================================================================
-// Make sure all GUIs are fine once the editor is launched
-function FW::checkEditorCore(%this)
-{
-    foreach$(%coreGui in $FWCoreGuiList)
-    {
-        if (!isObject(%coreGui))
-            %coreGui = %this.resetEditorCoreGui(%coreGui);
-        if (!isObject(%coreGui))
-        {
-           warnLog("A core UI features check have failed. The missing item is:",%coreGui);
-           continue;
-        }
-        
-        %coreGui.superClass = "EditorGuiContainers";
-        %parentInt = $FWCoreGuiParent[%coreGui.getName()];
-        %parent = EditorGui.findObjectByInternalName(%parentInt@"Container",true);
-        if (isObject(%parent))
-            %parent.add(%coreGui);
-    }
-}
-//------------------------------------------------------------------------------
 
 //==============================================================================
 // FROM MAIN OLD FRAME
@@ -106,12 +81,12 @@ function FW::checkEditorCore(%this)
 function FW::resetEditorCoreGui(%this,%name)
 {
     %file = "tlab/EditorLab/gui/editorCore/"@%name@".gui";
-    devLog("File",%file);
+   
     if (!isFile(%file))
         return;
     %parentInt = $FWCoreGuiParent[%name];
     %parent = EditorGui.findObjectByInternalName(%parentInt@"Container",true);
-    devLog("ParentInt",%parentInt,"Obj",%parent);
+    
     if (!isObject(%parent))
         return;
     delObj(%name);

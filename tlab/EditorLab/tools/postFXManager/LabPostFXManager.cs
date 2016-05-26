@@ -32,8 +32,8 @@ function EPostFxManager::toggleState(%this) {
 
 	$EPostFxManagerActive = true;
 
-	if (isObject(EditorGuiToolbarStack-->PostFXManager))
-		EditorGuiToolbarStack-->PostFXManager.setStateOn(true);
+	if (isObject(LabToolbarStack-->PostFXManager))
+		LabToolbarStack-->PostFXManager.setStateOn(true);
 		
 	show(%this);
 }
@@ -52,8 +52,8 @@ function EPostFxManager::onShow(%this) {
 function EPostFxManager::onHide(%this) {
 	$EPostFxManagerActive = false;
 
-	if (isObject(EditorGuiToolbarStack-->PostFXManager))
-		EditorGuiToolbarStack-->PostFXManager.setStateOn(false);
+	if (isObject(LabToolbarStack-->PostFXManager))
+		LabToolbarStack-->PostFXManager.setStateOn(false);
 }
 //------------------------------------------------------------------------------
 

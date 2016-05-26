@@ -73,7 +73,7 @@ function TerrainMaterialDlg::changeMap( %this,%type ) {
 	%file = getFile( $TerrainMatDlg_MapFilter,%curFile,"art/terrain/",true,true );
 	
 	if (!isImageFile(%file)){
-		warnLog("The file selected is not a valid image:",%file);
+		warnLog(%type,"The file selected is not a valid image:",%file);
 		return;
 	}	
 	%file = makeRelativePath( %file, getMainDotCsDir() );

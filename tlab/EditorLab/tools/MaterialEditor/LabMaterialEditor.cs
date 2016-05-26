@@ -14,7 +14,7 @@ function LabMaterialEditor::onWake(%this) {
 	   LabMat.currentObject = %selObj;
 
    LabMat.updateObjectMaterials();
-   
+   LabMat.open();
    LabMatOptions.expanded = 0;
 }
 //-----------------------------------------------------------------------------
@@ -40,14 +40,14 @@ function LabMaterialEditor::toggleMap(%this,%map,%visible) {
 
 
 //==============================================================================
-// MaterialEditorTools.activatePBR();
+// LabMat.activatePBR();
 function LabMat::togglePBR(%this ) {
 	%this.activatePBR(!LabMat.PBRenabled);
 	$LabMat_PbrEnabled = LabMat.PBRenabled;
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-// MaterialEditorTools.activatePBR();
+// LabMat.activatePBR();
 function LabMat::activatePBR(%this,%activate ) {
 	if (%activate $= "")
 		%activate = true;

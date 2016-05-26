@@ -33,11 +33,11 @@ function FW::setToolsWidth(%this,%width) {
 //Called from Toolbar and TerrainManager
 function Lab::togglePluginTools(%this) {
    %window = EditorGui-->ToolsContainer;
-	if (!%window.visible) {
+	if (%window.visible) {
 		%this.hidePluginTools();
 		return false;
-	} else if (!Lab.currentEditor.useTools) {
-		return false;
+//	} else if (!Lab.currentEditor.useTools) {
+	//	return false;
 	} else {
 		%this.showPluginTools();
 		return true;
@@ -64,7 +64,7 @@ function Lab::checkPluginTools(%this) {
 function Lab::hidePluginTools(%this) {  
 	//EditorFrameContent.lastToolsCol = getWord(EditorFrameContent.columns,2);
 	 %window = EditorGui-->ToolsContainer;
-	 hide(window);
+	 hide(%window);
 	 
 	 FW.setToolsExpandButton(%window);
 
@@ -73,7 +73,7 @@ function Lab::hidePluginTools(%this) {
 //==============================================================================
 function Lab::showPluginTools(%this) {   
 	%window = EditorGui-->ToolsContainer;
-	 show(window);
+	 show(%window);
     FW.setToolsExpandButton(%window);
 }
 //------------------------------------------------------------------------------
@@ -100,7 +100,7 @@ function FW::postToolsContainerAdd(%this) {
 //==============================================================================
 //Called from Toolbar and TerrainManager
 function FW::setToolsToggleButton(%this,%toolCtrl) {
-
+   
 	%button = %toolCtrl->ToolsToggle;
 	if (!isObject(%button))
 	{
@@ -122,7 +122,13 @@ function TEToolsCollapseBar::onClick(%this) {
 	
 }
 //------------------------------------------------------------------------------
-
+//==============================================================================
+//Called from Toolbar and TerrainManager
+function TEToolsCollapseButton::onClick(%this) {
+	Lab.togglePluginTools();
+	
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 //Called from Toolbar and TerrainManager
 function FW::getToolsToggleButton(%this) {
@@ -169,7 +175,7 @@ function FW::getToolsToggleButton(%this) {
          canSave = "1";
          canSaveDynamicFields = "0";
 
-         new GuiIconButtonCtrl(f) {
+         new GuiIconButtonCtrl() {
             buttonMargin = "1 1";
             iconBitmap = "tlab/art/icons/24-assets/arrow_triangle_right.png";
             iconLocation = "Center";
@@ -192,7 +198,7 @@ function FW::getToolsToggleButton(%this) {
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
-            superClass = "TEToolsCollapseBar";
+            superClass = "TEToolsCollapseButton";
             canSave = "1";
             canSaveDynamicFields = "0";
          };
@@ -209,7 +215,7 @@ function FW::setToolsExpandButton(%this,%toolCtrl) {
 	%button = %container->ToolsExpander;
 	if (!isObject(%button))
 	{
-	   %button = %this.getToolsToggleButton();
+	   %button = %this.getToolsExpandButton();
 	   %container.add(%button);
 	}
 	%container.pushToBack(%button);
@@ -221,6 +227,27 @@ function FW::setToolsExpandButton(%this,%toolCtrl) {
 //==============================================================================
 //Called from Toolbar and TerrainManager
 function TEToolsCollapseBar::onClick(%this) {
+	Lab.togglePluginTools();
+	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//Called from Toolbar and TerrainManager
+function TEToolsCollapseButton::onClick(%this) {
+	Lab.togglePluginTools();
+	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//Called from Toolbar and TerrainManager
+function TEToolsExpandBar::onClick(%this) {
+	Lab.togglePluginTools();
+	
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+//Called from Toolbar and TerrainManager
+function TEToolsExpandIcon::onClick(%this) {
 	Lab.togglePluginTools();
 	
 }
@@ -294,7 +321,7 @@ function FW::getToolsExpandButton(%this) {
             tooltipProfile = "GuiToolTipProfile";
             hovertime = "1000";
             isContainer = "0";
-            superClass = "TEToolsExpandBar";
+            superClass = "TEToolsExpandIcon";
             canSave = "1";
             canSaveDynamicFields = "0";
          };

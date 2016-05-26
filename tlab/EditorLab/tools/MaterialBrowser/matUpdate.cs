@@ -5,8 +5,8 @@
 //==============================================================================
 
 //==============================================================================
-function MatBrowser::changeMaterialName(%this,%name) {
-	%mat = MatBrowser.selectedMaterial;
+function MaterialSelector::changeMaterialName(%this,%name) {
+	%mat = MaterialSelector.selectedMaterial;
 
 	if (!isObject(%mat))
 		return;
@@ -23,8 +23,8 @@ function MatBrowser::changeMaterialName(%this,%name) {
 //------------------------------------------------------------------------------
 
 //==============================================================================
-function MatBrowser::setAsActive(%this,%name) {
-	%mat = MatBrowser.selectedMaterial;
+function MaterialSelector::setAsActive(%this,%name) {
+	%mat = MaterialSelector.selectedMaterial;
 
 	if (!isObject(%mat))
 		return;
@@ -33,7 +33,7 @@ function MatBrowser::setAsActive(%this,%name) {
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::setListFilterText(%this,%text) {
+function MaterialSelector::setListFilterText(%this,%text) {
 	%filterText = %text;
 
 	if (%text $= "" || strFind(%text,"Filter...")) {
@@ -42,11 +42,11 @@ function MatBrowser::setListFilterText(%this,%text) {
 		%filterText = "";
 	}
 
-	MatBrowser.filterText = %filterText;
-	MatBrowser.loadFilter( MatBrowser.currentFilter, MatBrowser.currentStaticFilter );
+	MaterialSelector.filterText = %filterText;
+	MaterialSelector.loadFilter( MaterialSelector.currentFilter, MaterialSelector.currentStaticFilter );
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::updateListFilteredText(%this,%filterText) {
+function MaterialSelector::updateListFilteredText(%this,%filterText) {
 }
 //------------------------------------------------------------------------------

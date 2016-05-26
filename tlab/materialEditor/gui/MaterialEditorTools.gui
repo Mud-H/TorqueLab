@@ -513,7 +513,7 @@
                canSave = "1";
                canSaveDynamicFields = "0";
 
-               new GuiPopUpMenuCtrlEx(SubMatBrowser) {
+               new GuiPopUpMenuCtrlEx(SubMaterialSelector) {
                   maxPopupHeight = "200";
                   sbUsesNAColor = "0";
                   reverseTextList = "0";
@@ -538,7 +538,7 @@
                   profile = "ToolsDropdownProfile_S1";
                   visible = "1";
                   active = "1";
-                  command = "SubMatBrowser.onSelect();";
+                  command = "SubMaterialSelector.onSelect();";
                   tooltipProfile = "ToolsToolTipProfile";
                   tooltip = "Target Material";
                   hovertime = "1000";
@@ -587,7 +587,7 @@
                      profile = "ToolsButtonProfile";
                      visible = "1";
                      active = "1";
-                     command = "MatBrowser.showDialog(\"MaterialEditorTools.showMaterialChangeSaveDialog\");";
+                     command = "MaterialSelector.showDialog(\"MaterialEditorTools.showMaterialChangeSaveDialog\");";
                      tooltipProfile = "ToolsToolTipProfile";
                      tooltip = "Swap material on the object with existing";
                      hovertime = "1000";
@@ -14348,7 +14348,7 @@
             profile = "ToolsButtonProfile";
             visible = "1";
             active = "1";
-            command = "MatBrowser.showDialog(\"MaterialEditorTools.switchMaterial\");";
+            command = "MaterialSelector.showDialog(\"MaterialEditorTools.switchMaterial\");";
             tooltipProfile = "ToolsToolTipProfile";
             tooltip = "Open existing material";
             hovertime = "1000";

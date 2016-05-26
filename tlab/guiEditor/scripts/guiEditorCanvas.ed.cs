@@ -116,7 +116,7 @@ function GuiEditCanvas::openInTorsion( %this ) {
 //---------------------------------------------------------------------------------------------
 
 function GuiEditCanvas::open( %this ) {
-	devLog("Open!!");
+	
 	%openFileName = GuiBuilder::getOpenName();
 
 	if( %openFileName $= "" )

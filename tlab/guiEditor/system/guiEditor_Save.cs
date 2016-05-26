@@ -91,7 +91,7 @@ function GuiEditCanvas::save( %this, %selectedOnly, %noPrompt ) {
 	if( isWriteableFileName( %filename ) ) {
 		if (%currentObject.isMethod("onPreEditorSave"))
 			%currentObject.onPreEditorSave();
-      devLog("Saving GUI:",%currentObject.getName());
+ 
 		//
 		// Extract any existent TorqueScript before writing out to disk
 		//
@@ -153,7 +153,7 @@ function GuiEd::saveGuiToFile( %this, %currentObject, %filename ) {
 	if( isWriteableFileName( %filename ) ) {
 		if (%currentObject.isMethod("onPreEditorSave"))
 			%currentObject.onPreEditorSave();
-      devLog("Saving GUI:",%currentObject.getName());
+    
 		//
 		// Extract any existent TorqueScript before writing out to disk
 		//

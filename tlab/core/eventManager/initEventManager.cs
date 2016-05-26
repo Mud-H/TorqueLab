@@ -17,6 +17,8 @@
 function Lab::activateEventManager( %this )
 {
    setEvent("SceneChanged");
+   
+   setEvent("SceneSelectionChanged");
   
 }
 

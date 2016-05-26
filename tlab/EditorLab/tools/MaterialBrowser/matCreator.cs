@@ -6,9 +6,9 @@
 //==============================================================================
 
 //==============================================================================
-function MatBrowser_Creator::onWake(%this)
+function MaterialSelector_Creator::onWake(%this)
 {
-    %menu = MatBrowser_CloneMatList;
+    %menu = MaterialSelector_CloneMatList;
     %menu.clear();
     %menu.add("Blank Material",0);
     %count = materialSet.getCount();
@@ -30,38 +30,38 @@ function MatBrowser_Creator::onWake(%this)
         %menu.add(%material.getName(),%material.getId());
     }
     %selected = 0;
-    if (isObject(MatBrowser.selectedMaterial))
-        %selected = MatBrowser.selectedMaterial.getId();
+    if (isObject(MaterialSelector.selectedMaterial))
+        %selected = MaterialSelector.selectedMaterial.getId();
     %menu.setSelected(%selected);
 }
 //------------------------------------------------------------------------------
 
 //==============================================================================
-function MatBrowser_CloneMatList::onSelect(%this,%id,%name)
+function MaterialSelector_CloneMatList::onSelect(%this,%id,%name)
 {
     if (%id $= "0" || !isObject(%id))
     {
-        %file = $Pref::MatBrowser::DefaultMaterialFile;
+        %file = $Pref::MaterialSelector::DefaultMaterialFile;
         %name = "NewMaterial";
     }
     else
     {
         %file = %id.getFilename();
         if (!isFile(%file))
-            %file = $Pref::MatBrowser::DefaultMaterialFile;
+            %file = $Pref::MaterialSelector::DefaultMaterialFile;
         %name = %id.getName()@"_clone";
     }
-    MatBrowser_CloneMatName.setText(%name);
-    MatBrowser_CloneMatFile.setText(%file);
+    MaterialSelector_CloneMatName.setText(%name);
+    MaterialSelector_CloneMatFile.setText(%file);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
-function MatBrowser::CreateNewMaterialDlg(%this)
+function MaterialSelector::CreateNewMaterialDlg(%this)
 {
-    %src = MatBrowser_CloneMatList.getText();
+    %src = MaterialSelector_CloneMatList.getText();
     if (!isObject(%src))
         %createBlank = true;
-    %name = MatBrowser_CloneMatName.getText();
+    %name = MaterialSelector_CloneMatName.getText();
     if (%name $= "")
         return;
     %matName = getUniqueName(%name);
@@ -74,21 +74,21 @@ function MatBrowser::CreateNewMaterialDlg(%this)
             parentGroup = RootGroup;
         };
     }
-    %file = MatBrowser_CloneMatFile.getText();
-    %material.setFilename($Pref::MatBrowser::DefaultMaterialFile);
-    hide(MatBrowser_Creator);
+    %file = MaterialSelector_CloneMatFile.getText();
+    %material.setFilename($Pref::MaterialSelector::DefaultMaterialFile);
+    hide(MaterialSelector_Creator);
 }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // this should create a new material pretty nicely
-function MatBrowser::initNewMaterial( %this,%material )
+function MaterialSelector::initNewMaterial( %this,%material )
 {
     // add one to All filter
     MaterialFilterAllArray.add( "", %material.name );
     MaterialFilterAllArrayCheckbox.setText("All ( " @ MaterialFilterAllArray.count() + 1 @ " ) ");
     MaterialFilterUnmappedArray.add( "", %material.name );
     MaterialFilterUnmappedArrayCheckbox.setText("Unmapped ( " @ MaterialFilterUnmappedArray.count() + 1 @ " ) ");
-    if( MatBrowser.currentStaticFilter !$= "MaterialFilterMappedArray" )
+    if( MaterialSelector.currentStaticFilter !$= "MaterialFilterMappedArray" )
     {
         // create the new material gui
         %container = new GuiControl()
@@ -145,16 +145,16 @@ function MatBrowser::initNewMaterial( %this,%material )
             Variable = "";
             buttonType = "toggleButton";
             tooltip = %material.name;
-            Command = "MatBrowser.updateSelection( $ThisControl.getParent().getObject(1).internalName, $ThisControl.getParent().getObject(1).bitmap );";
+            Command = "MaterialSelector.updateSelection( $ThisControl.getParent().getObject(1).internalName, $ThisControl.getParent().getObject(1).bitmap );";
             groupNum = "0";
             text = "";
         };
         %container.add(%previewButton);
         %container.add(%previewBorder);
         // add to the gui control array
-        MatBrowser-->materialSelection.add(%container);
+        MaterialSelector-->materialSelection.add(%container);
     }
     // select me
-    MatBrowser.updateSelection( %material, "art/textures/core/warnMat.png" );
+    MaterialSelector.updateSelection( %material, "art/textures/core/warnMat.png" );
 }
 //------------------------------------------------------------------------------

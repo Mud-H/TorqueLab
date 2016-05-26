@@ -46,7 +46,7 @@ function MaterialEditorTools::cloneMaterial( %this ) {
 	MaterialEditorTools.setMode();
 	MaterialEditorTools.prepareActiveMaterial( %newMat.getId(), true );
 	MaterialEditorTools.setMaterialDirty();
-	MatBrowser.buildPreviewArray(%newMat);
+	MaterialSelector.buildPreviewArray(%newMat);
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -57,7 +57,7 @@ function MaterialEditorTools::deleteMaterial( %this ) {
 	/*
 	if( MaterialEditorTools.currentMode $= "Mesh" )
 	{
-	   %materialTarget = SubMatBrowser.text;
+	   %materialTarget = SubMaterialSelector.text;
 	   %action.materialTarget = %materialTarget;
 
 	   //create the stub material

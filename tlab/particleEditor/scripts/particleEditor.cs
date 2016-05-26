@@ -42,7 +42,7 @@ function ParticleEditor::initEditor( %this ) {
 	datablock ParticleEmitterData(PE_EmitterEditor_NotDirtyEmitter) {
 		particles = "DefaultParticle";
 	};
-	datablock ParticleData(PE_ParticleEditor_NotDirtyParticle) {
+	datablock BillboardParticleData(PE_ParticleEditor_NotDirtyParticle) {
 		textureName = "art/gfx/particles/defaultParticle";
 	};
 	PE_UnlistedEmitters.add( PE_EmitterEditor_NotDirtyEmitter );

@@ -80,13 +80,18 @@ function SceneInspectorBase::onInspectorFieldModified( %this, %object, %fieldNam
 	// If it's a datablock, initiate a retransmit.  Don't do so
 	// immediately so as the actual field value will only be set
 	// by the inspector code after this method has returned.
-
-	if( %object.isMemberOfClass( "SimDataBlock" ) )
-		%object.schedule( 1, "reloadOnLocalClient" );
-
-	// Restore the instant group.
+   // Restore the instant group.
 	popInstantGroup();
-	%action.addToManager( Editor.getUndoManager() );
+   %action.addToManager( Editor.getUndoManager() );
+   
+	if( %object.isMemberOfClass( "SimDataBlock" ) )
+   {
+		// %this.onDatablockFieldModified(%object, %fieldName, %arrayIndex, %oldValue, %newValue );
+		 return;
+   }
+
+	
+	
 	EWorldEditor.isDirty = true;
 
 	// Update the selection
@@ -102,7 +107,17 @@ function SceneInspectorBase::onInspectorFieldModified( %this, %object, %fieldNam
 	}
 }
 //------------------------------------------------------------------------------
+//==============================================================================
+function SceneInspectorBase::onDatablockFieldModified( %this, %object, %fieldName, %arrayIndex, %oldValue, %newValue ) {
+	logd("SceneInspectorBase::onDatablockFieldModified( %this,  %object, %fieldName, %arrayIndex, %oldValue, %newValue )",%this, %object, %fieldName, %arrayIndex, %oldValue, %newValue );
+	
+   %object.schedule( 1, "reloadOnLocalClient" );
+   
+   //Tell SceneEditor Datablock Page
+   SEP_DatablockPage.datablockFieldModified(%object, %fieldName, %arrayIndex, %oldValue, %newValue );
 
+}
+//------------------------------------------------------------------------------
 //==============================================================================
 // The following three methods are for fields that edit field value live and thus cannot record
 // undo information during edits.  For these fields, undo information is recorded in advance and

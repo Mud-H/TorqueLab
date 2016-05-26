@@ -50,8 +50,9 @@ function TerrainEditor::getActionDescription( %this, %action )
     case "paintMaterial":
          %isPaintMode = true;
          %msg = "Remove terrain collision.";
-    case "scaleHeight":
-         %msg = "scaleHeight terrain collision.";
+    case "clearMaterials":
+    %isPaintMode = true;
+         %msg = "Clear the current material and replace with base.";
     case "select":
          %msg = "Select avtion.";
 

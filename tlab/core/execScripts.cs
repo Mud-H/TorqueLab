@@ -65,9 +65,9 @@ function tlabExecEditor(%loadGui )
         //exec("tlab/EditorLab/gui/EditorMainDefault.gui");
         exec("tlab/EditorLab/gui/EditorGui.gui");
         //exec("tlab/EditorLab/gui/EditorGuiExtras.gui");
-        exec("tlab/EditorLab/gui/cursors.cs");
-        exec("tlab/EditorLab/gui/editorCore/StackStartToolbar.gui");
-        exec("tlab/EditorLab/gui/editorCore/StackEndToolbar.gui");
+       
+        //exec("tlab/EditorLab/gui/editorCore/StackStartToolbar.gui");
+        //exec("tlab/EditorLab/gui/editorCore/StackEndToolbar.gui");
         execPattern("tlab/EditorLab/SceneObjects/*.gui");
         execPattern("tlab/EditorLab/gui/GameLab/*.gui");
          execPattern("tlab/EditorLab/tools/*.gui");
@@ -113,7 +113,7 @@ tlabExecToolbar(!$LabGuiExeced);
 
 //------------------------------------------------------------------------------
 //Load the LabGui Ctrl (Cleaned EditorGui files)
-function tlabExecGuiLast(%loadGui ,%skipNot)
+function tlabExecGuiLast(%loadGui ,%skip)
 {
     if (%loadGui)
     {
@@ -121,16 +121,16 @@ function tlabExecGuiLast(%loadGui ,%skipNot)
         //exec("tlab/EditorLab/gui/LabWidgetsGui.gui");
 
         //execPattern("tlab/EditorLab/gui/toolbars/*.gui");
-       if (%skipNot)
-        execPattern("tlab/EditorLab/gui/dlgs/*.gui","","DLGS");
+       if (!%skip)
+        execPattern("tlab/EditorLab/gui/dlgs/*.gui");
     }
   
     exec("tlab/EditorLab/gui/messageBoxes/LabMsgBoxesGui.cs");
     
-     if (%skipNot)
-    execPattern("tlab/EditorLab/gui/dlgs/*.cs","","DLGS CS");
+     if (!%skip)
+    execPattern("tlab/EditorLab/gui/dlgs/*.cs");
     //Don't do a execPattern on the gui/core, some are load individually
-
+EditorMap.bindCmd( keyboard, "ctrl g", "toggleDlg(LabTestGui);","" );
 }
 %execLast = strAddWord(%execLast,"tlabExecGuiLast");
 
@@ -141,9 +141,9 @@ function tlabExecGuiLast(%loadGui ,%skipNot)
 function tlabExecTools(%loadGui )
 {
     if (%loadGui)
-    {
+    {       
         exec("tlab/EditorLab/gui/editorTools/ETools.gui");
-        execPattern("tlab/EditorLab/gui/editorTools/guis/*.gui");
+         //ETools independant guis are loaded from initTools
     }
     execPattern("tlab/EditorLab/gui/editorTools/*.cs");
 }

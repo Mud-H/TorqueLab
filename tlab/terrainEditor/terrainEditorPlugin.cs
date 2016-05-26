@@ -100,6 +100,8 @@ EPainter.setDisplayModes();
 	ETerrainEditor.makeFirstResponder( true );
 	EWTerrainEditToolbar.setVisible( true );
 	ETerrainEditor.onBrushChanged();
+	//devLog("TerrainEditorPlugin::onActivated","Exit premature, try rest manually");
+	//return;
 	ETerrainEditor.setup();
 	TerrainEditorPlugin.syncBrushInfo();
 	EditorGuiStatusBar.setSelection("");
@@ -114,6 +116,7 @@ function TerrainEditorPlugin::onDeactivated( %this ) {
 }
 
 function TerrainEditorPlugin::syncBrushInfo( %this ) {
+   return;
 	// Update gui brush info
 	TerrainBrushSizeTextEditContainer-->textEdit.text = getWord(ETerrainEditor.getBrushSize(), 0);
 	TerrainBrushPressureTextEditContainer-->textEdit.text = ETerrainEditor.getBrushPressure()*100;

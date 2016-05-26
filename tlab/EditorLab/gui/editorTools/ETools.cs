@@ -135,7 +135,7 @@ function ETools::showTool(%this,%tool) {
 	}
 
 	%this.fitIntoParents();
-	%toggler = EditorGuiToolbarStack.findObjectByInternalName(%tool@"Toggle",true);
+	%toggler = LabToolbarStack.findObjectByInternalName(%tool@"Toggle",true);
 
 	if (isObject(%toggler))
 		%toggler.setStateOn(true);
@@ -157,7 +157,7 @@ function ETools::hideTool(%this,%tool) {
 	else
 		%dlg = %this.findObjectByInternalName(%tool,true);
 
-	%toggler = EditorGuiToolbarStack.findObjectByInternalName(%tool@"Toggle",true);
+	%toggler = LabToolbarStack.findObjectByInternalName(%tool@"Toggle",true);
 
 	if (isObject(%toggler))
 		%toggler.setStateOn(false);

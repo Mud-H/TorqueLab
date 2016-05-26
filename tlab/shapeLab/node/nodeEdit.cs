@@ -8,7 +8,7 @@ function ShapeLab::toggleTransformMode( %this ) {
 	ShapeLabNodes.isObjectTransform = !ShapeLabNodes.isWorldTransform;
 }
 function ShapeLab::changeNodeTransformMode( %this, %mode ) {
-	EditorGuiToolbarStack-->transformToggleBtn.setStateOn(ShapeLabNodes.isWorldTransform);
+	LabToolbarStack-->transformToggleBtn.setStateOn(ShapeLabNodes.isWorldTransform);
 	%isWorld = (%mode $= "World") ? true : false;
 	%id = ShapeLab_NodeTree.getSelectedItem();
 	if ( %id > 0 )

@@ -352,12 +352,3 @@ function MaterialEditorTools::copyCubemaps( %this, %copyFrom, %copyTo) {
 }
 //------------------------------------------------------------------------------
 
-new CubemapData(dsdad)
-{
-   cubeFace[0] = "art/Packs/SkyBoxes/DefaultDay/skybox_1.png";
-   cubeFace[1] = "art/Packs/SkyBoxes/DefaultDay/skybox_2.png";
-   cubeFace[2] = "art/Packs/SkyBoxes/DefaultDay/skybox_3.png";
-   cubeFace[3] = "art/Packs/SkyBoxes/DefaultDay/skybox_4.png";
-   cubeFace[4] = "art/Packs/SkyBoxes/DefaultDay/skybox_5.png";
-   cubeFace[5] = "art/Packs/SkyBoxes/DefaultDay/skybox_6.png";
-};

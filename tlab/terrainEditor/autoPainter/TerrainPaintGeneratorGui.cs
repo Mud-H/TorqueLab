@@ -122,20 +122,7 @@ function TPG_FieldCopyButton::onClick(%this) {
 	}
 }
 //------------------------------------------------------------------------------
-//==============================================================================
-function TPG::getCurrentHeight(%this,%id) {
-	%avgHeight = ETerrainEditor.lastAverageHeight;
-	%avgHeight = mFloatLength(%avgHeight,2);
-	TPG.clipBoard = %avgHeight;
 
-	if (%id $= "")
-		return;
-
-	TPG.height[%id] = %avgHeight;
-	$TPG_ValueStore[%id] = %avgHeight;
-	eval("TPG_StoredValues-->v"@%id@".setText(\""@%avgHeight@"\");");
-}
-//------------------------------------------------------------------------------
 //==============================================================================
 function TPG::setCurrentHeight(%this,%id) {
 	if (TPG.height[%id] $= "")

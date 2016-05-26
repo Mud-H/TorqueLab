@@ -45,9 +45,59 @@ function Lab::initFrameWorkSystem( %this )
     exec("tlab/EditorLab/FrameWork/fwInit.cs");
     exec("tlab/EditorLab/FrameWork/fwChangeSet.cs");
     exec("tlab/EditorLab/FrameWork/fwToolsContainer.cs");
-    exec("tlab/EditorLab/FrameWork/fwSideContainer.cs");
+    exec("tlab/EditorLab/FrameWork/fwSideContainer.cs");   
     
-    
+   FW.checkEditorCore();
+    exec("tlab/EditorLab/FrameWork/Default/package.cs");   
+   EToolOverlayGui.callOnChildren("visible",0);
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+// EditorFrame - Left-Right Column
+//==============================================================================
+
+//==============================================================================
+// Make sure all GUIs are fine once the editor is launched
+function FW::checkEditorCore(%this,%resetData)
+{
+   %missing = "None";
+    foreach$(%coreGui in $FWCoreGuiList)
+    {
+       
+        if (!isObject(%coreGui))
+        {
+            %coreGui = %this.resetEditorCoreGui(%coreGui);
+            %missing = strAddWord(%missing,%coreGui);
+        }
+        if (!isObject(%coreGui))
+        {
+           warnLog("A core UI features check have failed. The missing item is:",%coreGui);
+           continue;
+        }
+        
+     
+        %parentInt = $FWCoreGuiParent[%coreGui.getName()];
+        %parent = EditorGui.findObjectByInternalName(%parentInt@"Container",true);
+        
+        if (!isObject(%parent))
+            continue;
+         %parent.add(%coreGui);
+        // %parent.superClass = "EditorGuiContainers";
+    }
+   
+    //devLog("EditorCore Checked! Updated Guis:",%missing);
+    if (%resetData)
+      FW.resetData();
+}
+//------------------------------------------------------------------------------
+//==============================================================================
+// Emergency function to reset the Gui data after failure (Ex: Add plugins icon)
+function FW::resetData(%this)
+{
+  Lab.updatePluginsBar();
+  Lab.initAllToolbarGroups();
+  Lab.updatePluginsTools();
+  Lab.updatePaletteBar();
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -87,14 +137,10 @@ function Lab::activateFrameWork( %this )
     
 }
 //------------------------------------------------------------------------------
+
 //==============================================================================
-// Called after initEditorGui
-function Lab::setDefaultFrameWork( %this ) {
-   
-}
-//------------------------------------------------------------------------------
-//==============================================================================
+// Reminder of usefull function call each time a container have been resized
 function EditorGuiContainers::onResized( %this, %data )
 {
-    echo( "EditorGuiContainers onResized" SPC %this SPC %this.getName() );
+  //  echo( "EditorGuiContainers onResized" SPC %this SPC %this.getName() );
 }

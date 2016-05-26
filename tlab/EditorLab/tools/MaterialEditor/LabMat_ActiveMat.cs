@@ -124,7 +124,7 @@ function LabMat::updateMaterialPBR(%this, %propertyField,%value, %isSlider, %onM
 	LabMat_previewMaterial.flush();
 	LabMat_previewMaterial.reload();
 
-	if ($MatEdDblUpdate)
+	if ($LabMatDblUpdate)
 		%this.updateActiveMaterial(%field,%value, %isSlider, %onMouseUp);
 }
 //==============================================================================

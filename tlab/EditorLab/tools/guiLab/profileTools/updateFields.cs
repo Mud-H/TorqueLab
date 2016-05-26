@@ -184,6 +184,8 @@ function GLab::eraseProfileField( %this,%profileName,%field ) {
 		return;
 
 	GLab.updateProfileField(%profileName,%field,%parentValue,true);
+	devLog("GLab::eraseProfileField skipped");
+   return;
 	%this.syncProfileField(%field);
 }
 // removeProfileFieldSet(ToolsTextAlt_C,"colorFont");

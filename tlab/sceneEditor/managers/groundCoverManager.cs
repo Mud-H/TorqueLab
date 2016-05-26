@@ -265,7 +265,7 @@ function SEP_GroundCover::updateGroundCoverLayers( %this,%groundCover ) {
 // Prepare the default config array for the Scene Editor Plugin
 function SEP_GroundCover::selectLayer( %this,%menu ) {
 	SEP_GroundCover.currentTerrainLayerId = %menu.layerId;
-	MatBrowser.showTerrainDialog("SEP_GroundCover.applyLayer", "name");
+	MaterialSelector.showTerrainDialog("SEP_GroundCover.applyLayer", "name");
 }
 //------------------------------------------------------------------------------
 //==============================================================================
@@ -300,7 +300,7 @@ function SEP_GroundCover::applyShapeFile( %this,%file ) {
 //==============================================================================
 // Prepare the default config array for the Scene Editor Plugin
 function SEP_GroundCover::selectCommonMaterial( %this,%button ) {
-	MatBrowser.showDialog("SEP_GroundCover.applyCommonMaterial", "name");
+	MaterialSelector.showDialog("SEP_GroundCover.applyCommonMaterial", "name");
 }
 //------------------------------------------------------------------------------
 //==============================================================================

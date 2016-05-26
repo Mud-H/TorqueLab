@@ -84,7 +84,7 @@ if (!isObject(GuiPopUpMenuProfile_Item))
 //GuiPopUpMenuProfile List
 if (isObject(GuiPopUpMenuProfile) && GuiPopUpMenuProfile.category !$= "Tools")
 {
-    warnLog("ToolsDropdownBase was declared outside of TorqueLab. It shouldn't be used in project and it will be overwritten with TorqueLab profile");
+    logb("ToolsDropdownBase was declared outside of TorqueLab. It shouldn't be used in project and it will be overwritten with TorqueLab profile");
 }
 
 //delObj(GuiPopUpMenuProfile);

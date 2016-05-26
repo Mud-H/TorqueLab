@@ -3,7 +3,7 @@
 // Copyright (c) 2015 All Right Reserved, http://nordiklab.com/
 //------------------------------------------------------------------------------
 //==============================================================================
-$GLab::DefaultColorsFile = "tlab/EditorLab/gui/editorDialogs/guiLab/colorPresets/default.cs";
+$GLab::DefaultColorsFile = "tlab/EditorLab/tools/guiLab/colorPresets/default.cs";
 
 $GLab_ColorGroups = "colorFont colorFill";
 //==============================================================================
@@ -55,7 +55,7 @@ function GLab::saveColors( %this,%saveDefault ) {
 //==============================================================================
 function GLab::initColorPresetMenu( %this ) {
 	GLab_ColorPresetMenu.clear();
-	%filePathScript = "tlab/EditorLab/gui/editorDialogs/guiLab/colorPresets/*.set.cs";
+	%filePathScript = "tlab/EditorLab/tools/guiLab/colorPresets/*.set.cs";
 	%pid = 0;
 	GLab_ColorPresetMenu.lastId = -1;
 	GLab.addColorPresetFile($GLab::DefaultColorsFile);

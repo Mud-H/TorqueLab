@@ -1031,7 +1031,7 @@
                         profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
-                        command = "MatBrowser.showDialog($ThisControl@\".setMaterial\", \"name\");";
+                        command = "MaterialSelector.showDialog($ThisControl@\".setMaterial\", \"name\");";
                         tooltipProfile = "ToolsToolTipProfile";
                         hovertime = "1000";
                         isContainer = "0";
@@ -1158,7 +1158,7 @@
                         profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
-                        command = "MatBrowser.showDialog($ThisControl@\".setMaterial\", \"name\");";
+                        command = "MaterialSelector.showDialog($ThisControl@\".setMaterial\", \"name\");";
                         tooltipProfile = "ToolsToolTipProfile";
                         hovertime = "1000";
                         isContainer = "0";
@@ -1285,7 +1285,7 @@
                         profile = "ToolsButtonProfile";
                         visible = "1";
                         active = "1";
-                        command = "MatBrowser.showDialog($ThisControl@\".setMaterial\", \"name\");";
+                        command = "MaterialSelector.showDialog($ThisControl@\".setMaterial\", \"name\");";
                         tooltipProfile = "ToolsToolTipProfile";
                         hovertime = "1000";
                         isContainer = "0";

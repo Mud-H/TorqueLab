@@ -33,7 +33,7 @@ new GuiStackControl(EWTerrainEditToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "TerrainEditor";
       preventReordering = "0";
       stackLists = "29270 29279 29305";

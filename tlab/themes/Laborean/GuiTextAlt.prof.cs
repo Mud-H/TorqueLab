@@ -71,7 +71,7 @@ singleton GuiControlProfile(ToolsTextAlt_H1_C : ToolsTextAlt_H1)
 singleton GuiControlProfile(ToolsTextAlt_H2 : ToolsTextAlt)
 {
 	fontSize = "22";  
-   justify = "Center";
+   justify = "Left";
 };
 
 singleton GuiControlProfile(ToolsTextAlt_H2_C : ToolsTextAlt_H2)

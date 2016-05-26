@@ -47,7 +47,7 @@ function MaterialEditorTools::open(%this) {
 	// We hide these specific windows here due too there non-modal nature.
 	// These guis are also pushed onto Canvas, which means they shouldn't be parented
 	// by editorgui
-	MatBrowser.setVisible(0);
+	MaterialSelector.setVisible(0);
 	matEdSaveDialog.setVisible(0);
 	MaterialEditorPropertiesWindow-->matEd_cubemapEditBtn.setVisible(0);
 	//Setup our dropdown menu contents.

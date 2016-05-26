@@ -93,7 +93,7 @@ function SceneEditorPlugin::toggleGridSizeSlider( %this,%sourceObj ) {
 //------------------------------------------------------------------------------
 function SceneEditorPlugin::onGridSizeSliderChanged(%this,%slider) {
 	%value = mFloatLength(%slider.value,1);
-	EditorGuiToolbarStack-->WorldEditorGridSizeEdit.setText(%value);
+	LabToolbarStack-->WorldEditorGridSizeEdit.setText(%value);
 	Lab.setGridSize(%value );
 	EWorldEditor.syncGui();
 }

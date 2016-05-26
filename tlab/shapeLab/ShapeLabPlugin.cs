@@ -45,7 +45,7 @@ function ShapeLabPlugin::onPluginLoaded( %this ) {
 	// Initialise gui
 
 	//ShapeLabAdvancedWindow-->tabBook.selectPage(0);
-	ShapeLabPropWindow-->tabBook.selectPage(0);
+	//ShapeLabPropWindow-->tabBook.selectPage(0);
 
 	ShapeLabToggleButtonValue( ShapeLabToolbar-->orbitNodeBtn, 0 );
 	ShapeLabToggleButtonValue( ShapeLabToolbar-->ghostMode, 0 );

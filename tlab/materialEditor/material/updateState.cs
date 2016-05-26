@@ -86,7 +86,7 @@ function MaterialEditorTools::switchMaterial( %this, %material ) {
 function MaterialEditorTools::changeMaterial(%this, %fromMaterial, %toMaterial) {
 	%action = %this.createUndo(ActionChangeMaterial, "Change Material");
 	%action.object = MaterialEditorTools.currentObject;
-	%materialTarget = SubMatBrowser.text;
+	%materialTarget = SubMaterialSelector.text;
 	%action.materialTarget = %materialTarget;
 	%action.fromMaterial = %fromMaterial;
 	%action.toMaterial = %toMaterial;
@@ -128,7 +128,7 @@ function MaterialEditorTools::changeMaterial(%this, %fromMaterial, %toMaterial) 
 		matEd_PersistMan.removeDirty(%toMaterial);
 	} else { // EditorShapes
 		%action.mode = "editorShapes";
-		eval("MaterialEditorTools.currentObject." @ SubMatBrowser.getText() @ " = " @ %toMaterial.getName() @ ";");
+		eval("MaterialEditorTools.currentObject." @ SubMaterialSelector.getText() @ " = " @ %toMaterial.getName() @ ";");
 
 		if( MaterialEditorTools.currentObject.isMethod("postApply") )
 			MaterialEditorTools.currentObject.postApply();

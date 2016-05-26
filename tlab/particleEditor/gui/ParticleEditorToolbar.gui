@@ -33,7 +33,7 @@ new GuiStackControl(ParticleEditorToolbar) {
       EditorContainer = "21876";
       editorContInt = "ToolbarContainer";
       editorGuiType = "Toolbar";
-      editorParent = "EditorGuiToolbarStack";
+      editorParent = "LabToolbarStack";
       plugin = "ParticleEditor";
       preventReordering = "0";
 

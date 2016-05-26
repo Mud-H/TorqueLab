@@ -166,7 +166,7 @@ function ObjectBuilderGui::getMaterialName(%this, %index) {
 	}
 
 	%this.currentControl = %index;
-	MatBrowser.showDialog(%this @ ".gotMaterialName", "name");
+	MaterialSelector.showDialog(%this @ ".gotMaterialName", "name");
 }
 
 function ObjectBuilderGui::gotMaterialName(%this, %name) {

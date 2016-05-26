@@ -19,6 +19,9 @@
 //------------------------------------------------------------------------------
 singleton GuiControlProfile(ToolsSliderProfile : ToolsDefaultProfile) {
 	bitmap = "tlab/themes/Laborean/element-assets/GuiSliderProfile_S1.png";
+   border = "2";
+   fontSize = "14";
+   hasBitmapArray = "1";
 };
 //------------------------------------------------------------------------------
 

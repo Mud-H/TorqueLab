@@ -85,7 +85,7 @@ function LabMatTarget_MatMenu::onSelect( %this ) {
 			parentGroup = RootGroup;
 		};
 		%material.setFileName(LabMatModeTarget-->selMaterialFile.getText());
-		eval( "MaterialEditorTools.currentObject." @ strreplace(%this.getText(),".","_") @ " = " @ %material @ ";");
+		eval( "LabMat.currentObject." @ strreplace(%this.getText(),".","_") @ " = " @ %material @ ";");
 
 		if( LabMat.currentObject.isMethod("postApply") )
 			LabMat.currentObject.postApply();

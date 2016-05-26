@@ -15,6 +15,7 @@ function Scene::syncSelectionGui(%this) {
 //==============================================================================
 // Sync the different Selection related Gui
 function Scene::onSelectionChanged(%this) {
+   postEvent("SceneSelectionChanged","From Scene");
 	// Inform the camera
 	Scene.syncSelectionGui();
 	Lab.DoSelectionCallback("Transform");

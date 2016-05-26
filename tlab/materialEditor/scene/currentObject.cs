@@ -22,17 +22,17 @@ function MaterialEditorTools::prepareActiveObject( %this, %override ) {
 	// TSStatics and ShapeBase objects should have getModelFile methods
 	if( %obj.isMethod( "getModelFile" ) ) {
 		MaterialEditorTools.currentObject = %obj;
-		SubMatBrowser.clear();
+		SubMaterialSelector.clear();
 		MaterialEditorTools.currentMeshMode = "Model";
 		MaterialEditorTools.setMode();
 
 		for(%j = 0; %j < MaterialEditorTools.currentObject.getTargetCount(); %j++) {
 			%target = MaterialEditorTools.currentObject.getTargetName(%j);
-			%count = SubMatBrowser.getCount();
+			%count = SubMaterialSelector.getCount();
 			if (strFind(%target,"ColorEffectR") && $MatEd_HideColorMaterial)
 				continue;
 				
-			SubMatBrowser.add(%target);
+			SubMaterialSelector.add(%target);
 		}
 	} else { // Other classes that support materials if possible
 		%canSupportMaterial = false;
@@ -45,11 +45,11 @@ function MaterialEditorTools::prepareActiveObject( %this, %override ) {
 
 			if( !%canSupportMaterial ) {
 				MaterialEditorTools.currentObject = %obj;
-				SubMatBrowser.clear();
-				SubMatBrowser.add(%fieldName, 0);
+				SubMaterialSelector.clear();
+				SubMaterialSelector.add(%fieldName, 0);
 			} else {
-				%count = SubMatBrowser.getCount();
-				SubMatBrowser.add(%fieldName, %count);
+				%count = SubMaterialSelector.getCount();
+				SubMaterialSelector.add(%fieldName, %count);
 			}
 
 			%canSupportMaterial = true;
@@ -62,11 +62,11 @@ function MaterialEditorTools::prepareActiveObject( %this, %override ) {
 		MaterialEditorTools.setMode();
 	}
 
-	%id = SubMatBrowser.findText( MaterialEditorTools.currentMaterial.mapTo );
+	%id = SubMaterialSelector.findText( MaterialEditorTools.currentMaterial.mapTo );
 
 	if( %id != -1 )
-		SubMatBrowser.setSelected( %id );
+		SubMaterialSelector.setSelected( %id );
 	else
-		SubMatBrowser.setSelected(0);
+		SubMaterialSelector.setSelected(0);
 }
 //------------------------------------------------------------------------------

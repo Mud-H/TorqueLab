@@ -1,7 +1,7 @@
 //--- OBJECT WRITE BEGIN ---
 %guiContent = new GuiFrameSetCtrl(NavEditorTools) {
    columns = "0";
-   rows = "0 211";
+   rows = "0 203";
    borderWidth = "4";
    borderColor = "0 0 0 0";
    borderEnable = "alwaysOn";
@@ -15,8 +15,8 @@
    anchorBottom = "0";
    anchorLeft = "1";
    anchorRight = "0";
-   position = "0 0";
-   extent = "394 820";
+   position = "3 18";
+   extent = "300 797";
    minExtent = "300 2";
    horizSizing = "right";
    vertSizing = "bottom";
@@ -29,8 +29,8 @@
    superClass = "FrameSetPluginTools";
    canSave = "1";
    canSaveDynamicFields = "1";
-      container = "SettingContainer";
-      containerType = "Gui";
+      container = "ToolsContainer";
+      containerType = "Tool";
       defaultParent = "GuiGroup";
       EditorContainer = "21453";
       plugin = "NavEditor";
@@ -52,7 +52,7 @@
       anchorLeft = "1";
       anchorRight = "0";
       position = "0 0";
-      extent = "394 207";
+      extent = "300 199";
       minExtent = "210 100";
       horizSizing = "windowRelative";
       vertSizing = "windowRelative";
@@ -65,6 +65,30 @@
       canSave = "1";
       canSaveDynamicFields = "0";
 
+      new GuiTextCtrl() {
+         text = "Seem broken for now, fix coming soon";
+         maxLength = "1024";
+         docking = "Top";
+         margin = "0 0 0 0";
+         padding = "0 0 0 0";
+         anchorTop = "1";
+         anchorBottom = "0";
+         anchorLeft = "1";
+         anchorRight = "0";
+         position = "3 23";
+         extent = "294 20";
+         minExtent = "8 2";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         profile = "ToolsTextAlt_C";
+         visible = "1";
+         active = "1";
+         tooltipProfile = "ToolsToolTipProfile";
+         hovertime = "1000";
+         isContainer = "1";
+         canSave = "1";
+         canSaveDynamicFields = "0";
+      };
       new GuiContainer() {
          docking = "Client";
          margin = "3 1 3 3";
@@ -73,8 +97,8 @@
          anchorBottom = "0";
          anchorLeft = "1";
          anchorRight = "0";
-         position = "6 26";
-         extent = "382 175";
+         position = "6 46";
+         extent = "288 147";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "height";
@@ -104,7 +128,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 18";
-            extent = "382 157";
+            extent = "288 129";
             minExtent = "8 8";
             horizSizing = "width";
             vertSizing = "height";
@@ -140,7 +164,7 @@
                canRenameObjects = "1";
                renameInternal = "0";
                position = "1 1";
-               extent = "380 21";
+               extent = "286 21";
                minExtent = "8 8";
                horizSizing = "right";
                vertSizing = "bottom";
@@ -213,8 +237,8 @@
       anchorBottom = "0";
       anchorLeft = "0";
       anchorRight = "0";
-      position = "0 211";
-      extent = "394 609";
+      position = "0 203";
+      extent = "300 594";
       minExtent = "210 300";
       horizSizing = "windowRelative";
       vertSizing = "windowRelative";
@@ -237,13 +261,6 @@
          defaultPage = "-1";
          selectedPage = "4";
          frontTabPadding = "0";
-         useNotifyBmps = "0";
-         notifyOffset = "0 0";
-         notifyExtent = "16 16";
-         notifyRight = "1";
-         flashNotify = "0";
-         fadeNotify = "0";
-         notifyCycleTime = "2000";
          docking = "Client";
          margin = "0 0 0 0";
          padding = "0 0 0 0";
@@ -252,7 +269,7 @@
          anchorLeft = "1";
          anchorRight = "0";
          position = "3 23";
-         extent = "388 581";
+         extent = "294 566";
          minExtent = "8 2";
          horizSizing = "right";
          vertSizing = "bottom";
@@ -276,8 +293,8 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "0 19";
-            extent = "401 562";
+            position = "0 22";
+            extent = "294 544";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -300,7 +317,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 4";
-               extent = "393 22";
+               extent = "286 22";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -343,7 +360,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 30";
-               extent = "393 20";
+               extent = "286 20";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -408,7 +425,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 52";
-               extent = "393 20";
+               extent = "286 20";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -452,7 +469,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 74";
-               extent = "393 486";
+               extent = "286 468";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -465,7 +482,7 @@
                canSave = "1";
                canSaveDynamicFields = "0";
 
-               new GuiScrollCtrl(NavEd_PropertiesBox11) {
+               new GuiScrollCtrl(NavEd_PropertiesBox) {
                   willFirstRespond = "1";
                   hScrollBar = "alwaysOff";
                   vScrollBar = "dynamic";
@@ -482,7 +499,7 @@
                   anchorLeft = "0";
                   anchorRight = "0";
                   position = "3 4";
-                  extent = "387 441";
+                  extent = "280 423";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "height";
@@ -496,7 +513,7 @@
                   canSave = "1";
                   canSaveDynamicFields = "0";
 
-                  new GuiInspector(NavInspector1) {
+                  new GuiInspector(NavInspector) {
                      dividerPos = "0.65";
                      dividerMargin = "5";
                      showCustomFields = "1";
@@ -509,19 +526,21 @@
                      dynamicPos = "0";
                      changeChildSizeToFit = "1";
                      changeChildPosition = "1";
-                     position = "4 4";
-                     extent = "369 1130";
+                     position = "5 5";
+                     extent = "262 1142";
                      minExtent = "16 16";
                      horizSizing = "width";
                      vertSizing = "height";
                      profile = "ToolsDefaultProfile";
-                     visible = "1";
+                     visible = "0";
                      active = "1";
                      tooltipProfile = "ToolsToolTipProfile";
                      hovertime = "1000";
                      isContainer = "1";
+                     hidden = "1";
                      canSave = "1";
                      canSaveDynamicFields = "0";
+
                   };
                };
             };
@@ -537,8 +556,8 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "0 19";
-            extent = "401 562";
+            position = "0 22";
+            extent = "294 544";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -561,7 +580,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 4";
-               extent = "393 19";
+               extent = "286 19";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -604,7 +623,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 27";
-               extent = "393 533";
+               extent = "286 515";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -788,8 +807,8 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "0 19";
-            extent = "401 562";
+            position = "0 22";
+            extent = "294 544";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -812,7 +831,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 4";
-               extent = "393 22";
+               extent = "286 22";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -855,7 +874,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 28";
-               extent = "393 22";
+               extent = "286 22";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -898,7 +917,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 52";
-               extent = "393 508";
+               extent = "286 490";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1082,8 +1101,8 @@
             anchorBottom = "0";
             anchorLeft = "1";
             anchorRight = "0";
-            position = "0 19";
-            extent = "401 562";
+            position = "0 22";
+            extent = "294 544";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -1106,7 +1125,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 4";
-               extent = "393 19";
+               extent = "286 19";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1149,7 +1168,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 27";
-               extent = "393 533";
+               extent = "286 515";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1242,7 +1261,7 @@
             anchorLeft = "1";
             anchorRight = "0";
             position = "0 22";
-            extent = "388 559";
+            extent = "294 544";
             minExtent = "8 2";
             horizSizing = "right";
             vertSizing = "bottom";
@@ -1264,7 +1283,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 2";
-               extent = "380 22";
+               extent = "286 22";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1307,7 +1326,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 28";
-               extent = "380 20";
+               extent = "286 20";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1345,7 +1364,7 @@
                   groupNum = "-1";
                   buttonType = "PushButton";
                   useMouseEvents = "0";
-                  position = "278 0";
+                  position = "184 0";
                   extent = "100 20";
                   minExtent = "8 2";
                   horizSizing = "left";
@@ -1370,7 +1389,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 52";
-               extent = "380 19";
+               extent = "286 19";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1408,7 +1427,7 @@
                   groupNum = "-1";
                   buttonType = "PushButton";
                   useMouseEvents = "0";
-                  position = "280 0";
+                  position = "186 0";
                   extent = "98 20";
                   minExtent = "8 2";
                   horizSizing = "left";
@@ -1433,7 +1452,7 @@
                anchorLeft = "1";
                anchorRight = "0";
                position = "4 73";
-               extent = "380 484";
+               extent = "286 469";
                minExtent = "8 2";
                horizSizing = "width";
                vertSizing = "bottom";
@@ -1463,7 +1482,7 @@
                   anchorLeft = "0";
                   anchorRight = "0";
                   position = "4 4";
-                  extent = "372 476";
+                  extent = "278 461";
                   minExtent = "8 2";
                   horizSizing = "width";
                   vertSizing = "height";
@@ -1865,12 +1884,13 @@
             horizSizing = "width";
             vertSizing = "bottom";
             profile = "ToolsDefaultProfile";
-            visible = "1";
+            visible = "0";
             active = "1";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "1";
             internalName = "SelectActions";
+            hidden = "1";
             canSave = "1";
             canSaveDynamicFields = "0";
 
@@ -2288,13 +2308,12 @@
             horizSizing = "width";
             vertSizing = "bottom";
             profile = "ToolsDefaultProfile";
-            visible = "0";
+            visible = "1";
             active = "1";
             tooltipProfile = "ToolsToolTipProfile";
             hovertime = "1000";
             isContainer = "1";
             internalName = "TestActions";
-            hidden = "1";
             canSave = "1";
             canSaveDynamicFields = "0";
 
@@ -3153,8 +3172,8 @@
          allowColorChars = "0";
          maxChars = "-1";
          useURLMouseCursor = "0";
-         position = "1 562";
-         extent = "262 16";
+         position = "1 547";
+         extent = "168 16";
          minExtent = "8 2";
          horizSizing = "width";
          vertSizing = "top";

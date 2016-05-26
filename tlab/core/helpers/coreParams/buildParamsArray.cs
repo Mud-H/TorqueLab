@@ -116,7 +116,7 @@ function buildParamsArray( %array,%syncAfter )
 		if (%groupOption[%gid,"Container"] !$= "")
 			%baseCtrl = %groupOption[%gid,"Container"];
 		//Check for specific Stack Internal name specified in options
-		else if (%groupOption[%gid,"Stack"] !$= "")
+		else if (%groupOption[%gid,"Stack"] !$= "" && isObject(%array.container))
 		{
 			%baseCtrl = %array.container.findObjectByInternalName(%groupOption[%gid,"Stack"],true);
 		}
@@ -311,7 +311,7 @@ function buildParamsArray( %array,%syncAfter )
 		%pData.Widget = %cloneFromGui.findObjectByInternalName(%pillSrc,true);
 
 		//If array only, it will use existing pills
-		if (%array.arrayOnly || %groupCtrl[1] $= "")
+		if ((%array.arrayOnly || %groupCtrl[1] $= "") && isObject(%array.container))
 		{
 			%checkPill = %array.container.findObjectByInternalName(%pData.setting, true);
 			%pData.pill = %checkPill;
